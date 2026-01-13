@@ -1,0 +1,98 @@
+{
+  "robots": [
+    {
+      "id": "atlas-2026",
+      "name": "Atlas",
+      "season": "2025-2026",
+      "status": "active",
+      "description": "Our latest competition robot featuring an advanced intake system and high-torque drivetrain for the VEX High Stakes game.",
+      "image": "images/robots/atlas-2026.jpg",
+      "model3d": "models/atlas-2026.glb",
+      "specs": {
+        "drivetrain": "6-Motor Mecanum",
+        "intake": "Dual Roller System",
+        "lift": "4-Bar Linkage",
+        "weight": "14.8 lbs",
+        "dimensions": "18\" x 18\" x 18\""
+      },
+      "features": [
+        "Precision PID-controlled autonomous",
+        "Custom 3D-printed components",
+        "Integrated vision tracking",
+        "Quick-swap battery system"
+      ]
+    },
+    {
+      "id": "titan-2025",
+      "name": "Titan",
+      "season": "2024-2025",
+      "status": "retired",
+      "description": "Our Skills Champion robot from the 2024-2025 season, known for its reliability and consistent autonomous performance.",
+      "image": "images/robots/titan-2025.jpg",
+      "model3d": "models/titan-2025.glb",
+      "specs": {
+        "drivetrain": "4-Motor Tank",
+        "intake": "Single Conveyor",
+        "lift": "Linear Slides",
+        "weight": "13.2 lbs",
+        "dimensions": "18\" x 18\" x 15\""
+      },
+      "features": [
+        "Award-winning intake mechanism",
+        "Aluminum frame construction",
+        "Odometry-based positioning",
+        "Modular subsystem design"
+      ]
+    },
+    {
+      "id": "phoenix-2024",
+      "name": "Phoenix",
+      "season": "2023-2024",
+      "status": "retired",
+      "description": "Our first World Championship qualifier, representing a major milestone for CU Robotics in competitive VEX.",
+      "image": "images/robots/phoenix-2024.jpg",
+      "model3d": "",
+      "specs": {
+        "drivetrain": "4-Motor X-Drive",
+        "intake": "Passive Roller",
+        "lift": "Chain Bar",
+        "weight": "12.5 lbs",
+        "dimensions": "18\" x 18\" x 16\""
+      },
+      "features": [
+        "Holonomic movement system",
+        "Carbon fiber structural elements",
+        "Dual controller support",
+        "Field-centric driving mode"
+      ]
+    }
+  ],
+  "_documentation": {
+    "description": "This file manages all robot data for the website. The active robot is featured prominently on the homepage.",
+    "fields": {
+      "id": "Unique identifier for the robot (used in URLs and code)",
+      "name": "Display name for the robot",
+      "season": "Competition season (e.g., '2024-2025')",
+      "status": "Either 'active' (current season) or 'retired' (past seasons)",
+      "description": "Brief description of the robot (1-2 sentences)",
+      "image": "Path to robot photo (16:9 aspect ratio recommended, min 800px wide)",
+      "model3d": "Path to 3D model file (.glb or .gltf format) - leave empty if none",
+      "specs": "Object containing technical specifications",
+      "features": "Array of notable features/capabilities"
+    },
+    "adding_3d_models": {
+      "format": "Use GLB or GLTF format (GLB preferred for single-file convenience)",
+      "size": "Keep models under 10MB for fast loading",
+      "optimization": "Use Blender or gltf.report to optimize before adding",
+      "placement": "Save models in the /models folder",
+      "naming": "Use lowercase with hyphens (e.g., 'atlas-2026.glb')"
+    },
+    "tips": [
+      "Only ONE robot should have status 'active' at a time",
+      "The active robot is featured in the 3D viewer on the homepage",
+      "Robot images should show the robot clearly against a neutral background",
+      "3D models should be properly scaled - 1 unit = 1 inch recommended",
+      "Add new robots at the TOP of the array to show newest first"
+    ]
+  }
+}

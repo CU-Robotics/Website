@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CU Robotics - Competitive VEX Robotics team at the University of Colorado Boulder. Design. Build. Code. Compete.">
+  <meta name="keywords" content="CU Robotics, VEX, robotics, University of Colorado, Boulder, competition, engineering">
+  <meta name="theme-color" content="#CFB87C">
+
+  <title>CU Robotics | VEX Competition Team at CU Boulder</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="apple-touch-icon" href="images/logo.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Animated Geometric Background -->
+  <div class="geo-background">
+    <canvas id="particle-canvas"></canvas>
+  </div>
+
+  <!-- Floating Geometric Shapes -->
+  <div class="geo-shapes">
+    <div class="geo-shape hexagon"></div>
+    <div class="geo-shape triangle"></div>
+    <div class="geo-shape square"></div>
+    <div class="geo-shape circle"></div>
+    <div class="geo-shape hexagon"></div>
+    <div class="geo-shape triangle"></div>
+    <div class="geo-shape square"></div>
+    <div class="geo-shape circle"></div>
+    <div class="geo-shape hexagon"></div>
+    <div class="geo-shape triangle"></div>
+  </div>
+
+  <!-- Grid Overlay -->
+  <div class="grid-overlay"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container navbar-content">
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="CU Robotics Logo">
+        <span class="logo-text">CU <span>Robotics</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="achievements.html">Achievements</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <a href="https://docs.google.com/forms/d/e/your-form-id/viewform" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Join Us</a>
+      </div>
+
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="achievements.html">Achievements</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="mobile-cta">
+      <a href="https://docs.google.com/forms/d/e/your-form-id/viewform" target="_blank" rel="noopener" class="btn btn-primary">Join Our Team</a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <!-- Parallax Background -->
+    <div class="hero-parallax" data-speed="0.3">
+      <img src="images/hero.jpg" alt="CU Robotics Competition">
+    </div>
+
+    <!-- Overlays -->
+    <div class="hero-overlay"></div>
+    <div class="hero-pattern"></div>
+
+    <!-- Geometric Shapes -->
+    <div class="hero-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="container hero-content">
+      <div class="hero-badge">
+        <span>VEX Competition Team</span>
+      </div>
+
+      <h1 class="hero-title">
+        <span class="line-1">University of Colorado Boulder</span>
+        <span class="line-2">CU <span class="gold">Robotics</span></span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Design. Build. Code. Compete. We're engineering the future of competitive robotics at CU Boulder.
+      </p>
+
+      <div class="hero-cta">
+        <a href="#about" class="btn btn-primary btn-lg">Discover Our Team</a>
+        <a href="#robot-showcase" class="btn btn-outline btn-lg">See Our Robots</a>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section id="about" class="section mission">
+    <div class="container">
+      <div class="content-block">
+        <div class="text-center animate-on-scroll">
+          <h2>Our <span class="text-gold">Mission</span></h2>
+          <p class="mt-md" style="max-width: 700px; margin-left: auto; margin-right: auto;">
+            CU Robotics is dedicated to fostering innovation, teamwork, and engineering excellence.
+            We compete in VEX competitions, pushing the boundaries of what's possible in collegiate robotics.
+          </p>
+        </div>
+
+        <div class="mission-grid">
+        <div class="mission-item animate-on-scroll stagger-1">
+          <div class="mission-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h4>Design</h4>
+          <p>Creating innovative solutions through CAD modeling and iterative prototyping</p>
+        </div>
+
+        <div class="mission-item animate-on-scroll stagger-2">
+          <div class="mission-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+          </div>
+          <h4>Build</h4>
+          <p>Precision manufacturing and assembly of competition-ready robots</p>
+        </div>
+
+        <div class="mission-item animate-on-scroll stagger-3">
+          <div class="mission-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <polyline points="16 18 22 12 16 6"/>
+              <polyline points="8 6 2 12 8 18"/>
+            </svg>
+          </div>
+          <h4>Code</h4>
+          <p>Advanced autonomous programming and intelligent control systems</p>
+        </div>
+
+        <div class="mission-item animate-on-scroll stagger-4">
+          <div class="mission-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+              <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+              <path d="M4 22h16"/>
+              <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
+              <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
+              <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
+            </svg>
+          </div>
+          <h4>Compete</h4>
+          <p>Representing CU Boulder at regional and world championship events</p>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid animate-on-scroll">
+        <div class="stat-item">
+          <div class="stat-number" data-target="25">25+</div>
+          <div class="stat-label">Team Members</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="12">12</div>
+          <div class="stat-label">Awards Won</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="3">3</div>
+          <div class="stat-label">Seasons Competing</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="15">15+</div>
+          <div class="stat-label">Competitions</div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Competition Section -->
+  <section class="section competition">
+    <div class="container">
+      <div class="content-block">
+        <div class="competition-layout">
+          <div class="competition-content animate-on-scroll from-left">
+          <h2>The <span class="text-gold">Competition</span></h2>
+          <p class="mt-md mb-lg">
+            We compete in the VEX Robotics Competition, one of the largest and fastest-growing
+            competitive robotics programs globally. Each season presents new game challenges
+            that push our engineering and strategic abilities to the limit.
+          </p>
+
+          <div class="competition-cards">
+            <div class="comp-card">
+              <div class="comp-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 6v6l4 2"/>
+                </svg>
+              </div>
+              <div>
+                <h4>2025-2026 Season</h4>
+                <p class="text-muted">VEX High Stakes - Our most ambitious season yet, targeting World Championship qualification.</p>
+              </div>
+            </div>
+
+            <div class="comp-card">
+              <div class="comp-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
+              </div>
+              <div>
+                <h4>2025 Achievements</h4>
+                <p class="text-muted">Skills Champion, Design Award, and multiple tournament victories in the Colorado region.</p>
+              </div>
+            </div>
+
+            <div class="comp-card">
+              <div class="comp-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Growing Team</h4>
+                <p class="text-muted">Recruiting talented engineers, programmers, and strategists from across CU Boulder.</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="achievements.html" class="btn btn-primary mt-lg">View All Achievements</a>
+        </div>
+
+          <div class="competition-visual animate-on-scroll from-right">
+            <div class="trophy-container">
+              <div class="trophy-glow"></div>
+              <div class="trophy-icon">🏆</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Robot Showcase Section -->
+  <section id="robot-showcase" class="section robot-showcase">
+    <div class="container">
+      <div class="content-block">
+        <div class="text-center animate-on-scroll">
+          <h2>Robot <span class="text-gold">Showcase</span></h2>
+          <p class="mt-md mb-xl" style="max-width: 600px; margin-left: auto; margin-right: auto;">
+            Explore our competition robots in interactive 3D. Click and drag to rotate, scroll to zoom.
+          </p>
+        </div>
+
+        <!-- 3D Viewer -->
+      <div class="robot-viewer-container animate-on-scroll scale">
+        <div id="robot-viewer" class="robot-viewer">
+          <!-- Viewer Header -->
+          <div class="robot-viewer-header">
+            <span class="viewer-title">3D Model Viewer</span>
+            <div class="viewer-controls">
+              <button class="viewer-btn active" data-action="auto-rotate" title="Toggle Auto-Rotate">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/>
+                  <path d="M21 3v5h-5"/>
+                </svg>
+              </button>
+              <button class="viewer-btn" data-action="zoom-in" title="Zoom In">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"/>
+                  <path d="M21 21l-4.35-4.35"/>
+                  <path d="M11 8v6"/>
+                  <path d="M8 11h6"/>
+                </svg>
+              </button>
+              <button class="viewer-btn" data-action="zoom-out" title="Zoom Out">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"/>
+                  <path d="M21 21l-4.35-4.35"/>
+                  <path d="M8 11h6"/>
+                </svg>
+              </button>
+              <button class="viewer-btn" data-action="reset" title="Reset View">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                  <path d="M3 3v5h5"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Canvas container (Three.js renders here) -->
+          <div class="viewer-canvas"></div>
+
+          <!-- Loading State -->
+          <div class="viewer-loading hidden">
+            <div class="loading-spinner"></div>
+            <span class="loading-text">Loading 3D Model...</span>
+          </div>
+
+          <!-- Placeholder State -->
+          <div class="viewer-placeholder">
+            <div class="placeholder-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                <line x1="12" y1="22.08" x2="12" y2="12"/>
+              </svg>
+            </div>
+            <h4 class="text-gold">3D Model Coming Soon</h4>
+            <p class="text-muted mt-sm">Add a .glb or .gltf file to the models folder and update robots.json</p>
+          </div>
+
+          <!-- Footer Controls -->
+          <div class="robot-viewer-footer">
+            <span class="mono text-muted" style="font-size: 0.75rem;">Drag to rotate • Scroll to zoom • Double-click to reset</span>
+          </div>
+        </div>
+      </div>
+
+        <!-- Robot Selector -->
+        <div class="robot-selector robots-container animate-on-scroll">
+          <!-- Populated by JavaScript from robots.json -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section cta-section">
+    <div class="container text-center">
+      <div class="content-block animate-on-scroll">
+        <h2>Ready to <span class="text-gold">Join</span> the Team?</h2>
+        <p class="mt-md mb-xl" style="max-width: 600px; margin-left: auto; margin-right: auto;">
+          We're always looking for passionate students who want to learn, build, and compete.
+          No prior robotics experience required - just enthusiasm and dedication.
+        </p>
+        <div class="flex-center gap-md" style="flex-wrap: wrap;">
+          <a href="https://docs.google.com/forms/d/e/your-form-id/viewform" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Apply Now</a>
+          <a href="contact.html" class="btn btn-outline btn-lg">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="images/logo.png" alt="CU Robotics">
+            <span>CU Robotics</span>
+          </div>
+          <p class="footer-tagline">
+            Design. Build. Code. Compete. Representing the University of Colorado Boulder in VEX Robotics Competition.
+          </p>
+          <div class="footer-socials">
+            <a href="https://instagram.com/curobotics" target="_blank" rel="noopener" aria-label="Instagram">
+              <img src="images/instagram-icon.png" alt="Instagram">
+            </a>
+            <a href="https://discord.gg/curobotics" target="_blank" rel="noopener" aria-label="Discord">
+              <img src="images/discord-icon.png" alt="Discord">
+            </a>
+            <a href="https://youtube.com/@curobotics" target="_blank" rel="noopener" aria-label="YouTube">
+              <img src="images/youtube-icon.png" alt="YouTube">
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-nav">
+          <h4 class="footer-heading">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="achievements.html">Achievements</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav">
+          <h4 class="footer-heading">Resources</h4>
+          <ul class="footer-links">
+            <li><a href="https://www.vexrobotics.com/" target="_blank" rel="noopener">VEX Robotics</a></li>
+            <li><a href="https://www.robotevents.com/" target="_blank" rel="noopener">Robot Events</a></li>
+            <li><a href="https://www.colorado.edu/" target="_blank" rel="noopener">CU Boulder</a></li>
+            <li><a href="https://docs.google.com/forms/d/e/your-form-id/viewform" target="_blank" rel="noopener">Join the Team</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-newsletter">
+          <h4 class="footer-heading">Stay Updated</h4>
+          <p class="text-muted" style="font-size: 0.9rem; margin-bottom: var(--space-md);">
+            Subscribe to get news about competitions and team updates.
+          </p>
+          <form class="newsletter-form" action="#" method="POST">
+            <input type="email" class="newsletter-input" placeholder="Your email" required>
+            <button type="submit" class="newsletter-btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">
+          &copy; 2026 <a href="https://www.colorado.edu/" target="_blank" rel="noopener">CU Robotics</a> | University of Colorado Boulder
+        </p>
+        <div class="footer-socials">
+          <a href="https://instagram.com/curobotics" target="_blank" rel="noopener" aria-label="Instagram">
+            <img src="images/instagram-icon.png" alt="Instagram">
+          </a>
+          <a href="https://discord.gg/curobotics" target="_blank" rel="noopener" aria-label="Discord">
+            <img src="images/discord-icon.png" alt="Discord">
+          </a>
+          <a href="https://youtube.com/@curobotics" target="_blank" rel="noopener" aria-label="YouTube">
+            <img src="images/youtube-icon.png" alt="YouTube">
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Three.js (loaded from CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/DRACOLoader.js"></script>
+
+  <!-- Main Scripts -->
+  <script src="js/particles.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/robot-viewer.js"></script>
+</body>
+</html>
