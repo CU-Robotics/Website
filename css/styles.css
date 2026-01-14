@@ -1016,7 +1016,7 @@ p {
 /* Stats counter */
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-lg);
   margin-top: var(--space-2xl);
   padding: var(--space-xl);
