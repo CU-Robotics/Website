@@ -1,0 +1,78 @@
+{
+  "projects": [
+    {
+      "id": "atlas-2026",
+      "title": "Atlas - Competition Robot",
+      "description": "Our current competition robot for the ARC Championship season, featuring a 6-motor mecanum drivetrain and advanced autonomous capabilities.",
+      "category": "robots",
+      "tags": ["ARC", "2025-2026", "Active"],
+      "image": "images/hero.jpg",
+      "link": {
+        "url": "index.html#robot-showcase",
+        "text": "View in 3D"
+      }
+    },
+    {
+      "id": "titan-2025",
+      "title": "Titan - Skills Champion",
+      "description": "Our award-winning robot from 2024-2025 season, known for reliability and consistent autonomous performance.",
+      "category": "robots",
+      "tags": ["ARC", "2024-2025", "Skills Champion"],
+      "image": "images/hero.jpg",
+      "link": {
+        "url": "achievements.html",
+        "text": "See Achievements"
+      }
+    },
+    {
+      "id": "autonomous-suite",
+      "title": "Autonomous Control Suite",
+      "description": "Custom PID controllers, odometry systems, and path planning algorithms developed in-house for competition.",
+      "category": "software",
+      "tags": ["C++", "Autonomous"],
+      "icon": "code",
+      "link": {
+        "url": "https://github.com/curobotics",
+        "text": "View on GitHub",
+        "external": true
+      }
+    },
+    {
+      "id": "vision-system",
+      "title": "Vision Tracking System",
+      "description": "Real-time object detection and tracking using a vision sensor for ARC game element identification during autonomous.",
+      "category": "software",
+      "tags": ["Python", "Computer Vision"],
+      "icon": "eye",
+      "link": {
+        "url": "https://github.com/curobotics",
+        "text": "Learn More",
+        "external": true
+      }
+    },
+    {
+      "id": "phoenix-2024",
+      "title": "Phoenix - Worlds Qualifier",
+      "description": "Our first World Championship qualifying robot, featuring an X-drive holonomic drivetrain and field-centric controls.",
+      "category": "robots",
+      "tags": ["ARC", "2023-2024", "Worlds Qualifier"],
+      "image": "images/hero.jpg",
+      "link": {
+        "url": "achievements.html",
+        "text": "See Journey"
+      }
+    },
+    {
+      "id": "stem-outreach",
+      "title": "STEM Outreach Program",
+      "description": "Workshops and mentorship programs introducing local students to robotics and engineering fundamentals.",
+      "category": "outreach",
+      "tags": ["Education", "Community"],
+      "icon": "users",
+      "link": {
+        "url": "contact.html",
+        "text": "Get Involved"
+      }
+    }
+  ]
+}

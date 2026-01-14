@@ -1,0 +1,34 @@
+{
+  "sponsors": [
+    {
+      "name": "CU Engineering",
+      "url": "https://www.colorado.edu/engineering/",
+      "icon": "images/sponsors/cu-engineering.png"
+    },
+    {
+      "name": "SolidWorks",
+      "url": "https://www.solidworks.com/",
+      "icon": "images/sponsors/solidworks.png"
+    },
+    {
+      "name": "Altium",
+      "url": "https://www.altium.com/",
+      "icon": "images/sponsors/altium.png"
+    },
+    {
+      "name": "NVIDIA",
+      "url": "https://www.nvidia.com/",
+      "icon": "images/sponsors/nvidia.png"
+    },
+    {
+      "name": "MathWorks",
+      "url": "https://www.mathworks.com/",
+      "icon": "images/sponsors/mathworks.png"
+    },
+    {
+      "name": "Ansys",
+      "url": "https://www.ansys.com/",
+      "icon": "images/sponsors/ansys.png"
+    }
+  ]
+}
