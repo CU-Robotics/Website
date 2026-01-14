@@ -4,14 +4,14 @@
       "year": "2026",
       "items": [
         {
-          "competition": "VEX Worlds Championship",
+          "competition": "ARC Championship",
           "award": "Division Finalist",
-          "description": "Advanced to elimination rounds against top international teams at the VEX World Championship in Dallas, TX.",
-          "image": "images/achievements/vex-worlds-2026.jpg",
+          "description": "Advanced to elimination rounds against top international teams at the ARC Championship in Dallas, TX.",
+          "image": "images/achievements/arc-championship-2026.jpg",
           "date": "2026-04-15"
         },
         {
-          "competition": "Colorado State VEX Championship",
+          "competition": "Colorado State ARC Championship",
           "award": "Excellence Award",
           "description": "Recognized for overall excellence in robot design, programming, documentation, and team conduct.",
           "image": "images/achievements/state-2026.jpg",
@@ -30,28 +30,28 @@
       "year": "2025",
       "items": [
         {
-          "competition": "VEX U National Championship",
+          "competition": "ARC U National Championship",
           "award": "Skills Champion",
           "description": "Achieved highest combined autonomous and driver skills score in the university division.",
           "image": "images/achievements/skills-2025.jpg",
           "date": "2025-04-20"
         },
         {
-          "competition": "Colorado VEX Signature Event",
+          "competition": "Colorado ARC Signature Event",
           "award": "Design Award",
           "description": "Judges recognized our innovative intake mechanism and robust chassis design.",
           "image": "images/achievements/design-2025.jpg",
           "date": "2025-03-15"
         },
         {
-          "competition": "Denver Metro VEX Tournament",
+          "competition": "Denver Metro ARC Tournament",
           "award": "1st Place",
           "description": "Undefeated run through qualification and elimination rounds in our home region.",
           "image": "images/achievements/denver-2025.jpg",
           "date": "2025-02-08"
         },
         {
-          "competition": "Front Range VEX Classic",
+          "competition": "Front Range ARC Classic",
           "award": "Innovation Award",
           "description": "Recognized for creative approach to game strategy and unique mechanical solutions.",
           "image": "images/achievements/front-range-2025.jpg",
@@ -63,7 +63,7 @@
       "year": "2024",
       "items": [
         {
-          "competition": "VEX Worlds Championship",
+          "competition": "ARC Championship",
           "award": "Round of 16",
           "description": "First appearance at World Championship, advancing through qualification rounds.",
           "image": "images/achievements/worlds-2024.jpg",
@@ -77,7 +77,7 @@
           "date": "2024-03-09"
         },
         {
-          "competition": "Boulder VEX Qualifier",
+          "competition": "Boulder ARC Qualifier",
           "award": "Tournament Champions",
           "description": "Home tournament victory with perfect autonomous routines.",
           "image": "images/achievements/boulder-2024.jpg",

@@ -1,6 +1,6 @@
 # CU Robotics Website
 
-A modern, responsive website for the CU Robotics VEX competition team at the University of Colorado Boulder.
+A modern, responsive website for the CU Robotics ARC competition team at the University of Colorado Boulder.
 
 ## Features
 
@@ -218,7 +218,7 @@ images/robots/
 ### Achievement Images
 ```
 images/achievements/
-├── vex-worlds-2026.jpg
+├── arc-championship-2026.jpg
 ├── state-championship-2025.jpg
 └── skills-award-2025.jpg
 ```

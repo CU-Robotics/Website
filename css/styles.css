@@ -1655,8 +1655,8 @@ p {
 
 .leadership-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-md);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-lg);
 }
 
 .leader-card {
@@ -1664,23 +1664,26 @@ p {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: var(--space-sm);
-  padding: var(--space-md);
-  background: var(--bg-secondary);
-  border-radius: var(--radius-md);
-  border: 1px solid rgba(207, 184, 124, 0.1);
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  background: linear-gradient(160deg, rgba(28, 28, 28, 0.98) 0%, rgba(10, 10, 10, 0.95) 100%);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(207, 184, 124, 0.18);
+  box-shadow: var(--shadow-sm);
   transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
 }
 
 .leader-card:hover {
   border-color: var(--cu-gold);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md), var(--glow-gold-sm);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg), var(--glow-gold-sm);
 }
 
 .leader-card.leader-current {
-  border-color: rgba(207, 184, 124, 0.3);
-  background: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(207, 184, 124, 0.05) 100%);
+  border-color: rgba(207, 184, 124, 0.5);
+  background: linear-gradient(160deg, rgba(28, 28, 28, 0.98) 0%, rgba(207, 184, 124, 0.08) 100%);
 }
 
 .leader-card.leader-tbd {
@@ -1694,11 +1697,12 @@ p {
 
 .leader-photo {
   flex-shrink: 0;
-  width: 64px;
-  height: 64px;
+  width: 96px;
+  height: 96px;
   border-radius: 50%;
   overflow: hidden;
-  border: 2px solid var(--cu-gold);
+  border: 3px solid var(--cu-gold);
+  box-shadow: var(--glow-gold-sm);
   position: relative;
 }
 
@@ -1715,38 +1719,42 @@ p {
 
 .leader-info {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
 }
 
 .leader-name {
   font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: var(--cu-white);
-  margin-bottom: 2px;
+  margin-bottom: 0;
 }
 
 .leader-role {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: var(--cu-gold);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
-  margin-bottom: 4px;
+  letter-spacing: 0.06em;
+  margin-bottom: 0;
 }
 
 .leader-major {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
-  margin-bottom: var(--space-xs);
+  margin-bottom: 0;
 }
 
 .leader-bio {
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   color: var(--text-secondary);
-  line-height: 1.4;
-  margin-bottom: var(--space-xs);
+  line-height: 1.5;
+  margin-bottom: 0;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -1754,36 +1762,38 @@ p {
 .leader-socials {
   display: flex;
   justify-content: center;
-  gap: 4px;
-  margin-top: 4px;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
 }
 
 .leader-socials a {
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(207, 184, 124, 0.1);
+  background: rgba(207, 184, 124, 0.08);
+  border: 1px solid rgba(207, 184, 124, 0.25);
   border-radius: 50%;
   color: var(--cu-gold);
   transition: all var(--transition-fast);
 }
 
 .leader-socials a svg {
-  width: 12px;
-  height: 12px;
+  width: 16px;
+  height: 16px;
 }
 
 .leader-socials a:hover {
   background: var(--cu-gold);
+  border-color: var(--cu-gold);
   color: var(--cu-black);
 }
 
 /* Leadership page responsive */
 @media (max-width: 1024px) {
   .leadership-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -1813,29 +1823,29 @@ p {
   }
 
   .leadership-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-sm);
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
   }
 
   .leader-card {
-    padding: var(--space-sm);
+    padding: var(--space-md);
   }
 
   .leader-photo {
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
   }
 
   .leader-name {
-    font-size: 0.85rem;
+    font-size: 1rem;
   }
 
   .leader-role {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
   }
 
   .leader-bio {
-    display: none;
+    font-size: 0.8rem;
   }
 }
 
