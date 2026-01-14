@@ -24,6 +24,14 @@
 <body>
   <div id="site-header"></div>
 
+  <!-- Sponsor Ticker -->
+  <div class="sponsor-ticker">
+    <div class="sponsor-ticker-label">Our Sponsors</div>
+    <div class="sponsor-ticker-track" id="sponsor-track">
+      <!-- Populated by JavaScript from data/sponsors.json -->
+    </div>
+  </div>
+
   <!-- Hero Section -->
   <section class="hero">
     <!-- Parallax Background -->
@@ -341,6 +349,15 @@
   <script src="js/particles.js"></script>
   <script src="js/main.js"></script>
   <script src="js/robot-viewer.js"></script>
-  <script>loadHeader('home'); loadFooter();</script>
+  <script>
+    loadHeader('home'); loadFooter(); loadSponsors();
+    // Sync ticker position with navbar scroll state
+    window.addEventListener('scroll', () => {
+      const ticker = document.querySelector('.sponsor-ticker');
+      if (ticker) {
+        ticker.classList.toggle('scrolled', window.scrollY > 50);
+      }
+    });
+  </script>
 </body>
 </html>

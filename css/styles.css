@@ -1025,6 +1025,10 @@ p {
   border: 1px solid rgba(207, 184, 124, 0.2);
 }
 
+.stats-grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
 .stat-item {
   text-align: center;
 }
@@ -2351,6 +2355,107 @@ p {
 .stagger-5 { transition-delay: 0.5s; }
 
 /* ============================================
+   SPONSOR TICKER
+   ============================================ */
+.sponsor-ticker {
+  position: fixed;
+  top: var(--nav-height);
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: rgba(10, 10, 18, 0.98);
+  border-top: 1px solid rgba(207, 184, 124, 0.1);
+  border-bottom: 1px solid rgba(207, 184, 124, 0.15);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  transition: top var(--transition-base);
+}
+
+.navbar.scrolled ~ .sponsor-ticker,
+.sponsor-ticker.scrolled {
+  top: var(--nav-height-scrolled);
+}
+
+.sponsor-ticker-label {
+  flex-shrink: 0;
+  padding: 10px 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--cu-gold);
+  background: rgba(207, 184, 124, 0.1);
+  border-right: 1px solid rgba(207, 184, 124, 0.15);
+}
+
+.sponsor-ticker-track {
+  display: flex;
+  overflow: hidden;
+  flex: 1;
+}
+
+.sponsor-ticker-content {
+  display: flex;
+  align-items: center;
+  animation: ticker-scroll 25s linear infinite;
+  padding: 10px 0;
+}
+
+.sponsor-item {
+  flex-shrink: 0;
+  padding: 0 24px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sponsor-item:hover {
+  color: var(--cu-gold);
+}
+
+.sponsor-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.sponsor-item:hover .sponsor-icon {
+  opacity: 1;
+}
+
+.sponsor-divider {
+  flex-shrink: 0;
+  width: 4px;
+  height: 4px;
+  background: rgba(207, 184, 124, 0.3);
+  border-radius: 50%;
+}
+
+@keyframes ticker-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Pause animation on hover */
+.sponsor-ticker:hover .sponsor-ticker-content {
+  animation-play-state: paused;
+}
+
+/* ============================================
    RESPONSIVE DESIGN
    ============================================ */
 @media (max-width: 1200px) {
@@ -2375,6 +2480,10 @@ p {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .stats-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .competition-layout,
   .contact-layout {
     grid-template-columns: 1fr;
@@ -2395,6 +2504,23 @@ p {
     --space-xl: 3rem;
     --space-2xl: 4rem;
     --space-3xl: 5rem;
+  }
+
+  .sponsor-ticker-label {
+    display: none;
+  }
+
+  .sponsor-ticker {
+    top: var(--nav-height);
+  }
+
+  .sponsor-ticker.scrolled {
+    top: var(--nav-height-scrolled);
+  }
+
+  .sponsor-item {
+    font-size: 0.75rem;
+    padding: 0 16px;
   }
 
   .hero-title .line-2 {
