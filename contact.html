@@ -114,7 +114,12 @@
 
         <div class="contact-form animate-on-scroll from-right">
           <h3 class="mb-lg">Send Us a <span class="text-gold">Message</span></h3>
-          <form action="https://formspree.io/f/your-form-id" method="POST">
+          <form action="https://formsubmit.co/cd8d334c55cf750a54800ec2ae537d47" method="POST">
+            <!-- FormSubmit Configuration -->
+            <input type="hidden" name="_next" value="https://curobotics.net/thanks.html">
+            <input type="hidden" name="_template" value="table">
+            <input type="text" name="_honey" style="display:none">
+
             <div class="form-group">
               <label for="name" class="form-label">Name</label>
               <input type="text" id="name" name="name" class="form-input" placeholder="Your name" required>
@@ -127,7 +132,7 @@
 
             <div class="form-group">
               <label for="subject" class="form-label">Subject</label>
-              <input type="text" id="subject" name="subject" class="form-input" placeholder="What's this about?" required>
+              <input type="text" id="subject" name="_subject" class="form-input" placeholder="What's this about?" required>
             </div>
 
             <div class="form-group">

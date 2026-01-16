@@ -1,70 +1,13 @@
 {
   "robots": [
     {
-      "id": "atlas-2026",
-      "name": "Atlas",
-      "season": "2025-2026",
-      "status": "active",
-      "description": "Our latest competition robot featuring an advanced intake system and high-torque drivetrain for the ARC Championship season.",
-      "image": "images/robots/atlas-2026.jpg",
-      "model3d": "models/atlas-2026.glb",
-      "specs": {
-        "drivetrain": "6-Motor Mecanum",
-        "intake": "Dual Roller System",
-        "lift": "4-Bar Linkage",
-        "weight": "14.8 lbs",
-        "dimensions": "18\" x 18\" x 18\""
-      },
-      "features": [
-        "Precision PID-controlled autonomous",
-        "Custom 3D-printed components",
-        "Integrated vision tracking",
-        "Quick-swap battery system"
-      ]
-    },
-    {
-      "id": "titan-2025",
-      "name": "Titan",
+      "id": "infantry",
+      "name": "Infantry",
       "season": "2024-2025",
-      "status": "retired",
-      "description": "Our Skills Champion robot from the 2024-2025 season, known for its reliability and consistent autonomous performance.",
-      "image": "images/robots/titan-2025.jpg",
-      "model3d": "models/titan-2025.glb",
-      "specs": {
-        "drivetrain": "4-Motor Tank",
-        "intake": "Single Conveyor",
-        "lift": "Linear Slides",
-        "weight": "13.2 lbs",
-        "dimensions": "18\" x 18\" x 15\""
-      },
-      "features": [
-        "Award-winning intake mechanism",
-        "Aluminum frame construction",
-        "Odometry-based positioning",
-        "Modular subsystem design"
-      ]
-    },
-    {
-      "id": "phoenix-2024",
-      "name": "Phoenix",
-      "season": "2023-2024",
-      "status": "retired",
-      "description": "Our first World Championship qualifier, representing a major milestone for CU Robotics in competitive ARC.",
-      "image": "images/robots/phoenix-2024.jpg",
-      "model3d": "",
-      "specs": {
-        "drivetrain": "4-Motor X-Drive",
-        "intake": "Passive Roller",
-        "lift": "Chain Bar",
-        "weight": "12.5 lbs",
-        "dimensions": "18\" x 18\" x 16\""
-      },
-      "features": [
-        "Holonomic movement system",
-        "Carbon fiber structural elements",
-        "Dual controller support",
-        "Field-centric driving mode"
-      ]
+      "status": "active",
+      "description": "",
+      "image": "",
+      "model3d": "models/infantryOptimized_black.glb"
     }
   ],
   "_documentation": {

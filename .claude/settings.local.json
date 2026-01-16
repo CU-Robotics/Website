@@ -6,7 +6,8 @@
       "Bash(curl:*)",
       "Bash(lsof:*)",
       "Bash(xargs file:*)",
-      "Bash(xargs:*)"
+      "Bash(xargs:*)",
+      "WebFetch(domain:formsubmit.co)"
     ]
   }
 }

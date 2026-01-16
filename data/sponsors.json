@@ -1,34 +1,24 @@
 {
   "sponsors": [
     {
-      "name": "CU Engineering",
-      "url": "https://www.colorado.edu/engineering/",
+      "name": "UCEC",
+      "url": "https://www.colorado.edu/ucec/",
       "icon": "images/sponsors/cu-engineering.png"
     },
     {
-      "name": "SolidWorks",
-      "url": "https://www.solidworks.com/",
-      "icon": "images/sponsors/solidworks.png"
+      "name": "CU Student Government",
+      "url": "https://www.colorado.edu/cusg/about-us/executive-branch/student-organization-allocations-committee",
+      "icon": "images/sponsors/cu-engineering.png"
     },
     {
-      "name": "Altium",
-      "url": "https://www.altium.com/",
-      "icon": "images/sponsors/altium.png"
+      "name": "MedTronic",
+      "url": "https://www.medtronic.com/en-us/index.html",
+      "icon": "images/sponsors/medtronic.png"
     },
     {
-      "name": "NVIDIA",
-      "url": "https://www.nvidia.com/",
-      "icon": "images/sponsors/nvidia.png"
-    },
-    {
-      "name": "MathWorks",
-      "url": "https://www.mathworks.com/",
-      "icon": "images/sponsors/mathworks.png"
-    },
-    {
-      "name": "Ansys",
-      "url": "https://www.ansys.com/",
-      "icon": "images/sponsors/ansys.png"
+      "name": "Pattern Labs",
+      "url": "https://www.patternlabs.ai/",
+      "icon": "images/sponsors/pattern.png"
     }
   ]
 }
