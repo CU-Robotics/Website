@@ -126,8 +126,9 @@ class RobotViewer {
   createCamera() {
     const aspect = this.container.clientWidth / this.container.clientHeight;
     this.camera = new THREE.PerspectiveCamera(45, aspect, 0.1, 1000);
-    this.camera.position.set(3, 2, 4);
-    this.camera.lookAt(0, 0, 0);
+    // Front-left elevated view matching preferred angle
+    this.camera.position.set(-4, 3, 4);
+    this.camera.lookAt(0, 0.5, 0);
   }
 
   createRenderer() {
@@ -199,6 +200,7 @@ class RobotViewer {
     this.controls.autoRotate = this.autoRotate;
     this.controls.autoRotateSpeed = 1;
     this.controls.target.set(0, 0.5, 0);
+    this.controls.update();
   }
 
   createBackground() {
@@ -298,17 +300,31 @@ class RobotViewer {
       (gltf) => {
         this.model = gltf.scene;
 
-        // Center and scale the model
+        // First rotate model to lay flat (correct orientation from CAD export)
+        this.model.rotation.x = -Math.PI / 2;
+
+        // Update matrix so bounding box calculation is correct after rotation
+        this.model.updateMatrixWorld(true);
+
+        // Now calculate bounds after rotation
         const box = new THREE.Box3().setFromObject(this.model);
         const center = box.getCenter(new THREE.Vector3());
         const size = box.getSize(new THREE.Vector3());
 
         const maxDim = Math.max(size.x, size.y, size.z);
-        const scale = 2 / maxDim; // Fit within 2 units
+        const scale = 3.5 / maxDim; // Fit within 3.5 units for larger display
 
         this.model.scale.setScalar(scale);
-        this.model.position.sub(center.multiplyScalar(scale));
-        this.model.position.y = 0;
+
+        // Recalculate center after scaling
+        this.model.updateMatrixWorld(true);
+        const boxScaled = new THREE.Box3().setFromObject(this.model);
+        const centerScaled = boxScaled.getCenter(new THREE.Vector3());
+
+        // Center the model horizontally, place on ground
+        this.model.position.x = -centerScaled.x;
+        this.model.position.z = -centerScaled.z;
+        this.model.position.y = -boxScaled.min.y; // Place on ground
 
         // Enable shadows
         this.model.traverse((child) => {
@@ -415,7 +431,7 @@ class RobotViewer {
   }
 
   resetView() {
-    this.camera.position.set(3, 2, 4);
+    this.camera.position.set(-4, 3, 4);
     this.controls.target.set(0, 0.5, 0);
     this.controls.update();
   }
@@ -461,15 +477,14 @@ class RobotViewer {
       zoomOutBtn.addEventListener('click', () => this.zoomOut());
     }
 
-    // Stop auto-rotate on user interaction
+    // Pause auto-rotate during user interaction, resume after
     this.controls.addEventListener('start', () => {
-      if (this.autoRotate) {
-        this.controls.autoRotate = false;
-      }
+      this._wasAutoRotating = this.controls.autoRotate;
+      this.controls.autoRotate = false;
     });
 
     this.controls.addEventListener('end', () => {
-      if (this.autoRotate) {
+      if (this._wasAutoRotating && this.autoRotate) {
         setTimeout(() => {
           this.controls.autoRotate = true;
         }, 3000); // Resume after 3 seconds of inactivity
