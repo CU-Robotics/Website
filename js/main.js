@@ -316,9 +316,22 @@ function renderLeadership(leadership) {
         <h3 class="year-label">${yearGroup.year}</h3>
         <span class="season-label">${yearGroup.season}</span>
       </div>
-      <div class="leadership-grid">
-        ${yearGroup.members.map((member, index) => createLeaderCard(member, index, yearIndex === 0)).join('')}
-      </div>
+      ${yearGroup.groups ? `
+        <div class="leadership-groups-container">
+          ${yearGroup.groups.map(group => `
+            <div class="leadership-group">
+              <h4 class="group-label">${group.name}</h4>
+              <div class="leadership-grid">
+                ${group.members.map((member, index) => createLeaderCard(member, index, yearIndex === 0, yearGroup.year)).join('')}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      ` : `
+        <div class="leadership-grid">
+          ${yearGroup.members.map((member, index) => createLeaderCard(member, index, yearIndex === 0, yearGroup.year)).join('')}
+        </div>
+      `}
     </div>
   `).join('');
 
@@ -326,7 +339,7 @@ function renderLeadership(leadership) {
   initScrollAnimations();
 }
 
-function createLeaderCard(member, index, isCurrent) {
+function createLeaderCard(member, index, isCurrent, seasonYear) {
   const isTBD = member.name === 'TBD';
   const socials = [];
 
@@ -334,17 +347,40 @@ function createLeaderCard(member, index, isCurrent) {
   if (member.linkedin) socials.push(`<a href="${member.linkedin}" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>`);
   if (member.github) socials.push(`<a href="${member.github}" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>`);
 
+  // Support both old format (photo, major, year) and new format (years, graduationYear)
+  const photoSrc = member.photo || 'images/placeholder-avatar.svg';
+
+  // Calculate class standing from graduation year relative to the season
+  // seasonYear format: "2025-2026" - use the second year (graduation year of seniors that season)
+  const getClassStanding = (gradYear, seasonYear) => {
+    if (!gradYear) return '';
+    const gradYearInt = parseInt(gradYear);
+    // Extract the end year of the season (e.g., "2025-2026" -> 2026)
+    const seasonEndYear = seasonYear ? parseInt(seasonYear.split('-')[1]) : new Date().getFullYear();
+    const yearsUntilGrad = gradYearInt - seasonEndYear;
+
+    if (yearsUntilGrad <= 0) return 'Senior';
+    if (yearsUntilGrad === 1) return 'Junior';
+    if (yearsUntilGrad === 2) return 'Sophomore';
+    if (yearsUntilGrad === 3) return 'Freshman';
+    return 'Freshman';
+  };
+
+  const classStanding = member.graduationYear ? getClassStanding(member.graduationYear, seasonYear) : '';
+  const yearInfo = member.major ? `${member.major}${member.year ? ' | ' + member.year : ''}` :
+                   (classStanding ? classStanding : '');
+
   return `
     <div class="leader-card animate-on-scroll stagger-${(index % 4) + 1} ${isTBD ? 'leader-tbd' : ''} ${isCurrent ? 'leader-current' : ''}">
       <div class="leader-photo">
-        <img src="${member.photo}" alt="${member.name}" onerror="this.src='images/placeholder-avatar.svg'">
+        <img src="${photoSrc}" alt="${member.name}" onerror="this.src='images/placeholder-avatar.svg'">
         ${isCurrent && !isTBD ? '<span class="current-badge">Current</span>' : ''}
         ${isTBD ? '<span class="tbd-badge">Open Position</span>' : ''}
       </div>
       <div class="leader-info">
         <h4 class="leader-name">${member.name}</h4>
         <p class="leader-role">${member.role}</p>
-        ${member.major && member.major !== 'To Be Announced' ? `<p class="leader-major">${member.major}${member.year ? ' | ' + member.year : ''}</p>` : ''}
+        ${yearInfo && yearInfo !== 'To Be Announced' ? `<p class="leader-major">${yearInfo}</p>` : ''}
         ${member.bio && !isTBD ? `<p class="leader-bio">${member.bio}</p>` : ''}
         ${socials.length ? `<div class="leader-socials">${socials.join('')}</div>` : ''}
       </div>

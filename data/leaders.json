@@ -9,210 +9,383 @@
     {
       "year": "2025-2026",
       "season": "Current Season",
-      "members": [
+      "groups": [
         {
-          "name": "Jack Preggers",
-          "role": "Team President",
-          "photo": "images/jack-pregler.png",
-          "major": "Mechanical Engineering",
-          "year": "Senior",
-          "bio": "",
-          "email": "",
-          "linkedin": "",
-          "github": ""
+          "name": "Leadership",
+          "members": [
+            {
+              "name": "Jack Pregler",
+              "role": "President",
+              "photo": "images/jack-pregler.png",
+              "years": "2025-2026",
+              "graduationYear": "2026",
+              "bio": "A RoboMaster at heart and former 1v1 driver, will never live down the chants at competition.",
+              "email": "jspregler@gmail.com",
+              "linkedin": "https://www.linkedin.com/in/jack-pregler-78a66b263/",
+              "github": ""
+            },
+            {
+              "name": "Sam Fallon",
+              "role": "Head Engineer",
+              "photo": "images/sam-fallon.png",
+              "years": "2024-2026",
+              "graduationYear": "2026",
+              "bio": "I enjoy a bit of everything and love auto aim.",
+              "email": "samaafallon@gmail.com",
+              "linkedin": "https://www.linkedin.com/in/sam-fallon10/",
+              "github": ""
+            }
+          ]
         },
         {
-          "name": "Sam",
-          "role": "Head Engineer",
-          "photo": "images/sam-fallon.png",
-          "major": "",
-          "year": "Senior",
-          "bio": "",
-          "email": "",
-          "linkedin": "",
-          "github": ""
+          "name": "Design",
+          "members": [
+            {
+              "name": "Lilac Le",
+              "role": "Dart Subteam Co-Lead",
+              "years": "2024-2026",
+              "graduationYear": "2026",
+              "bio": "After 4 years on the team, I'm proud to be CU Robotics' finest feeder designer, prototype breaker, and juggler.",
+              "email": "henrynle0905@gmail.com",
+              "linkedin": "https://www.linkedin.com/in/henry-le-117191266",
+              "github": ""
+            }
+          ]
         },
         {
-          "name": "Rishi Hancock",
-          "role": "Software Director",
-          "photo": "images/rishi-hancock.png",
-          "major": "Computer Science",
-          "year": "Senior",
-          "bio": "",
-          "email": "",
-          "linkedin": "",
-          "github": ""
+          "name": "Manufacturing",
+          "members": [
+            {
+              "name": "Dylan Hansen",
+              "role": "Director of Manufacturing",
+              "photo": "images/dylan-hansen.png",
+              "years": "2024-2026",
+              "graduationYear": "2026",
+              "bio": "Dylan is in his fourth year with the team, and is very proud of his work to expand the team's manufacturing capabilities.",
+              "email": "hansen_dylan@comcast.net",
+              "linkedin": "https://www.linkedin.com/in/dylan-t-hansen/",
+              "github": ""
+            },
+            {
+              "name": "Nick Woolsey",
+              "role": "Manufacturing Lead",
+              "years": "2024-2026",
+              "graduationYear": "2026",
+              "bio": "Live. Laugh. Lathe.",
+              "email": "nicholas.woolsey01@gmail.com",
+              "linkedin": "https://www.linkedin.com/in/nwoolsey/",
+              "github": ""
+            }
+          ]
         },
         {
-          "name": "Owen Marsh",
-          "role": "Mechanical Director",
-          "photo": "images/rishi-hancock.png",
-          "major": "Mechanical Engineering",
-          "year": "Junior",
-          "bio": "",
-          "email": "",
-          "linkedin": "",
-          "github": ""
+          "name": "Mechanical",
+          "members": [
+            {
+              "name": "Owen Marsh",
+              "role": "Director of Mechanical",
+              "photo": "images/Owen marsh.png",
+              "years": "2025-2026",
+              "graduationYear": "2027",
+              "bio": "Besides building the best robots at CU, I also enjoy mountain activities of various sorts.",
+              "email": "owmarsh12@gmail.com",
+              "linkedin": "https://www.linkedin.com/in/owen-marsh-67095330b",
+              "github": ""
+            }
+          ]
         },
         {
-          "name": "Bradley",
-          "role": "Electronics Director",
-          "photo": "images/rishi-hancock.png",
-          "major": "Electrical Engineering",
-          "year": "Junior",
-          "bio": "",
-          "email": "",
-          "linkedin": "",
-          "github": ""
+          "name": "Electrical",
+          "members": [
+            {
+              "name": "Bradley Huynh",
+              "role": "Electrical Director",
+              "photo": "images/Bradley Huynh.png",
+              "years": "2025-2026",
+              "graduationYear": "2027",
+              "bio": "Leader of FA5 electrical and supercap refresh.",
+              "email": "huynhbradley717257@gmail.com",
+              "linkedin": "https://www.linkedin.com/in/bradley-huynh-5319162a3/",
+              "github": ""
+            }
+          ]
         },
         {
-          "name": "Dylan",
-          "role": "Manufacturing Director",
-          "photo": "images/dylan-hansen.png",
-          "major": "Electrical Engineering",
-          "year": "Junior",
-          "bio": "",
-          "email": "",
-          "linkedin": "",
-          "github": ""
+          "name": "Firmware",
+          "members": [
+            {
+              "name": "Rocco Antoniou",
+              "role": "Firmware Director",
+              "photo": "images/Rocco.png",
+              "years": "2026",
+              "graduationYear": "2027",
+              "bio": "I write drivers so you don't have to!",
+              "email": "roccoantoniou@gmail.com",
+              "linkedin": "https://www.linkedin.com/in/roccoantoniou",
+              "github": "https://github.com/roccoagain"
+            },
+            {
+              "name": "Jack Miller",
+              "role": "Firmware Lead",
+              "photo": "images/Jack Miller.png",
+              "years": "2025-2026",
+              "graduationYear": "2027",
+              "bio": "I build embedded systems, break things on accident, and fix them on purpose!",
+              "email": "jackmiller23530@gmail.com",
+              "linkedin": "https://www.linkedin.com/in/jackmiller04/",
+              "github": "https://github.com/guywithhat99"
+            }
+          ]
         },
         {
-          "name": "Rocco",
-          "role": "Firmware Director",
-          "photo": "images/dylan-hansen.png",
-          "major": "Electrical and Computer Engineering",
-          "year": "Junior",
-          "bio": "",
-          "email": "",
-          "linkedin": "",
-          "github": ""
+          "name": "Software",
+          "members": [
+            {
+              "name": "Rishi Hancock",
+              "role": "Director of Software",
+              "photo": "images/rishi-hancock.png",
+              "years": "2023-2025",
+              "graduationYear": "2026",
+              "bio": "Robotics? More like FUN-otics... amiright",
+              "email": "rishi.hancock@gmail.com",
+              "linkedin": "https://www.linkedin.com/in/rishi-hancock-016075197",
+              "github": ""
+            },
+            {
+              "name": "Ephram Cukier",
+              "role": "Software",
+              "photo": "images/Ephram Cukier.png",
+              "years": "2024-present",
+              "graduationYear": "2026",
+              "bio": "Building visualization and observability tools.",
+              "email": "",
+              "linkedin": "https://www.linkedin.com/in/ephramcukier",
+              "github": "https://github.com/effdotsh/"
+            }
+          ]
         }
       ]
     },
     {
       "year": "2024-2025",
-      "season": "Robomaster",
-      "members": [
+      "season": "RoboMaster",
+      "groups": [
         {
-          "name": "Kyle Paris",
-          "role": "President",
-          "photo": "images/kyle-paris.png",
-          "major": "Mechanical Engineering",
-          "year": "Senior",
-          "bio": "Led the team to Skills Champion at ARC Nationals. Coordinated all mechanical design efforts and competition strategy.",
-          "email": "kyle.paris@colorado.edu",
-          "linkedin": "https://linkedin.com/in/kyleparis",
-          "github": ""
+          "name": "Leadership",
+          "members": [
+            {
+              "name": "Jack Pregler",
+              "role": "Vice President",
+              "photo": "images/jack-pregler.png",
+              "years": "2024-2025",
+              "graduationYear": "2026",
+              "bio": "",
+              "email": "",
+              "linkedin": "https://www.linkedin.com/in/jack-pregler-78a66b263/",
+              "github": ""
+            }
+          ]
         },
         {
-          "name": "Sam Fallon",
-          "role": "Vice Captain",
-          "photo": "images/sam-fallon.png",
-          "major": "Computer Science",
-          "year": "Junior",
-          "bio": "Managed team operations and mentored new members. Built a collaborative and innovative team culture.",
-          "email": "sam.fallon@colorado.edu",
-          "linkedin": "https://linkedin.com/in/samfallon",
-          "github": "https://github.com/samfallon"
+          "name": "Manufacturing",
+          "members": [
+            {
+              "name": "Dylan Hansen",
+              "role": "Director of Manufacturing",
+              "photo": "images/dylan-hansen.png",
+              "years": "2024-2026",
+              "graduationYear": "2026",
+              "bio": "",
+              "email": "",
+              "linkedin": "https://www.linkedin.com/in/dylan-t-hansen/",
+              "github": ""
+            }
+          ]
         },
         {
-          "name": "Jack Pregler",
-          "role": "Lead Programmer",
-          "photo": "images/jack-pregler.png",
-          "major": "Computer Science & Robotics",
-          "year": "Senior",
-          "bio": "Developed award-winning autonomous routines and control systems. Specialized in sensor integration and PID tuning.",
-          "email": "jack.pregler@colorado.edu",
-          "linkedin": "",
-          "github": "https://github.com/jackpregler"
+          "name": "Mechanical",
+          "members": [
+            {
+              "name": "Sam Fallon",
+              "role": "Mechanical Director",
+              "photo": "images/sam-fallon.png",
+              "years": "2023-2024",
+              "graduationYear": "2026",
+              "bio": "",
+              "email": "",
+              "linkedin": "https://www.linkedin.com/in/sam-fallon10/",
+              "github": ""
+            },
+            {
+              "name": "Owen Marsh",
+              "role": "Balancing Standard Mechanical Lead",
+              "photo": "images/Owen marsh.png",
+              "years": "2024-2025",
+              "graduationYear": "2027",
+              "bio": "",
+              "email": "",
+              "linkedin": "https://www.linkedin.com/in/owen-marsh-67095330b",
+              "github": ""
+            }
+          ]
         },
         {
-          "name": "Dylan Hansen",
-          "role": "Mechanical Lead",
-          "photo": "images/dylan-hansen.png",
-          "major": "Mechanical Engineering",
-          "year": "Junior",
-          "bio": "Designed the Titan robot that won Design Award. Expert in CAD modeling, fabrication, and rapid prototyping.",
-          "email": "dylan.hansen@colorado.edu",
-          "linkedin": "https://linkedin.com/in/dylanhansen",
-          "github": ""
+          "name": "Electrical",
+          "members": [
+            {
+              "name": "Matthew Cerza",
+              "role": "Director of Electrical Systems",
+              "photo": "images/matthew-cerza.png",
+              "years": "2022-2025",
+              "graduationYear": "2025",
+              "bio": "I helped kickstart the development of custom PCBs and Supercap.",
+              "email": "matthew.cerza@colorado.edu",
+              "linkedin": "https://www.linkedin.com/in/matthewcerza/",
+              "github": ""
+            }
+          ]
+        },
+        {
+          "name": "Firmware",
+          "members": [
+            {
+              "name": "Jackson Stepka",
+              "role": "Firmware Director",
+              "photo": "images/jackson-stepka.png",
+              "years": "2025",
+              "graduationYear": "2025",
+              "bio": "",
+              "email": "",
+              "linkedin": "https://www.linkedin.com/in/jacksonstepka",
+              "github": "https://github.com/Pandabear1125"
+            },
+            {
+              "name": "Rocco Antoniou",
+              "role": "Dart Firmware Lead",
+              "photo": "images/Rocco.png",
+              "years": "2025",
+              "graduationYear": "2027",
+              "bio": "",
+              "email": "",
+              "linkedin": "https://www.linkedin.com/in/roccoantoniou",
+              "github": "https://github.com/roccoagain"
+            }
+          ]
+        },
+        {
+          "name": "Software",
+          "members": [
+            {
+              "name": "Rishi Hancock",
+              "role": "Director of Software",
+              "photo": "images/rishi-hancock.png",
+              "years": "2023-2024",
+              "graduationYear": "2026",
+              "bio": "",
+              "email": "",
+              "linkedin": "https://www.linkedin.com/in/rishi-hancock-016075197",
+              "github": ""
+            }
+          ]
         }
       ]
     },
     {
       "year": "2023-2024",
-      "season": "ARC Championship",
-      "members": [
+      "season": "RoboMaster",
+      "groups": [
         {
-          "name": "Rishi Hancock",
-          "role": "Team Captain",
-          "photo": "images/rishi-hancock.png",
-          "major": "Electrical Engineering",
-          "year": "Senior",
-          "bio": "Led the team to their first World Championship qualification. Pioneered the team's electronics and sensor systems.",
-          "email": "",
-          "linkedin": "",
-          "github": ""
+          "name": "Design",
+          "members": [
+            {
+              "name": "Jack Pregler",
+              "role": "Shooter Design Lead",
+              "photo": "images/jack-pregler.png",
+              "years": "2023-2024",
+              "graduationYear": "2026",
+              "bio": "",
+              "email": "",
+              "linkedin": "https://www.linkedin.com/in/jack-pregler-78a66b263/",
+              "github": ""
+            },
+            {
+              "name": "Sam Fallon",
+              "role": "Design Lead",
+              "photo": "images/sam-fallon.png",
+              "years": "2022-2023",
+              "graduationYear": "2026",
+              "bio": "",
+              "email": "",
+              "linkedin": "https://www.linkedin.com/in/sam-fallon10/",
+              "github": ""
+            }
+          ]
         },
         {
-          "name": "Antonio Li",
-          "role": "Vice Captain",
-          "photo": "images/antonio-li.png",
-          "major": "Computer Science",
-          "year": "Junior",
-          "bio": "Developed the Phoenix robot's autonomous capabilities. Key contributor to the team's software architecture.",
-          "email": "",
-          "linkedin": "",
-          "github": ""
+          "name": "Manufacturing",
+          "members": [
+            {
+              "name": "Dylan Hansen",
+              "role": "Machining Lead",
+              "photo": "images/dylan-hansen.png",
+              "years": "2023-2024",
+              "graduationYear": "2026",
+              "bio": "",
+              "email": "",
+              "linkedin": "https://www.linkedin.com/in/dylan-t-hansen/",
+              "github": ""
+            }
+          ]
         },
         {
-          "name": "Jackson Stepka",
-          "role": "Lead Designer",
-          "photo": "images/jackson-stepka.png",
-          "major": "Aerospace Engineering",
-          "year": "Sophomore",
-          "bio": "Created the innovative X-drive holonomic system for Phoenix. Responsible for all CAD and technical documentation.",
-          "email": "",
-          "linkedin": "",
-          "github": ""
+          "name": "Electrical",
+          "members": [
+            {
+              "name": "Matthew Cerza",
+              "role": "Director of Electrical Systems",
+              "photo": "images/matthew-cerza.png",
+              "years": "2022-2025",
+              "graduationYear": "2025",
+              "bio": "",
+              "email": "",
+              "linkedin": "https://www.linkedin.com/in/matthewcerza/",
+              "github": ""
+            }
+          ]
         },
         {
-          "name": "Matthew Cerza",
-          "role": "Build Lead",
-          "photo": "images/matthew-cerza.png",
-          "major": "Mechanical Engineering",
-          "year": "Freshman",
-          "bio": "Managed robot assembly and fabrication. Established build processes that improved team efficiency.",
-          "email": "",
-          "linkedin": "",
-          "github": ""
+          "name": "Firmware",
+          "members": [
+            {
+              "name": "Jackson Stepka",
+              "role": "Firmware Lead",
+              "photo": "images/jackson-stepka.png",
+              "years": "2024",
+              "graduationYear": "2025",
+              "bio": "",
+              "email": "",
+              "linkedin": "https://www.linkedin.com/in/jacksonstepka",
+              "github": "https://github.com/Pandabear1125"
+            }
+          ]
+        },
+        {
+          "name": "Software",
+          "members": [
+            {
+              "name": "Rishi Hancock",
+              "role": "Director of Software",
+              "photo": "images/rishi-hancock.png",
+              "years": "2023",
+              "graduationYear": "2026",
+              "bio": "",
+              "email": "",
+              "linkedin": "https://www.linkedin.com/in/rishi-hancock-016075197",
+              "github": ""
+            }
+          ]
         }
       ]
     }
-  ],
-  "_documentation": {
-    "description": "This file contains leadership history by year. Each year has its own leadership team.",
-    "structure": {
-      "year": "Academic year (e.g., '2024-2025')",
-      "season": "ARC season name or 'Current Season' for upcoming",
-      "members": "Array of leadership team members for that year"
-    },
-    "member_fields": {
-      "name": "Full name (use 'TBD' for unfilled positions)",
-      "role": "Leadership position",
-      "photo": "Path to profile photo (use 'images/placeholder-avatar.svg' for TBD)",
-      "major": "Academic major",
-      "year": "Academic year when they held the position",
-      "bio": "Brief description of their contributions",
-      "email": "Contact email (optional)",
-      "linkedin": "LinkedIn URL (optional)",
-      "github": "GitHub URL (optional)"
-    },
-    "tips": [
-      "Add new years at the TOP of the leadership array",
-      "Use 'TBD' for positions not yet filled",
-      "Keep bios focused on achievements during that year",
-      "Profile photos should be square, min 400x400px"
-    ]
-  }
+  ]
 }
