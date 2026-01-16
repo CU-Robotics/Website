@@ -24,12 +24,6 @@
 <body>
   <div id="site-header"></div>
 
-  <div style="padding:100px 20px;text-align:center;color:#CFB87C;font-family:sans-serif">
-    <h1>Under Development</h1>
-    <p style="color:#888">Check back soon!</p>
-  </div>
-  <div style="display:none">
-
   <!-- Hero Section -->
   <section class="hero">
     <!-- Parallax Background -->
@@ -49,7 +43,6 @@
     </div>
 
     <!-- Content -->
-    <!--
     <div class="container hero-content">
       <div class="hero-badge">
         <span>ARC Competition Team</span>
@@ -69,25 +62,18 @@
         <a href="https://forms.gle/WEQET7xzyizAgc7LA" target="_blank" rel="noopener" class="btn btn-outline btn-lg">Apply to Team</a>
       </div>
     </div>
-    -->
-    <div class="container hero-content">
-      <h1 class="hero-title">Under contruction check back soon</h1>
-    </div>
 
     <!-- Scroll Indicator -->
-    <!--
     <div class="scroll-indicator">
       <span>Scroll</span>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M12 5v14M5 12l7 7 7-7"/>
       </svg>
     </div>
-    -->
   </section>
 
   <!-- Mission Section -->
   <section id="about" class="section mission">
-    <!--
     <div class="container">
       <div class="content-block">
         <div class="text-center animate-on-scroll">
@@ -148,6 +134,7 @@
         </div>
       </div>
 
+      <!-- Stats -->
       <div class="stats-grid animate-on-scroll">
         <div class="stat-item">
           <div class="stat-number" data-target="60" data-suffix="+">60+</div>
@@ -161,15 +148,17 @@
           <div class="stat-number" data-target="6">6</div>
           <div class="stat-label">Seasons Competing</div>
         </div>
+        <!-- <div class="stat-item">
+          <div class="stat-number" data-target="15">15+</div>
+          <div class="stat-label">Competitions</div>
+        </div> -->
       </div>
       </div>
     </div>
-    -->
   </section>
 
   <!-- Competition Section -->
   <section class="section competition">
-    <!--
     <div class="container">
       <div class="content-block">
         <div class="competition-layout">
@@ -235,12 +224,10 @@
         </div>
       </div>
     </div>
-    -->
   </section>
 
   <!-- Robot Showcase Section -->
   <section id="robot-showcase" class="section robot-showcase">
-    <!--
     <div class="container">
       <div class="content-block">
         <div class="text-center animate-on-scroll">
@@ -250,8 +237,10 @@
           </p>
         </div>
 
+        <!-- 3D Viewer -->
       <div class="robot-viewer-container animate-on-scroll scale">
         <div id="robot-viewer" class="robot-viewer">
+          <!-- Viewer Header -->
           <div class="robot-viewer-header">
             <span class="viewer-title">3D Model Viewer</span>
             <div class="viewer-controls">
@@ -279,13 +268,16 @@
             </div>
           </div>
 
+          <!-- Canvas container (Three.js renders here) -->
           <div class="viewer-canvas"></div>
 
+          <!-- Loading State -->
           <div class="viewer-loading hidden">
             <div class="loading-spinner"></div>
             <span class="loading-text">Loading 3D Model...</span>
           </div>
 
+          <!-- Placeholder State -->
           <div class="viewer-placeholder">
             <div class="placeholder-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -298,22 +290,23 @@
             <p class="text-muted mt-sm">Add a .glb or .gltf file to the models folder and update robots.json</p>
           </div>
 
+          <!-- Footer Controls -->
           <div class="robot-viewer-footer">
             <span class="mono text-muted" style="font-size: 0.75rem;">Drag to rotate • Scroll to zoom</span>
           </div>
         </div>
       </div>
 
+        <!-- Robot Selector -->
         <div class="robot-selector robots-container animate-on-scroll">
+          <!-- Populated by JavaScript from robots.json -->
         </div>
       </div>
     </div>
-    -->
   </section>
 
   <!-- CTA Section -->
   <section class="section cta-section">
-    <!--
     <div class="container text-center">
       <div class="content-block animate-on-scroll">
         <h2>Ready to <span class="text-gold">Join</span> the Team?</h2>
@@ -327,10 +320,7 @@
         </div>
       </div>
     </div>
-    -->
   </section>
-
-  </div>
 
   <div id="site-footer"></div>
 
