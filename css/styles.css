@@ -1171,6 +1171,51 @@ p {
   position: relative;
 }
 
+.viewer-tap-overlay {
+  display: none;
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, var(--bg-tertiary) 0%, var(--bg-primary) 100%);
+  z-index: 20;
+  cursor: pointer;
+  transition: opacity var(--transition-base);
+}
+
+.viewer-tap-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.tap-overlay-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  color: var(--cu-gold);
+  text-align: center;
+}
+
+.tap-overlay-content svg {
+  opacity: 0.8;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.tap-overlay-content span {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
 .robot-viewer-header {
   position: absolute;
   top: 0;
@@ -2512,6 +2557,10 @@ p {
     grid-template-columns: 1fr;
   }
 
+  .contact-info {
+    position: static;
+  }
+
   .competition-visual {
     order: -1;
   }
@@ -2581,6 +2630,32 @@ p {
 
   .social-grid {
     grid-template-columns: 1fr;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+
+  .robot-viewer {
+    touch-action: pan-y pinch-zoom;
+  }
+
+  .viewer-tap-overlay {
+    display: block;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .robot-viewer {
+    height: 300px;
+  }
+
+  .viewer-controls {
+    gap: var(--space-xs);
   }
 }
 

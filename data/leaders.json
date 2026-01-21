@@ -38,8 +38,19 @@
           ]
         },
         {
-          "name": "Design",
+          "name": "Mechanical & Design",
           "members": [
+            {
+              "name": "Owen Marsh",
+              "role": "Director of Mechanical",
+              "photo": "images/Owen marsh.png",
+              "years": "2025-2026",
+              "graduationYear": "2027",
+              "bio": "Besides building the best robots at CU, I also enjoy mountain activities of various sorts.",
+              "email": "owmarsh12@gmail.com",
+              "linkedin": "https://www.linkedin.com/in/owen-marsh-67095330b",
+              "github": ""
+            },
             {
               "name": "Lilac Le",
               "role": "Dart Subteam Co-Lead",
@@ -49,6 +60,16 @@
               "email": "henrynle0905@gmail.com",
               "linkedin": "https://www.linkedin.com/in/henry-le-117191266",
               "github": ""
+            },
+            {
+              "name": "Owen Campbell",
+              "role": "Dart System Co-Lead",
+              "years": "2025-2026",
+              "graduationYear": "2028",
+              "bio": "",
+              "email": "owen.campbell@colorado.edu",
+              "linkedin": "https://www.linkedin.com/in/owen-campbell-a2353b238/",
+              "github": "https://github.com/frosty6742"
             }
           ]
         },
@@ -74,22 +95,6 @@
               "bio": "Live. Laugh. Lathe.",
               "email": "nicholas.woolsey01@gmail.com",
               "linkedin": "https://www.linkedin.com/in/nwoolsey/",
-              "github": ""
-            }
-          ]
-        },
-        {
-          "name": "Mechanical",
-          "members": [
-            {
-              "name": "Owen Marsh",
-              "role": "Director of Mechanical",
-              "photo": "images/Owen marsh.png",
-              "years": "2025-2026",
-              "graduationYear": "2027",
-              "bio": "Besides building the best robots at CU, I also enjoy mountain activities of various sorts.",
-              "email": "owmarsh12@gmail.com",
-              "linkedin": "https://www.linkedin.com/in/owen-marsh-67095330b",
               "github": ""
             }
           ]
@@ -153,11 +158,11 @@
             },
             {
               "name": "Ephram Cukier",
-              "role": "Software",
+              "role": "Software Lead",
               "photo": "images/Ephram Cukier.png",
               "years": "2024-present",
               "graduationYear": "2026",
-              "bio": "Building visualization and observability tools.",
+              "bio": "I like cheese 🧀",
               "email": "",
               "linkedin": "https://www.linkedin.com/in/ephramcukier",
               "github": "https://github.com/effdotsh/"
@@ -173,6 +178,16 @@
         {
           "name": "Leadership",
           "members": [
+            {
+              "name": "Kyle Paris",
+              "role": "President",
+              "years": "2024-2025",
+              "graduationYear": "2025",
+              "bio": "",
+              "email": "",
+              "linkedin": "https://www.linkedin.com/in/kyle-paris-979673217",
+              "github": ""
+            },
             {
               "name": "Jack Pregler",
               "role": "Vice President",
@@ -285,6 +300,17 @@
               "email": "",
               "linkedin": "https://www.linkedin.com/in/rishi-hancock-016075197",
               "github": ""
+            },
+            {
+              "name": "Ephram Cukier",
+              "role": "Software Lead",
+              "photo": "images/Ephram Cukier.png",
+              "years": "2024-2025",
+              "graduationYear": "2026",
+              "bio": "",
+              "email": "",
+              "linkedin": "https://www.linkedin.com/in/ephramcukier",
+              "github": "https://github.com/effdotsh/"
             }
           ]
         }
@@ -294,6 +320,31 @@
       "year": "2023-2024",
       "season": "RoboMaster",
       "groups": [
+        {
+          "name": "Leadership",
+          "members": [
+            {
+              "name": "Isaac Wilcove",
+              "role": "Co-President",
+              "years": "2023-2024",
+              "graduationYear": "2024",
+              "bio": "Founder of CU Robotics.",
+              "email": "",
+              "linkedin": "",
+              "github": ""
+            },
+            {
+              "name": "Kyle Paris",
+              "role": "Co-President",
+              "years": "2023-2024",
+              "graduationYear": "2025",
+              "bio": "",
+              "email": "",
+              "linkedin": "https://www.linkedin.com/in/kyle-paris-979673217",
+              "github": ""
+            }
+          ]
+        },
         {
           "name": "Design",
           "members": [
@@ -381,6 +432,42 @@
               "bio": "",
               "email": "",
               "linkedin": "https://www.linkedin.com/in/rishi-hancock-016075197",
+              "github": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year": "2020-2023",
+      "season": "Founding Era",
+      "groups": [
+        {
+          "name": "Leadership",
+          "members": [
+            {
+              "name": "Isaac Wilcove",
+              "role": "Founder & President",
+              "years": "2020-2024",
+              "graduationYear": "2024",
+              "bio": "Founder of CU Robotics.",
+              "email": "",
+              "linkedin": "",
+              "github": ""
+            }
+          ]
+        },
+        {
+          "name": "Mechanical",
+          "members": [
+            {
+              "name": "Kyle Paris",
+              "role": "Director of Mechanical",
+              "years": "2021-2023",
+              "graduationYear": "2025",
+              "bio": "Dreamer? Innovator? Re-imaginer of what's possible? Nah, I just think building robots is pretty cool.",
+              "email": "kparis7878@gmail.com",
+              "linkedin": "https://www.linkedin.com/in/kyle-paris-979673217",
               "github": ""
             }
           ]

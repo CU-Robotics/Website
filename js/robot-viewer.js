@@ -4,6 +4,11 @@
  * Protected against casual downloading
  */
 
+function isMobileDevice() {
+  return window.innerWidth <= 768 ||
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
 class RobotViewer {
   constructor(containerId) {
     this.container = document.getElementById(containerId);
@@ -137,7 +142,8 @@ class RobotViewer {
       alpha: true
     });
     this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    const maxPixelRatio = isMobileDevice() ? 1 : Math.min(window.devicePixelRatio, 2);
+    this.renderer.setPixelRatio(maxPixelRatio);
     this.renderer.outputEncoding = THREE.sRGBEncoding;
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
     this.renderer.toneMappingExposure = 1;
@@ -158,8 +164,9 @@ class RobotViewer {
     const keyLight = new THREE.DirectionalLight(this.goldColor, 1);
     keyLight.position.set(5, 5, 5);
     keyLight.castShadow = true;
-    keyLight.shadow.mapSize.width = 2048;
-    keyLight.shadow.mapSize.height = 2048;
+    const shadowMapSize = isMobileDevice() ? 1024 : 2048;
+    keyLight.shadow.mapSize.width = shadowMapSize;
+    keyLight.shadow.mapSize.height = shadowMapSize;
     keyLight.shadow.camera.near = 0.5;
     keyLight.shadow.camera.far = 50;
     this.scene.add(keyLight);
@@ -530,15 +537,43 @@ class RobotViewer {
   }
 }
 
-// Initialize viewer when DOM is ready
+// Initialize viewer when DOM is ready with lazy loading
 document.addEventListener('DOMContentLoaded', () => {
   const viewerContainer = document.getElementById('robot-viewer');
-  if (viewerContainer) {
-    // Check if Three.js is loaded
+  if (!viewerContainer) return;
+
+  const tapOverlay = document.getElementById('viewer-tap-overlay');
+  const isMobile = isMobileDevice();
+
+  function initViewer() {
     if (typeof THREE !== 'undefined') {
       window.robotViewer = new RobotViewer('robot-viewer');
+    }
+  }
+
+  // On mobile: require tap to load
+  if (isMobile && tapOverlay) {
+    tapOverlay.addEventListener('click', () => {
+      tapOverlay.classList.add('hidden');
+      initViewer();
+    });
+  } else {
+    // On desktop: use IntersectionObserver for lazy loading
+    if (tapOverlay) tapOverlay.style.display = 'none';
+
+    if ('IntersectionObserver' in window) {
+      const viewerObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            initViewer();
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '100px', threshold: 0 });
+
+      viewerObserver.observe(viewerContainer);
     } else {
-      console.warn('Three.js not loaded. 3D viewer will not be available.');
+      initViewer();
     }
   }
 });
