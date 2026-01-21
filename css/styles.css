@@ -507,6 +507,7 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 40%;
 }
 
 /* Hero overlays */
@@ -516,9 +517,9 @@ p {
   z-index: -1;
   background: linear-gradient(
     135deg,
-    rgba(0, 0, 0, 0.9) 0%,
-    rgba(0, 0, 0, 0.7) 40%,
-    rgba(0, 0, 0, 0.5) 100%
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.4) 40%,
+    rgba(0, 0, 0, 0.2) 100%
   );
 }
 
@@ -971,6 +972,28 @@ p {
   margin-top: var(--space-2xl);
 }
 
+.mission-video {
+  margin-top: var(--space-2xl);
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  border: 1px solid rgba(207, 184, 124, 0.2);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .mission-item {
   text-align: center;
   padding: var(--space-xl);
@@ -1083,27 +1106,13 @@ p {
 }
 
 .trophy-glow {
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-  animation: trophyPulse 3s ease-in-out infinite;
-}
-
-@keyframes trophyPulse {
-  0%, 100% { transform: scale(1); opacity: 0.5; }
-  50% { transform: scale(1.2); opacity: 0.8; }
+  display: none;
 }
 
 .trophy-icon {
-  font-size: 12rem;
-  filter: drop-shadow(0 0 30px var(--accent-glow));
-  animation: trophyFloat 4s ease-in-out infinite;
-}
-
-@keyframes trophyFloat {
-  0%, 100% { transform: translateY(0) rotate(-5deg); }
-  50% { transform: translateY(-20px) rotate(5deg); }
+  border-radius: var(--radius-lg);
+  box-shadow: 0 0 40px 10px var(--accent-glow);
+  overflow: hidden;
 }
 
 /* Info cards in competition */

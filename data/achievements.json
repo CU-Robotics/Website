@@ -1,39 +1,63 @@
 {
   "achievements": [
     {
-      "year": "2026",
-       "items": [
-        {
-          "competition": "Championship",
-          "award": "Skills Champion",
-          "description": "Achieved highest combined autonomous and driver skills score in the university division.",
-          "image": "images/achievements/skills-2025.jpg",
-          "date": "2025-04-20"
-        }
-      ]
-      
-    },
-    {
-      "year": "2025",
+      "year": "2024-25",
       "items": [
         {
-          "competition": "Championship",
-          "award": "Skills Champion",
-          "description": "Achieved highest combined autonomous and driver skills score in the university division.",
-          "image": "images/achievements/skills-2025.jpg",
+          "competition": "ARC 1v1",
+          "award": "1st Place",
+          "description": "Championship victory in the 1v1 competition bracket.",
+          "date": "2025-04-20"
+        },
+        {
+          "competition": "ARC 3v3",
+          "award": "2nd Place",
+          "description": "Runner-up finish in the 3v3 team competition.",
           "date": "2025-04-20"
         }
       ]
     },
     {
-      "year": "2024",
+      "year": "2023-24",
       "items": [
         {
-          "competition": "ARC Championship",
-          "award": "Round of 16",
-          "description": "First appearance at World Championship, advancing through qualification rounds.",
-          "image": "images/achievements/worlds-2024.jpg",
-          "date": "2024-04-25"
+          "competition": "RoboMaster 1v1",
+          "award": "2nd Place",
+          "description": "Runner-up finish in the 1v1 competition bracket.",
+          "date": "2024-04-20"
+        }
+      ]
+    },
+    {
+      "year": "2022-23",
+      "items": [
+        {
+          "competition": "RoboMaster 3v3",
+          "award": "Top 8",
+          "description": "Advanced to the quarterfinals in the 3v3 team competition.",
+          "date": "2023-04-20"
+        }
+      ]
+    },
+    {
+      "year": "2021-22",
+      "items": [
+        {
+          "competition": "RoboMaster 3v3",
+          "award": "First 3v3 Competition",
+          "description": "Competed in our first 3v3 team event, expanding beyond 1v1.",
+          "date": "2022-04-20"
+        }
+      ]
+    },
+    {
+      "year": "2020-21",
+      "items": [
+        {
+          "competition": "RoboMaster",
+          "award": "Team Founded",
+          "description": "CU Robotics was founded and competed for the first time.",
+          "date": "2021-04-20"
         }
       ]
     }
