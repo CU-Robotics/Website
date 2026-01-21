@@ -28,7 +28,7 @@
   <section class="hero">
     <!-- Parallax Background -->
     <div class="hero-parallax" data-speed="0.3">
-      <img src="images/hero.jpg" alt="CU Robotics Competition">
+      <img src="images/reflection_robots.jpg" alt="CU Robotics Competition">
     </div>
 
     <!-- Overlays -->
@@ -148,10 +148,19 @@
           <div class="stat-number" data-target="6">6</div>
           <div class="stat-label">Seasons Competing</div>
         </div>
-        <!-- <div class="stat-item">
-          <div class="stat-number" data-target="15">15+</div>
-          <div class="stat-label">Competitions</div>
-        </div> -->
+      </div>
+
+      <!-- Mission Video -->
+      <div class="mission-video animate-on-scroll">
+        <div class="video-container">
+          <iframe
+            src="https://www.youtube.com/embed/O2fp67X3vsg"
+            title="CU Robotics"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
       </div>
       </div>
     </div>
@@ -218,7 +227,7 @@
           <div class="competition-visual animate-on-scroll from-right">
             <div class="trophy-container">
               <div class="trophy-glow"></div>
-              <div class="trophy-icon"><img src="images/trophy.png" alt="Trophy" style="width:100%;height:100%;object-fit:contain;"></div>
+              <div class="trophy-icon"><img src="images/robots_at_comp.png" alt="CU Robotics at Competition" style="width:100%;height:100%;object-fit:contain;"></div>
             </div>
           </div>
         </div>
@@ -240,6 +249,18 @@
         <!-- 3D Viewer -->
       <div class="robot-viewer-container animate-on-scroll scale">
         <div id="robot-viewer" class="robot-viewer">
+          <!-- Tap to Load Overlay (mobile) -->
+          <div class="viewer-tap-overlay" id="viewer-tap-overlay">
+            <div class="tap-overlay-content">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                <line x1="12" y1="22.08" x2="12" y2="12"/>
+              </svg>
+              <span>Tap to Load 3D Model</span>
+            </div>
+          </div>
+
           <!-- Viewer Header -->
           <div class="robot-viewer-header">
             <span class="viewer-title">3D Model Viewer</span>
@@ -297,10 +318,11 @@
         </div>
       </div>
 
-        <!-- Robot Selector -->
+        <!-- Robot Selector (commented out) -->
+        <!--
         <div class="robot-selector robots-container animate-on-scroll">
-          <!-- Populated by JavaScript from robots.json -->
         </div>
+        -->
       </div>
     </div>
   </section>
@@ -325,10 +347,10 @@
   <div id="site-footer"></div>
 
   <!-- Three.js (loaded from CDN) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/DRACOLoader.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/DRACOLoader.js"></script>
 
   <!-- Main Scripts -->
   <script src="js/components.js"></script>
