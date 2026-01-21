@@ -1,0 +1,5 @@
+.claude/
+.DS_Store
+package-lock.json
+package.json
+settings.local.json
