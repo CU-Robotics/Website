@@ -20,53 +20,7 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="container navbar-content">
-      <a href="index.html" class="logo">
-        <img src="images/logo.png" alt="CU Robotics Logo">
-        <span class="logo-text">CU <span>Robotics</span></span>
-      </a>
-
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="team.html">Team</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="achievements.html">Achievements</a></li>
-        <li><a href="contact.html" class="active">Contact</a></li>
-      </ul>
-
-      <div class="nav-cta">
-        <a href="https://docs.google.com/forms/d/e/your-form-id/viewform" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Join Us</a>
-      </div>
-
-      <button class="mobile-menu-btn" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- Mobile Menu -->
-  <div class="mobile-menu">
-    <ul class="mobile-nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="team.html">Team</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="achievements.html">Achievements</a></li>
-      <li><a href="contact.html" class="active">Contact</a></li>
-    </ul>
-    <div class="mobile-cta">
-      <a href="https://docs.google.com/forms/d/e/your-form-id/viewform" target="_blank" rel="noopener" class="btn btn-primary">Join Our Team</a>
-    </div>
-  </div>
-
-  <!-- Under Development -->
-  <div style="padding:100px 20px;text-align:center;color:#CFB87C;font-family:sans-serif">
-    <h1>Under Development</h1><p style="color:#888">Check back soon!</p>
-  </div>
-  <div style="display:none">
+  <div id="site-header"></div>
 
   <!-- Page Header -->
   <header class="page-header">
@@ -100,7 +54,7 @@
             </div>
             <div>
               <p class="contact-label">Email</p>
-              <p class="contact-value"><a href="mailto:curobotics@colorado.edu">curobotics@colorado.edu</a></p>
+              <p class="contact-value"><a href="mailto:curobotics@colorado.edu">roboticscu@gmail.com</a></p>
             </div>
           </div>
 
@@ -128,22 +82,22 @@
             </div>
             <div>
               <p class="contact-label">Meetings</p>
-              <p class="contact-value">Wednesdays & Saturdays<br>Check Discord for times</p>
+              <p class="contact-value">Tuesdays & Saturdays<br>Check Discord for times</p>
             </div>
           </div>
 
           <!-- Social Links -->
           <h3 class="mt-xl mb-lg">Follow <span class="text-gold">Us</span></h3>
           <div class="social-grid">
-            <a href="https://discord.gg/curobotics" target="_blank" rel="noopener" class="social-link">
+            <a href="https://discord.gg/Ym2kEbnNzg" target="_blank" rel="noopener" class="social-link">
               <img src="images/discord-icon.png" alt="Discord">
               <span>Discord</span>
             </a>
-            <a href="https://instagram.com/curobotics" target="_blank" rel="noopener" class="social-link">
+            <a href="https://www.instagram.com/curoboticsteam/" target="_blank" rel="noopener" class="social-link">
               <img src="images/instagram-icon.png" alt="Instagram">
               <span>Instagram</span>
             </a>
-            <a href="https://youtube.com/@curobotics" target="_blank" rel="noopener" class="social-link">
+            <a href="https://www.youtube.com/@curoboticsteam" target="_blank" rel="noopener" class="social-link">
               <img src="images/youtube-icon.png" alt="YouTube">
               <span>YouTube</span>
             </a>
@@ -153,7 +107,12 @@
         <!-- Contact Form -->
         <div class="contact-form animate-on-scroll from-right">
           <h3 class="mb-lg">Send Us a <span class="text-gold">Message</span></h3>
-          <form action="https://formspree.io/f/your-form-id" method="POST">
+          <form action="https://formsubmit.co/roboticscu@gmail.com" method="POST">
+            <!-- FormSubmit Configuration -->
+            <input type="hidden" name="_next" value="https://curobotics.net/thanks.html">
+            <input type="hidden" name="_template" value="table">
+            <input type="text" name="_honey" style="display:none">
+
             <div class="form-group">
               <label for="name" class="form-label">Name</label>
               <input type="text" id="name" name="name" class="form-input" placeholder="Your name" required>
@@ -166,7 +125,7 @@
 
             <div class="form-group">
               <label for="subject" class="form-label">Subject</label>
-              <input type="text" id="subject" name="subject" class="form-input" placeholder="What's this about?" required>
+              <input type="text" id="subject" name="_subject" class="form-input" placeholder="What's this about?" required>
             </div>
 
             <div class="form-group">
@@ -190,89 +149,16 @@
           Fill out our interest form and we'll get back to you about joining the team.
           No prior experience required!
         </p>
-        <a href="https://docs.google.com/forms/d/e/your-form-id/viewform" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Apply to Join</a>
+        <a href="https://forms.gle/WEQET7xzyizAgc7LA" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Apply to Join</a>
       </div>
     </div>
   </section>
-  </div>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <div class="footer-logo">
-            <img src="images/logo.png" alt="CU Robotics">
-            <span>CU Robotics</span>
-          </div>
-          <p class="footer-tagline">
-            Design. Build. Code. Compete. Representing the University of Colorado Boulder in ARC Robotics Competition.
-          </p>
-          <div class="footer-socials">
-            <a href="https://instagram.com/curobotics" target="_blank" rel="noopener" aria-label="Instagram">
-              <img src="images/instagram-icon.png" alt="Instagram">
-            </a>
-            <a href="https://discord.gg/curobotics" target="_blank" rel="noopener" aria-label="Discord">
-              <img src="images/discord-icon.png" alt="Discord">
-            </a>
-            <a href="https://youtube.com/@curobotics" target="_blank" rel="noopener" aria-label="YouTube">
-              <img src="images/youtube-icon.png" alt="YouTube">
-            </a>
-          </div>
-        </div>
-
-        <div class="footer-nav">
-          <h4 class="footer-heading">Navigation</h4>
-          <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="team.html">Team</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="achievements.html">Achievements</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-nav">
-          <h4 class="footer-heading">Resources</h4>
-          <ul class="footer-links">
-            <li><a href="https://www.arc-robotics.org/" target="_blank" rel="noopener">ARC Robotics</a></li>
-            <li><a href="https://www.arc-robotics.org/" target="_blank" rel="noopener">ARC Championship</a></li>
-            <li><a href="https://www.colorado.edu/" target="_blank" rel="noopener">CU Boulder</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-newsletter">
-          <h4 class="footer-heading">Stay Updated</h4>
-          <p class="text-muted" style="font-size: 0.9rem; margin-bottom: var(--space-md);">
-            Subscribe to get news about competitions and team updates.
-          </p>
-          <form class="newsletter-form" action="#" method="POST">
-            <input type="email" class="newsletter-input" placeholder="Your email" required>
-            <button type="submit" class="newsletter-btn">Subscribe</button>
-          </form>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p class="footer-copyright">
-          &copy; 2026 <a href="https://www.colorado.edu/" target="_blank" rel="noopener">CU Robotics</a> | University of Colorado Boulder
-        </p>
-        <div class="footer-socials">
-          <a href="https://instagram.com/curobotics" target="_blank" rel="noopener" aria-label="Instagram">
-            <img src="images/instagram-icon.png" alt="Instagram">
-          </a>
-          <a href="https://discord.gg/curobotics" target="_blank" rel="noopener" aria-label="Discord">
-            <img src="images/discord-icon.png" alt="Discord">
-          </a>
-          <a href="https://youtube.com/@curobotics" target="_blank" rel="noopener" aria-label="YouTube">
-            <img src="images/youtube-icon.png" alt="YouTube">
-          </a>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <div id="site-footer"></div>
 
   <!-- Scripts -->
+  <script src="js/components.js"></script>
   <script src="js/main.js"></script>
+  <script>loadHeader('contact'); loadFooter();</script>
 </body>
 </html>

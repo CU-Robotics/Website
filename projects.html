@@ -20,57 +20,18 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="container navbar-content">
-      <a href="index.html" class="logo">
-        <img src="images/logo.png" alt="CU Robotics Logo">
-        <span class="logo-text">CU <span>Robotics</span></span>
-      </a>
+  <div id="site-header"></div>
 
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="team.html">Team</a></li>
-        <li><a href="projects.html" class="active">Projects</a></li>
-        <li><a href="achievements.html">Achievements</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-
-      <div class="nav-cta">
-        <a href="https://docs.google.com/forms/d/e/your-form-id/viewform" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Join Us</a>
-      </div>
-
-      <button class="mobile-menu-btn" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- Mobile Menu -->
-  <div class="mobile-menu">
-    <ul class="mobile-nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="team.html">Team</a></li>
-      <li><a href="projects.html" class="active">Projects</a></li>
-      <li><a href="achievements.html">Achievements</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <div class="mobile-cta">
-      <a href="https://docs.google.com/forms/d/e/your-form-id/viewform" target="_blank" rel="noopener" class="btn btn-primary">Join Our Team</a>
-    </div>
-  </div>
-
-  <!-- Under Development -->
   <div style="padding:100px 20px;text-align:center;color:#CFB87C;font-family:sans-serif">
-    <h1>Under Development</h1><p style="color:#888">Check back soon!</p>
+    <h1>Under Development</h1>
+    <p style="color:#888">Check back soon!</p>
   </div>
   <div style="display:none">
 
   <!-- Page Header -->
   <header class="page-header">
     <div class="container">
+      <!--
       <nav class="breadcrumb">
         <a href="index.html">Home</a>
         <span class="breadcrumb-separator">/</span>
@@ -80,11 +41,14 @@
       <p class="page-subtitle">
         Competition robots, technical innovations, and engineering showcases from CU Robotics.
       </p>
+      -->
+      <h1 class="page-title">Under contruction check back soon</h1>
     </div>
   </header>
 
   <!-- Filter Buttons -->
   <section class="section-sm" style="background: var(--bg-secondary);">
+    <!--
     <div class="container">
       <div class="projects-filter animate-on-scroll">
         <button class="filter-btn active" data-filter="all">All Projects</button>
@@ -93,187 +57,26 @@
         <button class="filter-btn" data-filter="outreach">Outreach</button>
       </div>
     </div>
+    -->
   </section>
 
   <!-- Projects Grid -->
   <section class="section">
+    <!--
     <div class="container">
       <div class="projects-grid">
-        <!-- Project Card: Atlas 2026 -->
-        <div class="project-card animate-on-scroll stagger-1" data-category="robots">
-          <div class="project-image">
-            <img src="images/hero.jpg" alt="Atlas Robot">
-            <div class="project-overlay">
-              <div class="project-tags">
-                <span class="project-tag">ARC</span>
-                <span class="project-tag">2025-2026</span>
-                <span class="project-tag">Active</span>
-              </div>
-            </div>
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">Atlas - Competition Robot</h3>
-            <p class="project-description">
-              Our current competition robot for the ARC Championship season, featuring a 6-motor mecanum drivetrain and advanced autonomous capabilities.
-            </p>
-            <a href="index.html#robot-showcase" class="project-link">
-              View in 3D
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Project Card: Titan 2025 -->
-        <div class="project-card animate-on-scroll stagger-2" data-category="robots">
-          <div class="project-image">
-            <img src="images/hero.jpg" alt="Titan Robot">
-            <div class="project-overlay">
-              <div class="project-tags">
-                <span class="project-tag">ARC</span>
-                <span class="project-tag">2024-2025</span>
-                <span class="project-tag">Skills Champion</span>
-              </div>
-            </div>
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">Titan - Skills Champion</h3>
-            <p class="project-description">
-              Our award-winning robot from 2024-2025 season, known for reliability and consistent autonomous performance.
-            </p>
-            <a href="achievements.html" class="project-link">
-              See Achievements
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Project Card: Autonomous Suite -->
-        <div class="project-card animate-on-scroll stagger-3" data-category="software">
-          <div class="project-image">
-            <div style="background: linear-gradient(135deg, var(--cu-charcoal) 0%, var(--cu-black) 100%); height: 100%; display: flex; align-items: center; justify-content: center;">
-              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--cu-gold)" stroke-width="1.5" opacity="0.8">
-                <polyline points="16 18 22 12 16 6"/>
-                <polyline points="8 6 2 12 8 18"/>
-              </svg>
-            </div>
-            <div class="project-overlay">
-              <div class="project-tags">
-                <span class="project-tag">C++</span>
-                <span class="project-tag">Autonomous</span>
-              </div>
-            </div>
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">Autonomous Control Suite</h3>
-            <p class="project-description">
-              Custom PID controllers, odometry systems, and path planning algorithms developed in-house for competition.
-            </p>
-            <a href="https://github.com/curobotics" target="_blank" rel="noopener" class="project-link">
-              View on GitHub
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Project Card: Vision System -->
-        <div class="project-card animate-on-scroll stagger-4" data-category="software">
-          <div class="project-image">
-            <div style="background: linear-gradient(135deg, var(--cu-charcoal) 0%, var(--cu-black) 100%); height: 100%; display: flex; align-items: center; justify-content: center;">
-              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--cu-gold)" stroke-width="1.5" opacity="0.8">
-                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                <circle cx="12" cy="12" r="3"/>
-              </svg>
-            </div>
-            <div class="project-overlay">
-              <div class="project-tags">
-                <span class="project-tag">Python</span>
-                <span class="project-tag">Computer Vision</span>
-              </div>
-            </div>
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">Vision Tracking System</h3>
-            <p class="project-description">
-              Real-time object detection and tracking using a vision sensor for ARC game element identification during autonomous.
-            </p>
-            <a href="https://github.com/curobotics" target="_blank" rel="noopener" class="project-link">
-              Learn More
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Project Card: Phoenix 2024 -->
-        <div class="project-card animate-on-scroll stagger-1" data-category="robots">
-          <div class="project-image">
-            <img src="images/hero.jpg" alt="Phoenix Robot">
-            <div class="project-overlay">
-              <div class="project-tags">
-                <span class="project-tag">ARC</span>
-                <span class="project-tag">2023-2024</span>
-                <span class="project-tag">Worlds Qualifier</span>
-              </div>
-            </div>
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">Phoenix - Worlds Qualifier</h3>
-            <p class="project-description">
-              Our first World Championship qualifying robot, featuring an X-drive holonomic drivetrain and field-centric controls.
-            </p>
-            <a href="achievements.html" class="project-link">
-              See Journey
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Project Card: STEM Outreach -->
-        <div class="project-card animate-on-scroll stagger-2" data-category="outreach">
-          <div class="project-image">
-            <div style="background: linear-gradient(135deg, var(--cu-charcoal) 0%, var(--cu-black) 100%); height: 100%; display: flex; align-items: center; justify-content: center;">
-              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--cu-gold)" stroke-width="1.5" opacity="0.8">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                <circle cx="9" cy="7" r="4"/>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-              </svg>
-            </div>
-            <div class="project-overlay">
-              <div class="project-tags">
-                <span class="project-tag">Education</span>
-                <span class="project-tag">Community</span>
-              </div>
-            </div>
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">STEM Outreach Program</h3>
-            <p class="project-description">
-              Workshops and mentorship programs introducing local students to robotics and engineering fundamentals.
-            </p>
-            <a href="contact.html" class="project-link">
-              Get Involved
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-              </svg>
-            </a>
-          </div>
+        <div class="text-center" style="grid-column: 1 / -1;">
+          <div class="loading-spinner" style="margin: 0 auto;"></div>
+          <p class="text-muted mt-md">Loading projects...</p>
         </div>
       </div>
     </div>
+    -->
   </section>
 
   <!-- CTA Section -->
   <section class="section" style="background: var(--bg-secondary);">
+    <!--
     <div class="container text-center">
       <div class="animate-on-scroll">
         <h2>Have a <span class="text-gold">Project Idea</span>?</h2>
@@ -283,92 +86,21 @@
         <a href="contact.html" class="btn btn-primary btn-lg">Contact Us</a>
       </div>
     </div>
+    -->
   </section>
+
   </div>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <div class="footer-logo">
-            <img src="images/logo.png" alt="CU Robotics">
-            <span>CU Robotics</span>
-          </div>
-          <p class="footer-tagline">
-            Design. Build. Code. Compete. Representing the University of Colorado Boulder in ARC Robotics Competition.
-          </p>
-          <div class="footer-socials">
-            <a href="https://instagram.com/curobotics" target="_blank" rel="noopener" aria-label="Instagram">
-              <img src="images/instagram-icon.png" alt="Instagram">
-            </a>
-            <a href="https://discord.gg/curobotics" target="_blank" rel="noopener" aria-label="Discord">
-              <img src="images/discord-icon.png" alt="Discord">
-            </a>
-            <a href="https://youtube.com/@curobotics" target="_blank" rel="noopener" aria-label="YouTube">
-              <img src="images/youtube-icon.png" alt="YouTube">
-            </a>
-          </div>
-        </div>
-
-        <div class="footer-nav">
-          <h4 class="footer-heading">Navigation</h4>
-          <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="team.html">Team</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="achievements.html">Achievements</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-nav">
-          <h4 class="footer-heading">Resources</h4>
-          <ul class="footer-links">
-            <li><a href="https://www.arc-robotics.org/" target="_blank" rel="noopener">ARC Robotics</a></li>
-            <li><a href="https://www.arc-robotics.org/" target="_blank" rel="noopener">ARC Championship</a></li>
-            <li><a href="https://www.colorado.edu/" target="_blank" rel="noopener">CU Boulder</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-newsletter">
-          <h4 class="footer-heading">Stay Updated</h4>
-          <p class="text-muted" style="font-size: 0.9rem; margin-bottom: var(--space-md);">
-            Subscribe to get news about competitions and team updates.
-          </p>
-          <form class="newsletter-form" action="#" method="POST">
-            <input type="email" class="newsletter-input" placeholder="Your email" required>
-            <button type="submit" class="newsletter-btn">Subscribe</button>
-          </form>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p class="footer-copyright">
-          &copy; 2026 <a href="https://www.colorado.edu/" target="_blank" rel="noopener">CU Robotics</a> | University of Colorado Boulder
-        </p>
-        <div class="footer-socials">
-          <a href="https://instagram.com/curobotics" target="_blank" rel="noopener" aria-label="Instagram">
-            <img src="images/instagram-icon.png" alt="Instagram">
-          </a>
-          <a href="https://discord.gg/curobotics" target="_blank" rel="noopener" aria-label="Discord">
-            <img src="images/discord-icon.png" alt="Discord">
-          </a>
-          <a href="https://youtube.com/@curobotics" target="_blank" rel="noopener" aria-label="YouTube">
-            <img src="images/youtube-icon.png" alt="YouTube">
-          </a>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <div id="site-footer"></div>
 
   <!-- Scripts -->
+  <script src="js/components.js"></script>
   <script src="js/main.js"></script>
   <script>
-    // Project filter functionality
-    document.addEventListener('DOMContentLoaded', () => {
+    loadHeader('projects'); loadFooter();
+    loadProjects().then(() => {
+      // Project filter functionality (after projects are loaded)
       const filterBtns = document.querySelectorAll('.filter-btn');
-      const projectCards = document.querySelectorAll('.project-card');
 
       filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -377,6 +109,7 @@
           btn.classList.add('active');
 
           const filter = btn.dataset.filter;
+          const projectCards = document.querySelectorAll('.project-card');
 
           // Filter cards
           projectCards.forEach(card => {
