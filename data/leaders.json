@@ -16,7 +16,7 @@
             {
               "name": "Owen Marsh",
               "role": "President",
-              "photo": "images/Owen marsh.png",
+              "photo": "images/Members/Owen marsh.png",
               "years": "2024-2027",
               "graduationYear": "2027",
               "bio": "",
@@ -97,7 +97,7 @@
             {
               "name": "Bradley Huynh",
               "role": "Director of Electrical Systems",
-              "photo": "images/Bradley Huynh.png",
+              "photo": "images/Members/Bradley Huynh.png",
               "years": "2025-2027",
               "graduationYear": "2027",
               "bio": "",
@@ -131,7 +131,7 @@
             {
               "name": "Rocco Antoniou",
               "role": "Co-Director of Software",
-              "photo": "images/Rocco.png",
+              "photo": "images/Members/Rocco.png",
               "years": "2025-2027",
               "graduationYear": "2027",
               "bio": "",
@@ -189,7 +189,7 @@
             {
               "name": "Jack Pregler",
               "role": "President",
-              "photo": "images/jack-pregler.png",
+              "photo": "images/Members/jack-pregler.png",
               "years": "2025-2026",
               "graduationYear": "2026",
               "bio": "A RoboMaster at heart and former 1v1 driver, will never live down the chants at competition.",
@@ -200,7 +200,7 @@
             {
               "name": "Sam Fallon",
               "role": "Head Engineer",
-              "photo": "images/sam-fallon.png",
+              "photo": "images/Members/sam-fallon.png",
               "years": "2024-2026",
               "graduationYear": "2026",
               "bio": "I enjoy a bit of everything and love auto aim.",
@@ -216,7 +216,7 @@
             {
               "name": "Owen Marsh",
               "role": "Director of Mechanical",
-              "photo": "images/Owen marsh.png",
+              "photo": "images/Members/Owen marsh.png",
               "years": "2025-2026",
               "graduationYear": "2027",
               "bio": "Besides building the best robots at CU, I also enjoy mountain activities of various sorts.",
@@ -252,7 +252,7 @@
             {
               "name": "Dylan Hansen",
               "role": "Director of Manufacturing",
-              "photo": "images/dylan-hansen.png",
+              "photo": "images/Members/dylan-hansen.png",
               "years": "2024-2026",
               "graduationYear": "2026",
               "bio": "Dylan is in his fourth year with the team, and is very proud of his work to expand the team's manufacturing capabilities.",
@@ -278,7 +278,7 @@
             {
               "name": "Bradley Huynh",
               "role": "Electrical Director",
-              "photo": "images/Bradley Huynh.png",
+              "photo": "images/Members/Bradley Huynh.png",
               "years": "2025-2026",
               "graduationYear": "2027",
               "bio": "Leader of FA5 electrical and supercap refresh.",
@@ -294,7 +294,7 @@
             {
               "name": "Rocco Antoniou",
               "role": "Firmware Director",
-              "photo": "images/Rocco.png",
+              "photo": "images/Members/Rocco.png",
               "years": "2026",
               "graduationYear": "2027",
               "bio": "I write drivers so you don't have to!",
@@ -305,7 +305,7 @@
             {
               "name": "Jack Miller",
               "role": "Firmware Lead",
-              "photo": "images/Jack Miller.png",
+              "photo": "images/Members/Jack Miller.png",
               "years": "2025-2026",
               "graduationYear": "2027",
               "bio": "I build embedded systems, break things on accident, and fix them on purpose!",
@@ -321,7 +321,7 @@
             {
               "name": "Rishi Hancock",
               "role": "Director of Software",
-              "photo": "images/rishi-hancock.png",
+              "photo": "images/Members/rishi-hancock.png",
               "years": "2023-2025",
               "graduationYear": "2026",
               "bio": "Robotics? More like FUN-otics... amiright",
@@ -332,7 +332,7 @@
             {
               "name": "Ephram Cukier",
               "role": "Software Lead",
-              "photo": "images/Ephram Cukier.png",
+              "photo": "images/Members/Ephram Cukier.png",
               "years": "2024-present",
               "graduationYear": "2026",
               "bio": "I like cheese 🧀",
@@ -364,7 +364,7 @@
             {
               "name": "Jack Pregler",
               "role": "Vice President",
-              "photo": "images/jack-pregler.png",
+              "photo": "images/Members/jack-pregler.png",
               "years": "2024-2025",
               "graduationYear": "2026",
               "bio": "",
@@ -380,7 +380,7 @@
             {
               "name": "Dylan Hansen",
               "role": "Director of Manufacturing",
-              "photo": "images/dylan-hansen.png",
+              "photo": "images/Members/dylan-hansen.png",
               "years": "2024-2026",
               "graduationYear": "2026",
               "bio": "",
@@ -396,7 +396,7 @@
             {
               "name": "Sam Fallon",
               "role": "Mechanical Director",
-              "photo": "images/sam-fallon.png",
+              "photo": "images/Members/sam-fallon.png",
               "years": "2023-2024",
               "graduationYear": "2026",
               "bio": "",
@@ -407,7 +407,7 @@
             {
               "name": "Owen Marsh",
               "role": "Balancing Standard Mechanical Lead",
-              "photo": "images/Owen marsh.png",
+              "photo": "images/Members/Owen marsh.png",
               "years": "2024-2025",
               "graduationYear": "2027",
               "bio": "",
@@ -423,7 +423,7 @@
             {
               "name": "Matthew Cerza",
               "role": "Director of Electrical Systems",
-              "photo": "images/matthew-cerza.png",
+              "photo": "images/Members/matthew-cerza.png",
               "years": "2022-2025",
               "graduationYear": "2025",
               "bio": "I helped kickstart the development of custom PCBs and Supercap.",
@@ -439,7 +439,7 @@
             {
               "name": "Jackson Stepka",
               "role": "Firmware Director",
-              "photo": "images/jackson-stepka.png",
+              "photo": "images/Members/jackson-stepka.png",
               "years": "2025",
               "graduationYear": "2025",
               "bio": "",
@@ -450,7 +450,7 @@
             {
               "name": "Rocco Antoniou",
               "role": "Dart Firmware Lead",
-              "photo": "images/Rocco.png",
+              "photo": "images/Members/Rocco.png",
               "years": "2025",
               "graduationYear": "2027",
               "bio": "",
@@ -466,7 +466,7 @@
             {
               "name": "Rishi Hancock",
               "role": "Director of Software",
-              "photo": "images/rishi-hancock.png",
+              "photo": "images/Members/rishi-hancock.png",
               "years": "2023-2024",
               "graduationYear": "2026",
               "bio": "",
@@ -477,7 +477,7 @@
             {
               "name": "Ephram Cukier",
               "role": "Software Lead",
-              "photo": "images/Ephram Cukier.png",
+              "photo": "images/Members/Ephram Cukier.png",
               "years": "2024-2025",
               "graduationYear": "2026",
               "bio": "",
@@ -524,7 +524,7 @@
             {
               "name": "Jack Pregler",
               "role": "Shooter Design Lead",
-              "photo": "images/jack-pregler.png",
+              "photo": "images/Members/jack-pregler.png",
               "years": "2023-2024",
               "graduationYear": "2026",
               "bio": "",
@@ -535,7 +535,7 @@
             {
               "name": "Sam Fallon",
               "role": "Design Lead",
-              "photo": "images/sam-fallon.png",
+              "photo": "images/Members/sam-fallon.png",
               "years": "2022-2023",
               "graduationYear": "2026",
               "bio": "",
@@ -551,7 +551,7 @@
             {
               "name": "Dylan Hansen",
               "role": "Machining Lead",
-              "photo": "images/dylan-hansen.png",
+              "photo": "images/Members/dylan-hansen.png",
               "years": "2023-2024",
               "graduationYear": "2026",
               "bio": "",
@@ -567,7 +567,7 @@
             {
               "name": "Matthew Cerza",
               "role": "Director of Electrical Systems",
-              "photo": "images/matthew-cerza.png",
+              "photo": "images/Members/matthew-cerza.png",
               "years": "2022-2025",
               "graduationYear": "2025",
               "bio": "",
@@ -583,7 +583,7 @@
             {
               "name": "Jackson Stepka",
               "role": "Firmware Lead",
-              "photo": "images/jackson-stepka.png",
+              "photo": "images/Members/jackson-stepka.png",
               "years": "2024",
               "graduationYear": "2025",
               "bio": "",
@@ -599,7 +599,7 @@
             {
               "name": "Rishi Hancock",
               "role": "Director of Software",
-              "photo": "images/rishi-hancock.png",
+              "photo": "images/Members/rishi-hancock.png",
               "years": "2023",
               "graduationYear": "2026",
               "bio": "",

@@ -2,23 +2,19 @@
   "sponsors": [
     {
       "name": "UCEC",
-      "url": "https://www.colorado.edu/ucec/",
-      "icon": "images/sponsors/cu-engineering.png"
+      "url": "https://www.colorado.edu/ucec/"
     },
     {
       "name": "CU Student Government",
-      "url": "https://www.colorado.edu/cusg/about-us/executive-branch/student-organization-allocations-committee",
-      "icon": "images/sponsors/cu-engineering.png"
+      "url": "https://www.colorado.edu/cusg/about-us/executive-branch/student-organization-allocations-committee"
     },
     {
       "name": "MedTronic",
-      "url": "https://www.medtronic.com/en-us/index.html",
-      "icon": "images/sponsors/medtronic.png"
+      "url": "https://www.medtronic.com/en-us/index.html"
     },
     {
       "name": "Pattern Labs",
-      "url": "https://www.patternlabs.ai/",
-      "icon": "images/sponsors/pattern.png"
+      "url": "https://www.patternlabs.ai/"
     }
   ]
 }

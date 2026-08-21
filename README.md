@@ -52,14 +52,10 @@ website/
 │   └── robots.json         # Robot info & 3D models (edit this!)
 │
 ├── images/
-│   ├── logo.png            # Team logo
-│   ├── hero.jpg            # Homepage hero image
-│   ├── [name]-[surname].png # Team member photos
-│   ├── discord-icon.png    # Social icons
-│   ├── instagram-icon.png
-│   ├── youtube-icon.png
-│   ├── robots/             # Robot photos (add here)
-│   └── achievements/       # Achievement photos (add here)
+│   ├── cu-robotics-logo.png # Team logo
+│   ├── Icons/               # Social icons
+│   ├── Members/             # Team member photos and placeholder
+│   └── [robot-photo].jpg    # Robot and competition photos
 │
 └── models/
     └── [robot-name].glb    # 3D robot models (add here)
@@ -79,7 +75,7 @@ Add or edit team members by modifying the JSON file:
     {
       "name": "New Person",
       "role": "Their Role",
-      "photo": "images/new-person.png",
+      "photo": "images/Members/new-person.png",
       "major": "Engineering",
       "year": "Junior",
       "bio": "Short bio here (2-3 sentences max).",
@@ -97,7 +93,7 @@ Add or edit team members by modifying the JSON file:
 **Photo Requirements:**
 - Square aspect ratio (400x400px minimum)
 - PNG or JPG format
-- Save to `images/` folder
+- Save to `images/Members/` folder
 - Use lowercase with hyphens: `first-last.png`
 
 ### Achievements (`data/achievements.json`)
@@ -208,20 +204,19 @@ Add robot information and 3D models:
 
 ### Robot Images
 ```
-images/robots/
-├── atlas-2026.jpg
-├── titan-2025.jpg
-└── phoenix-2024.jpg
+images/
+├── fleet-blue.jpg
+├── fleet-red.jpg
+└── fleet-at-comp.png
 ```
 - Recommended: 16:9 aspect ratio, minimum 800px wide
 - Update `robots.json` with the path
 
 ### Achievement Images
 ```
-images/achievements/
+images/
 ├── arc-championship-2026.jpg
-├── state-championship-2025.jpg
-└── skills-award-2025.jpg
+└── state-championship-2025.jpg
 ```
 - Recommended: 16:9 aspect ratio, minimum 800px wide
 - Update `achievements.json` with the path
@@ -229,7 +224,7 @@ images/achievements/
 ### Team Photos
 - Square aspect ratio (1:1)
 - Minimum 400x400 pixels
-- Save directly in `images/` folder
+- Save in `images/Members/`
 - Naming: `firstname-lastname.png`
 
 ---
@@ -250,9 +245,8 @@ Edit CSS variables in `css/styles.css`:
 
 ### Fonts
 The site uses Google Fonts:
-- **Display:** Space Grotesk (headings)
-- **Body:** Inter (paragraphs)
-- **Mono:** JetBrains Mono (technical text)
+- **Display and body:** Geist
+- **Mono:** Geist Mono
 
 Change in `<head>` of each HTML file.
 

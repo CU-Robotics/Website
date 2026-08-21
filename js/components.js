@@ -15,7 +15,7 @@ function renderDiscordButton(size = '') {
   const sizeClass = size ? ` ${size}` : '';
   return `
     <a href="${config.links.discord}" target="_blank" rel="noopener" class="btn btn-outline btn-discord${sizeClass}">
-      <img src="images/discord-icon.png" alt="">Join Discord
+      <img src="images/Icons/discord-icon.png" alt="">Join Discord
     </a>
   `;
 }
@@ -29,21 +29,17 @@ function renderSocialLinks() {
 
   return socialLinks.map(link => `
     <a href="${link.href}" target="_blank" rel="noopener" aria-label="${link.label}">
-      <img src="images/${link.icon}" alt="${link.label}">
+      <img src="images/Icons/${link.icon}" alt="${link.label}">
     </a>
   `).join('');
 }
 
 function loadHeader(activePage) {
   const headerHTML = `
-  <div class="geo-background">
-    <canvas id="particle-canvas"></canvas>
-  </div>
-
   <nav class="navbar">
     <div class="container navbar-content">
       <a href="index.html" class="logo">
-        <img src="images/logo.png" alt="CU Robotics Logo">
+        <img src="images/cu-robotics-logo.png" alt="CU Robotics Logo">
         <span class="logo-text">CU <span>Robotics</span></span>
       </a>
 
@@ -65,7 +61,7 @@ function loadHeader(activePage) {
     ${renderNavigation(activePage, 'mobile-nav-links')}
     <div class="mobile-cta">
       ${renderDiscordButton()}
-      <a href="${config.links.apply}" target="_blank" rel="noopener" class="btn btn-apply mobile-apply-btn">Apply to Team</a>
+      <a href="${config.links.apply}" target="_blank" rel="noopener" class="btn btn-apply mobile-apply-btn">Apply</a>
     </div>
   </div>
   `;
@@ -83,47 +79,38 @@ function loadFooter() {
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="footer-logo">
-            <img src="images/logo.png" alt="CU Robotics">
+            <img src="images/cu-robotics-logo.png" alt="CU Robotics">
             <span>CU Robotics</span>
           </div>
           <div class="footer-socials">${renderSocialLinks()}</div>
         </div>
 
-        <div class="footer-nav">
-          <h4 class="footer-heading">Navigation</h4>
-          <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="team.html">Leadership</a></li>
-            <li><a href="achievements.html">Achievements</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
+        <div class="footer-nav-group">
+          <div class="footer-nav">
+            <h4 class="footer-heading">Navigation</h4>
+            <ul class="footer-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="team.html">Leadership</a></li>
+              <li><a href="achievements.html">Achievements</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-nav">
+            <h4 class="footer-heading">Resources</h4>
+            <ul class="footer-links">
+              <li><a href="https://www.arc-robotics.org/" target="_blank" rel="noopener">ARC Robotics</a></li>
+              <li><a href="${config.links.apply}" target="_blank" rel="noopener">Join the Team</a></li>
+            </ul>
+          </div>
         </div>
 
-        <div class="footer-nav">
-          <h4 class="footer-heading">Resources</h4>
-          <ul class="footer-links">
-            <li><a href="https://www.arc-robotics.org/" target="_blank" rel="noopener">ARC Robotics</a></li>
-            <li><a href="${config.links.apply}" target="_blank" rel="noopener">Join the Team</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-newsletter">
-          <h4 class="footer-heading">Stay Updated</h4>
-          <p class="footer-newsletter-copy text-muted">
-            Subscribe to get news about competitions and team updates.
-          </p>
-          <form class="newsletter-form" action="#" method="POST">
-            <input type="email" class="newsletter-input" placeholder="Your email" required>
-            <button type="submit" class="newsletter-btn">Subscribe</button>
-          </form>
-        </div>
       </div>
 
       <div class="footer-bottom">
         <p class="footer-copyright">
           &copy; 2026 <a href="https://www.colorado.edu/" target="_blank" rel="noopener">CU Robotics</a> | University of Colorado Boulder
         </p>
-        <div class="footer-socials">${renderSocialLinks()}</div>
       </div>
     </div>
   </footer>

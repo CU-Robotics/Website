@@ -10,13 +10,13 @@
   <title>CU Robotics | ARC Competition Team at CU Boulder</title>
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="images/logo.png">
-  <link rel="apple-touch-icon" href="images/logo.png">
+  <link rel="icon" type="image/png" href="images/cu-robotics-logo.png">
+  <link rel="apple-touch-icon" href="images/cu-robotics-logo.png">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/styles.css">
@@ -26,32 +26,35 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <!-- Parallax Background -->
-    <div class="hero-parallax" data-speed="0.3">
-      <img src="images/reflection_robots.jpg" alt="CU Robotics Competition">
-    </div>
-
-    <!-- Overlays -->
-    <div class="hero-overlay"></div>
-    <!-- Content -->
     <div class="container hero-content">
       <h1 class="hero-title">
         <span class="line-1">University of Colorado Boulder</span>
-        <span class="line-2">CU <span class="gold">Robotics</span></span>
+        <span class="line-2">CU Robotics</span>
       </h1>
 
       <div class="hero-cta">
-        <a href="https://discord.gg/Ym2kEbnNzg" target="_blank" rel="noopener" class="btn btn-outline btn-lg btn-discord"><img src="images/discord-icon.png" alt="">Join Our Discord</a>
-        <a href="https://forms.gle/WEQET7xzyizAgc7LA" target="_blank" rel="noopener" class="btn btn-apply btn-lg">Apply to Team</a>
+        <a href="https://discord.gg/Ym2kEbnNzg" target="_blank" rel="noopener" class="btn btn-outline btn-lg btn-discord"><img src="images/Icons/discord-icon.png" alt="">Join Discord</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfr1fjCq-EcG25cvdB_M74agJZroZQ0sKbubcRbbM5reN8n0Q/viewform" target="_blank" rel="noopener" class="btn btn-apply btn-lg">Apply</a>
       </div>
     </div>
 
-    <!-- Scroll Indicator -->
-    <div class="scroll-indicator">
-      <span>Scroll</span>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M12 5v14M5 12l7 7 7-7"/>
-      </svg>
+    <div class="container hero-media">
+      <img src="images/fleet-blue.jpg" alt="CU Robotics robot fleet">
+    </div>
+
+  </section>
+
+  <section class="arc-section">
+    <div class="container arc-layout">
+      <img class="arc-image" src="images/werk.png" alt="CU Robotics members working on a competition robot in the arena" loading="lazy">
+      <div class="arc-copy">
+        <p class="arc-eyebrow">The Competition</p>
+        <h2>ARC Robotics</h2>
+        <p>
+          The ARC Championship brings university teams together for fast-paced tactical matches centered on controlling and defending a capture point. Robots exchange fire to drain their opponents' health and send them back to base, demanding strong mechanical design, software, and strategy.
+        </p>
+        <a class="arc-link" href="https://www.arc-robotics.org/" target="_blank" rel="noopener">Learn about ARC Robotics</a>
+      </div>
     </div>
   </section>
 
@@ -76,11 +79,21 @@
     </div>
   </section>
 
-  <!-- Competition Image -->
+  <!-- Robot Fleet -->
   <section class="section competition-image-section">
     <div class="container">
       <div class="content-block">
-        <img class="competition-image" src="images/robots_at_comp.png" alt="CU Robotics at Competition">
+        <div class="fleet-layout">
+          <img class="competition-image" src="images/fleet-at-comp.png" alt="CU Robotics robot fleet at competition">
+          <div class="fleet-copy">
+            <h2>3V3 Fleet</h2>
+            <ul class="fleet-list">
+              <li><strong>Infantry</strong><span>The standard robot that shoots 17 mm projectiles.</span></li>
+              <li><strong>Sentry</strong><span>Similar to the Infantry, but fully autonomous.</span></li>
+              <li><strong>Hero</strong><span>A heavy-hitting robot that shoots golf balls instead of the Infantry's 17 mm projectiles.</span></li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -89,10 +102,6 @@
   <section id="robot-showcase" class="section robot-showcase">
     <div class="container">
       <div class="content-block">
-        <div class="text-center animate-on-scroll mb-xl">
-          <h2>Robot <span class="text-gold">Showcase</span></h2>
-        </div>
-
         <!-- 3D Viewer -->
       <div class="robot-viewer-container animate-on-scroll scale">
         <div id="robot-viewer" class="robot-viewer">
@@ -154,7 +163,7 @@
                 <line x1="12" y1="22.08" x2="12" y2="12"/>
               </svg>
             </div>
-            <h4 class="text-gold">3D Model Coming Soon</h4>
+            <h4>3D Model Coming Soon</h4>
             <p class="text-muted mt-sm">Add a .glb or .gltf file to the models folder and update robots.json</p>
           </div>
 
@@ -185,7 +194,6 @@
   <!-- Main Scripts -->
   <script src="js/site.js"></script>
   <script src="js/components.js"></script>
-  <script src="js/particles.js"></script>
   <script src="js/main.js"></script>
   <script src="js/robot-viewer.js"></script>
 </body>

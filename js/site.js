@@ -1,7 +1,7 @@
 (function defineSiteUtilities() {
 const SITE_CONFIG = Object.freeze({
   links: Object.freeze({
-    apply: 'https://forms.gle/WEQET7xzyizAgc7LA',
+    apply: 'https://docs.google.com/forms/d/e/1FAIpQLSfr1fjCq-EcG25cvdB_M74agJZroZQ0sKbubcRbbM5reN8n0Q/viewform',
     discord: 'https://discord.gg/Ym2kEbnNzg',
     instagram: 'https://www.instagram.com/curoboticsteam/',
     youtube: 'https://www.youtube.com/@curoboticsteam'
