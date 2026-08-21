@@ -885,6 +885,38 @@ p {
   margin-bottom: 0;
 }
 
+.achievement-season-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(16rem, 1fr);
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+.achievement-season-layout .achievements-grid {
+  grid-template-columns: 1fr;
+}
+
+.achievement-season-photo {
+  overflow: hidden;
+  margin: 0;
+  background: var(--bg-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+}
+
+.achievement-season-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.achievement-season-photo figcaption {
+  padding: var(--space-sm) var(--space-md);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
 .achievements-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1575,6 +1607,10 @@ p {
   }
 
   .achievements-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .achievement-season-layout {
     grid-template-columns: 1fr;
   }
 

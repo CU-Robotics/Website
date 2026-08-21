@@ -220,7 +220,7 @@ async function loadJSONContent() {
 
 async function loadAchievements() {
   try {
-    const data = await fetchJSON('data/achievements.json?v=20260821-2');
+    const data = await fetchJSON('data/achievements.json?v=20260821-3');
     renderAchievements(data.achievements);
   } catch (error) {
     console.error('Error loading achievements:', error);
@@ -232,25 +232,37 @@ function renderAchievements(achievements) {
   const container = document.querySelector('.achievements-container');
   if (!container) return;
 
-  container.innerHTML = achievements.map(yearGroup => `
+  container.innerHTML = achievements.map(yearGroup => {
+    const cards = `<div class="achievements-grid">
+      ${yearGroup.items.map((item, index) => `
+        <article class="achievement-card animate-on-scroll stagger-${(index % 4) + 1}">
+          ${item.image ? `<img src="${escapeHTML(item.image)}" alt="${escapeHTML(item.competition)}" class="achievement-image" data-image-fallback="remove">` : ''}
+          <div class="achievement-content">
+            <span class="achievement-competition">${escapeHTML(item.competition)}</span>
+            <h3 class="achievement-award">${escapeHTML(item.award)}</h3>
+            <p class="achievement-description">${escapeHTML(item.description)}</p>
+          </div>
+        </article>
+      `).join('')}
+    </div>`;
+
+    return `
     <section class="achievement-year">
       <div class="year-header">
         <h2 class="year-label">${escapeHTML(yearGroup.year)}</h2>
       </div>
-      <div class="achievements-grid">
-        ${yearGroup.items.map((item, index) => `
-          <article class="achievement-card animate-on-scroll stagger-${(index % 4) + 1}">
-            ${item.image ? `<img src="${escapeHTML(item.image)}" alt="${escapeHTML(item.competition)}" class="achievement-image" data-image-fallback="remove">` : ''}
-            <div class="achievement-content">
-              <span class="achievement-competition">${escapeHTML(item.competition)}</span>
-              <h3 class="achievement-award">${escapeHTML(item.award)}</h3>
-              <p class="achievement-description">${escapeHTML(item.description)}</p>
-            </div>
-          </article>
-        `).join('')}
-      </div>
+      ${yearGroup.teamImage ? `
+        <div class="achievement-season-layout">
+          <figure class="achievement-season-photo animate-on-scroll">
+            <img src="${escapeHTML(yearGroup.teamImage)}" alt="${escapeHTML(yearGroup.teamImageAlt || yearGroup.year)}" loading="lazy" data-image-fallback="remove">
+            ${yearGroup.teamImageCaption ? `<figcaption>${escapeHTML(yearGroup.teamImageCaption)}</figcaption>` : ''}
+          </figure>
+          ${cards}
+        </div>
+      ` : cards}
     </section>
-  `).join('');
+  `;
+  }).join('');
 
   initImageFallbacks(container);
 

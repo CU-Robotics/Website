@@ -2,6 +2,9 @@
   "achievements": [
     {
       "year": "2025-2026",
+      "teamImage": "images/team-arc-2026.jpg",
+      "teamImageAlt": "CU Robotics team at ARC Robotics 2026",
+      "teamImageCaption": "CU Robotics at ARC Robotics 2026",
       "items": [
         {
           "competition": "ARC 3v3",
@@ -13,6 +16,9 @@
     },
     {
       "year": "2024-2025",
+      "teamImage": "images/team-rmna-2025.jpg",
+      "teamImageAlt": "CU Robotics team at RoboMaster North America 2025",
+      "teamImageCaption": "CU Robotics at RoboMaster North America 2025",
       "items": [
         {
           "competition": "ARC 1v1",
@@ -77,6 +83,9 @@
     "description": "This file stores all team achievements. Add new achievements by following the structure above.",
     "fields": {
       "year": "The year of the achievement (string)",
+      "teamImage": "Optional team photo for the season",
+      "teamImageAlt": "Accessible description of the season photo",
+      "teamImageCaption": "Short caption displayed beneath the season photo",
       "items": "Array of achievements for that year",
       "competition": "Name of the competition or event",
       "award": "The award or placement received",
@@ -86,7 +95,7 @@
     },
     "tips": [
       "Add new years at the TOP of the achievements array to show most recent first",
-      "Images should be 16:9 aspect ratio, minimum 800px wide",
+      "Achievement card images should be 16:9; season team photos should be 4:3",
       "Keep descriptions concise - they display on cards",
       "Date field is optional but helps with accurate ordering"
     ]
