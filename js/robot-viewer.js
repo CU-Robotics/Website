@@ -22,7 +22,7 @@ class RobotViewer {
     this.renderer = null;
     this.controls = null;
     this.model = null;
-    this.autoRotate = false;
+    this.autoRotate = true;
     this.isLoading = false;
     this._modelCache = new Map();
 
