@@ -4,7 +4,7 @@
       "year": "2025-2026",
       "seasonImages": [
         {
-          "src": "images/team-arc-2026.jpg",
+          "src": "images/team-arc-2026.jpeg",
           "alt": "CU Robotics team at ARC Robotics 2026",
           "caption": "CU Robotics at ARC Robotics 2026"
         }
@@ -22,7 +22,7 @@
       "year": "2024-2025",
       "seasonImages": [
         {
-          "src": "images/team-rmna-2025.jpg",
+          "src": "images/team-rmna-2025.jpeg",
           "alt": "CU Robotics team at RoboMaster North America 2025",
           "caption": "CU Robotics at RoboMaster North America 2025"
         }
@@ -57,12 +57,12 @@
       "year": "2022-2023",
       "seasonImages": [
         {
-          "src": "images/rmna-2023.JPG",
+          "src": "images/rmna-2023.jpeg",
           "alt": "CU Robotics team working on robots at RoboMaster North America 2023",
           "caption": "CU Robotics at RoboMaster North America 2023"
         },
         {
-          "src": "images/fleet-2023.jpg",
+          "src": "images/fleet-2023.jpeg",
           "alt": "CU Robotics 2023 robot fleet",
           "caption": "The CU Robotics fleet in 2023"
         }
