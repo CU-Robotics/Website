@@ -45,6 +45,10 @@ function loadHeader(activePage) {
 
       ${renderNavigation(activePage, 'nav-links')}
 
+      <div class="nav-cta">
+        ${renderDiscordButton('btn-sm')}
+      </div>
+
       <button class="mobile-menu-btn" aria-label="Toggle menu" aria-controls="mobile-menu" aria-expanded="false">
         <span></span>
         <span></span>

@@ -1715,7 +1715,7 @@ p {
 /* Social links grid */
 .social-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--space-md);
   margin-top: var(--space-lg);
 }
@@ -1737,10 +1737,6 @@ p {
   border-color: var(--cu-gold);
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
-}
-
-.social-link-discord {
-  background: #5865f2;
 }
 
 .social-link-instagram {
@@ -2218,7 +2214,7 @@ p {
   }
 
   .contact-page .social-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .robot-viewer {
