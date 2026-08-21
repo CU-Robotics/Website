@@ -706,8 +706,7 @@ p {
   text-align: center;
 }
 
-.stat-number,
-.achievement-stat-number {
+.stat-number {
   font-family: var(--font-display);
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 800;
@@ -861,15 +860,14 @@ p {
   font-size: clamp(2.5rem, 5vw, 4rem);
 }
 
-.achievement-showcase {
-  padding: 0;
+.achievements-intro {
+  max-width: 760px;
+  color: var(--text-muted);
+  font-size: 1.05rem;
 }
 
-.achievements-page .stats-grid {
-  gap: var(--space-md);
-  margin-top: 0;
-  margin-bottom: var(--space-xl);
-  padding: var(--space-lg);
+.achievement-showcase {
+  padding: 0;
 }
 
 .achievement-year {
@@ -911,20 +909,22 @@ p {
 }
 
 .achievement-award {
-  display: inline-flex;
-  align-items: center;
+  display: block;
   color: var(--cu-gold);
   font-family: var(--font-display);
-  font-size: 0.8rem;
+  font-size: 1.1rem;
   font-weight: 700;
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-xs);
 }
 
 .achievement-card .achievement-competition {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--cu-white);
-  margin-bottom: var(--space-xs);
+  display: block;
+  margin-bottom: var(--space-sm);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .achievement-description {

@@ -242,8 +242,8 @@ function renderAchievements(achievements) {
           <article class="achievement-card animate-on-scroll stagger-${(index % 4) + 1}">
             ${item.image ? `<img src="${escapeHTML(item.image)}" alt="${escapeHTML(item.competition)}" class="achievement-image" data-image-fallback="remove">` : ''}
             <div class="achievement-content">
-              <span class="achievement-award">${escapeHTML(item.award)}</span>
-              <h3 class="achievement-competition">${escapeHTML(item.competition)}</h3>
+              <span class="achievement-competition">${escapeHTML(item.competition)}</span>
+              <h3 class="achievement-award">${escapeHTML(item.award)}</h3>
               <p class="achievement-description">${escapeHTML(item.description)}</p>
             </div>
           </article>
