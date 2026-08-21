@@ -109,7 +109,7 @@ async function loadJSONContent() {
 
 async function loadAchievements() {
   try {
-    const data = await fetchJSON('data/achievements.json?v=20260821-6');
+    const data = await fetchJSON('data/achievements.json?v=20260821-7');
     renderAchievements(data.achievements);
   } catch (error) {
     console.error('Error loading achievements:', error);
