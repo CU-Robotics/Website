@@ -199,43 +199,10 @@ class ParticleBackground {
   }
 }
 
-// Additional floating hexagon animation
-class FloatingHexagons {
-  constructor() {
-    this.hexagons = document.querySelectorAll('.geo-shape');
-    if (this.hexagons.length === 0) return;
-
-    this.randomizePositions();
-  }
-
-  randomizePositions() {
-    this.hexagons.forEach((hex, index) => {
-      // Randomize size slightly
-      const scale = 0.5 + Math.random() * 1;
-      hex.style.transform = `scale(${scale})`;
-
-      // Randomize opacity
-      hex.style.opacity = 0.02 + Math.random() * 0.04;
-
-      // Randomize position more
-      const left = Math.random() * 100;
-      const top = Math.random() * 100;
-      hex.style.left = `${left}%`;
-      hex.style.top = `${top}%`;
-
-      // Add random animation delay
-      hex.style.animationDelay = `${Math.random() * 5}s`;
-    });
-  }
-}
-
 // Initialize on DOM load
 document.addEventListener('DOMContentLoaded', () => {
   // Only initialize on pages with the particle canvas
   if (document.getElementById('particle-canvas')) {
     new ParticleBackground('particle-canvas');
   }
-
-  // Initialize floating hexagons
-  new FloatingHexagons();
 });

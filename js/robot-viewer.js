@@ -186,14 +186,6 @@ class RobotViewer {
     bottomLight.position.set(0, -3, 0);
     this.scene.add(bottomLight);
 
-    // Gold point lights for glow effect
-    const goldPoint1 = new THREE.PointLight(this.goldColor, 0.5, 10);
-    goldPoint1.position.set(3, 1, 3);
-    this.scene.add(goldPoint1);
-
-    const goldPoint2 = new THREE.PointLight(this.goldColor, 0.5, 10);
-    goldPoint2.position.set(-3, 1, -3);
-    this.scene.add(goldPoint2);
   }
 
   createControls() {
@@ -211,21 +203,7 @@ class RobotViewer {
   }
 
   createBackground() {
-    // Create gradient background
-    const canvas = document.createElement('canvas');
-    canvas.width = 512;
-    canvas.height = 512;
-    const ctx = canvas.getContext('2d');
-
-    // Radial gradient from dark center to darker edges
-    const gradient = ctx.createRadialGradient(256, 256, 0, 256, 256, 360);
-    gradient.addColorStop(0, '#2A2A2A');
-    gradient.addColorStop(1, '#000000');
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0, 0, 512, 512);
-
-    const texture = new THREE.CanvasTexture(canvas);
-    this.scene.background = texture;
+    this.scene.background = new THREE.Color(0x0f0f0f);
 
     // Add a subtle ground plane
     const groundGeometry = new THREE.PlaneGeometry(20, 20);

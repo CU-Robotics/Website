@@ -6,21 +6,6 @@ function loadHeader(activePage) {
     <canvas id="particle-canvas"></canvas>
   </div>
 
-  <div class="geo-shapes">
-    <div class="geo-shape hexagon"></div>
-    <div class="geo-shape triangle"></div>
-    <div class="geo-shape square"></div>
-    <div class="geo-shape circle"></div>
-    <div class="geo-shape hexagon"></div>
-    <div class="geo-shape triangle"></div>
-    <div class="geo-shape square"></div>
-    <div class="geo-shape circle"></div>
-    <div class="geo-shape hexagon"></div>
-    <div class="geo-shape triangle"></div>
-  </div>
-
-  <div class="grid-overlay"></div>
-
   <nav class="navbar">
     <div class="container navbar-content">
       <a href="index.html" class="logo">
