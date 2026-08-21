@@ -313,7 +313,7 @@ function renderLeadership(leadership) {
     const isCurrent = yearIndex === 0;
 
     return `
-    <div class="leadership-year animate-on-scroll">
+    <div class="leadership-year">
       <div class="year-header">
         <h3 class="year-label">${yearGroup.year}</h3>
         <span class="season-label">${yearGroup.season}</span>
@@ -324,25 +324,23 @@ function renderLeadership(leadership) {
             <div class="leadership-group">
               <h4 class="group-label">${group.name}</h4>
               <div class="leadership-grid">
-                ${group.members.map((member, index) => createLeaderCard(member, index, isCurrent, yearGroup.year)).join('')}
+                ${group.members.map(member => createLeaderCard(member, isCurrent, yearGroup.year)).join('')}
               </div>
             </div>
           `).join('')}
         </div>
       ` : `
         <div class="leadership-grid">
-          ${yearGroup.members.map((member, index) => createLeaderCard(member, index, isCurrent, yearGroup.year)).join('')}
+          ${yearGroup.members.map(member => createLeaderCard(member, isCurrent, yearGroup.year)).join('')}
         </div>
       `}
     </div>
   `;
   }).join('');
 
-  // Re-initialize scroll animations for new content
-  initScrollAnimations();
 }
 
-function createLeaderCard(member, index, isCurrent, seasonYear) {
+function createLeaderCard(member, isCurrent, seasonYear) {
   const isTBD = member.name === 'TBD';
   const socials = [];
 
@@ -377,7 +375,7 @@ function createLeaderCard(member, index, isCurrent, seasonYear) {
   const rank = /director|president|head/i.test(member.role || '') ? 'leader-rank-director' : 'leader-rank-lead';
 
   return `
-    <div class="leader-card animate-on-scroll stagger-${(index % 4) + 1} ${rank} ${isTBD ? 'leader-tbd' : ''} ${isCurrent ? 'leader-current' : ''}">
+    <div class="leader-card ${rank} ${isTBD ? 'leader-tbd' : ''} ${isCurrent ? 'leader-current' : ''}">
       <div class="leader-photo">
         <img src="${photoSrc}" alt="${member.name}" onerror="this.src='images/placeholder-avatar.svg'">
         ${isCurrent && !isTBD ? '<span class="current-badge">Current</span>' : ''}
