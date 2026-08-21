@@ -11,6 +11,18 @@ function renderNavigation(activePage, listClass) {
   `;
 }
 
+function renderMobileNavigation(activePage) {
+  return `
+    <ul class="mobile-nav-links">
+      ${config.navigation.map(item => `
+        <li>
+          <a href="${item.href}" ${activePage === item.id ? 'class="active" aria-current="page"' : ''}>${item.label}</a>
+        </li>
+      `).join('')}
+    </ul>
+  `;
+}
+
 function renderDiscordButton(size = '') {
   const sizeClass = size ? ` ${size}` : '';
   return `
@@ -49,7 +61,7 @@ function loadHeader(activePage) {
         ${renderDiscordButton('btn-sm')}
       </div>
 
-      <button class="mobile-menu-btn" aria-label="Toggle menu" aria-controls="mobile-menu" aria-expanded="false">
+      <button class="mobile-menu-btn" aria-label="Open navigation" aria-controls="mobile-menu" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
@@ -57,13 +69,23 @@ function loadHeader(activePage) {
     </div>
   </nav>
 
-  <div id="mobile-menu" class="mobile-menu">
-    ${renderNavigation(activePage, 'mobile-nav-links')}
-    <div class="mobile-cta">
-      ${renderDiscordButton()}
-      <a href="${config.links.apply}" target="_blank" rel="noopener" class="btn btn-apply mobile-apply-btn">Apply</a>
+  <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation" aria-hidden="true" inert>
+    <div class="mobile-menu-inner">
+      <p class="mobile-menu-label">Explore</p>
+      ${renderMobileNavigation(activePage)}
+
+      <div class="mobile-cta">
+        <a href="${config.links.apply}" target="_blank" rel="noopener" class="btn btn-apply btn-lg">Apply</a>
+        ${renderDiscordButton('btn-lg')}
+        <a href="${config.links.instagram}" target="_blank" rel="noopener" class="btn btn-lg btn-instagram" aria-label="Instagram">
+          <img src="images/Icons/instagram-icon.png" alt="">
+        </a>
+        <a href="${config.links.youtube}" target="_blank" rel="noopener" class="btn btn-lg btn-youtube" aria-label="YouTube">
+          <img src="images/Icons/youtube-icon.png" alt="">
+        </a>
+      </div>
     </div>
-  </div>
+  </nav>
   `;
 
   const headerContainer = document.getElementById('site-header');
