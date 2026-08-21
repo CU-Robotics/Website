@@ -154,39 +154,18 @@ class RobotViewer {
   }
 
   createLights() {
-    // Ambient light
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.12);
-    this.scene.add(ambientLight);
+    const spotlight = new THREE.SpotLight(this.goldColorLight, 2.2, 20, Math.PI / 5, 0.15, 1.5);
+    spotlight.position.set(0, 7, -4);
+    spotlight.target.position.set(0, 0.5, 0);
+    spotlight.castShadow = true;
+    spotlight.shadow.mapSize.setScalar(isMobileDevice() ? 1024 : 2048);
+    spotlight.shadow.bias = -0.0005;
+    spotlight.shadow.normalBias = 0.02;
+    this.scene.add(spotlight, spotlight.target);
 
-    // Main gold-tinted key light
-    const keyLight = new THREE.DirectionalLight(this.goldColor, 0.65);
-    keyLight.position.set(5, 5, 5);
-    this.scene.add(keyLight);
-
-    const overheadLight = new THREE.SpotLight(this.goldColorLight, 2, 20, Math.PI / 5, 0.15, 1.5);
-    overheadLight.position.set(0, 7, -4);
-    overheadLight.target.position.set(0, 0.5, 0);
-    overheadLight.castShadow = true;
-    overheadLight.shadow.mapSize.setScalar(isMobileDevice() ? 1024 : 2048);
-    overheadLight.shadow.bias = -0.0005;
-    overheadLight.shadow.normalBias = 0.02;
-    this.scene.add(overheadLight, overheadLight.target);
-
-    // Fill light (white)
-    const fillLight = new THREE.DirectionalLight(0xffffff, 0.18);
-    fillLight.position.set(-3, 3, -3);
+    const fillLight = new THREE.DirectionalLight(0xdde5f2, 0.9);
+    fillLight.position.set(3, 4, 5);
     this.scene.add(fillLight);
-
-    // Rim light (gold accent)
-    const rimLight = new THREE.DirectionalLight(this.goldColorLight, 0.55);
-    rimLight.position.set(0, 5, -5);
-    this.scene.add(rimLight);
-
-    // Bottom fill for dramatic effect
-    const bottomLight = new THREE.DirectionalLight(0x444444, 0.08);
-    bottomLight.position.set(0, -3, 0);
-    this.scene.add(bottomLight);
-
   }
 
   createControls() {
