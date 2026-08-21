@@ -21,7 +21,7 @@
   <!-- Styles -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="home-page">
+<body class="home-page" data-page="home">
   <div id="site-header"></div>
 
   <!-- Hero Section -->
@@ -41,7 +41,7 @@
       </h1>
 
       <div class="hero-cta">
-        <a href="https://discord.gg/Ym2kEbnNzg" target="_blank" rel="noopener" class="btn btn-outline btn-lg" style="border-color:#5865F2;color:#5865F2;display:inline-flex;align-items:center;gap:8px;"><img src="images/discord-icon.png" alt="" style="width:20px;height:20px;">Join Our Discord</a>
+        <a href="https://discord.gg/Ym2kEbnNzg" target="_blank" rel="noopener" class="btn btn-outline btn-lg btn-discord"><img src="images/discord-icon.png" alt="">Join Our Discord</a>
         <a href="https://forms.gle/WEQET7xzyizAgc7LA" target="_blank" rel="noopener" class="btn btn-outline btn-lg">Apply to Team</a>
       </div>
     </div>
@@ -160,7 +160,7 @@
 
           <!-- Footer Controls -->
           <div class="robot-viewer-footer">
-            <span class="mono text-muted" style="font-size: 0.75rem;">Drag to rotate • Scroll to zoom</span>
+            <span class="viewer-instructions mono text-muted">Drag to rotate • Scroll to zoom</span>
           </div>
         </div>
       </div>
@@ -183,12 +183,10 @@
   <script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/DRACOLoader.js"></script>
 
   <!-- Main Scripts -->
+  <script src="js/site.js"></script>
   <script src="js/components.js"></script>
   <script src="js/particles.js"></script>
   <script src="js/main.js"></script>
   <script src="js/robot-viewer.js"></script>
-  <script>
-    loadHeader('home'); loadFooter();
-  </script>
 </body>
 </html>

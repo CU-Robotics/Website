@@ -41,7 +41,9 @@ website/
 │   └── styles.css          # All styles (CSS variables, components, responsive)
 │
 ├── js/
-│   ├── main.js             # Animations, navigation, JSON loading
+│   ├── main.js             # UI behavior and page content rendering
+│   ├── components.js       # Shared header, footer, and sponsor markup
+│   ├── site.js             # Shared configuration and data utilities
 │   └── robot-viewer.js     # Three.js 3D viewer
 │
 ├── data/
@@ -255,13 +257,13 @@ The site uses Google Fonts:
 Change in `<head>` of each HTML file.
 
 ### Social Links
-Update in all HTML files and `data/leaders.json`:
+Update the shared links in `js/site.js`. Page-specific links remain in the relevant HTML file, and leader profiles live in `data/leaders.json`.
 - Discord: `https://discord.gg/curobotics`
 - Instagram: `https://instagram.com/curobotics`
 - YouTube: `https://youtube.com/@curobotics`
 
-### Google Form Links
-Search and replace `your-form-id` with your actual Google Form ID.
+### Google Form Link
+Update `SITE_CONFIG.links.apply` in `js/site.js`.
 
 ---
 

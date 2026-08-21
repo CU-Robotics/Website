@@ -228,8 +228,7 @@ class RobotViewer {
 
   async loadActiveRobot() {
     try {
-      const response = await fetch('data/robots.json');
-      const data = await response.json();
+      const data = await window.CURobotics.fetchJSON('data/robots.json');
       const activeRobot = data.robots.find(r => r.status === 'active');
 
       if (activeRobot && activeRobot.model3d) {
@@ -272,6 +271,9 @@ class RobotViewer {
         credentials: 'same-origin',
         cache: 'no-store'
       });
+      if (!response.ok) {
+        throw new Error(`Failed to load ${modelPath}: ${response.status} ${response.statusText}`);
+      }
       const blob = await response.blob();
       blobUrl = URL.createObjectURL(blob);
       this._modelCache.set(modelName, blobUrl);

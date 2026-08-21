@@ -1,4 +1,38 @@
-// Shared components across all pages
+(function initSiteComponents() {
+const { config, escapeHTML, fetchJSON } = window.CURobotics;
+
+function renderNavigation(activePage, listClass) {
+  return `
+    <ul class="${listClass}">
+      ${config.navigation.map(item => `
+        <li><a href="${item.href}" ${activePage === item.id ? 'class="active" aria-current="page"' : ''}>${item.label}</a></li>
+      `).join('')}
+    </ul>
+  `;
+}
+
+function renderDiscordButton(size = '') {
+  const sizeClass = size ? ` ${size}` : '';
+  return `
+    <a href="${config.links.discord}" target="_blank" rel="noopener" class="btn btn-outline btn-discord${sizeClass}">
+      <img src="images/discord-icon.png" alt="">Join Discord
+    </a>
+  `;
+}
+
+function renderSocialLinks() {
+  const socialLinks = [
+    { label: 'Instagram', href: config.links.instagram, icon: 'instagram-icon.png' },
+    { label: 'Discord', href: config.links.discord, icon: 'discord-icon.png' },
+    { label: 'YouTube', href: config.links.youtube, icon: 'youtube-icon.png' }
+  ];
+
+  return socialLinks.map(link => `
+    <a href="${link.href}" target="_blank" rel="noopener" aria-label="${link.label}">
+      <img src="images/${link.icon}" alt="${link.label}">
+    </a>
+  `).join('');
+}
 
 function loadHeader(activePage) {
   const headerHTML = `
@@ -13,18 +47,13 @@ function loadHeader(activePage) {
         <span class="logo-text">CU <span>Robotics</span></span>
       </a>
 
-      <ul class="nav-links">
-        <li><a href="index.html" ${activePage === 'home' ? 'class="active"' : ''}>Home</a></li>
-        <li><a href="team.html" ${activePage === 'team' ? 'class="active"' : ''}>Leadership</a></li>
-        <li><a href="achievements.html" ${activePage === 'achievements' ? 'class="active"' : ''}>Achievements</a></li>
-        <li><a href="contact.html" ${activePage === 'contact' ? 'class="active"' : ''}>Contact</a></li>
-      </ul>
+      ${renderNavigation(activePage, 'nav-links')}
 
       <div class="nav-cta">
-        <a href="https://discord.gg/Ym2kEbnNzg" target="_blank" rel="noopener" class="btn btn-outline btn-sm" style="border-color:#5865F2;color:#5865F2;display:inline-flex;align-items:center;gap:6px;"><img src="images/discord-icon.png" alt="" style="width:16px;height:16px;">Join Discord</a>
+        ${renderDiscordButton('btn-sm')}
       </div>
 
-      <button class="mobile-menu-btn" aria-label="Toggle menu">
+      <button class="mobile-menu-btn" aria-label="Toggle menu" aria-controls="mobile-menu" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
@@ -32,16 +61,11 @@ function loadHeader(activePage) {
     </div>
   </nav>
 
-  <div class="mobile-menu">
-    <ul class="mobile-nav-links">
-      <li><a href="index.html" ${activePage === 'home' ? 'class="active"' : ''}>Home</a></li>
-      <li><a href="team.html" ${activePage === 'team' ? 'class="active"' : ''}>Leadership</a></li>
-      <li><a href="achievements.html" ${activePage === 'achievements' ? 'class="active"' : ''}>Achievements</a></li>
-      <li><a href="contact.html" ${activePage === 'contact' ? 'class="active"' : ''}>Contact</a></li>
-    </ul>
+  <div id="mobile-menu" class="mobile-menu">
+    ${renderNavigation(activePage, 'mobile-nav-links')}
     <div class="mobile-cta">
-      <a href="https://discord.gg/Ym2kEbnNzg" target="_blank" rel="noopener" class="btn btn-outline" style="border-color:#5865F2;color:#5865F2;display:inline-flex;align-items:center;gap:8px;"><img src="images/discord-icon.png" alt="" style="width:18px;height:18px;">Join Discord</a>
-      <a href="https://forms.gle/WEQET7xzyizAgc7LA" target="_blank" rel="noopener" class="btn btn-outline" style="margin-top:12px;">Apply to Team</a>
+      ${renderDiscordButton()}
+      <a href="${config.links.apply}" target="_blank" rel="noopener" class="btn btn-outline mobile-apply-btn">Apply to Team</a>
     </div>
   </div>
   `;
@@ -62,17 +86,7 @@ function loadFooter() {
             <img src="images/logo.png" alt="CU Robotics">
             <span>CU Robotics</span>
           </div>
-          <div class="footer-socials">
-            <a href="https://www.instagram.com/curoboticsteam/" target="_blank" rel="noopener" aria-label="Instagram">
-              <img src="images/instagram-icon.png" alt="Instagram">
-            </a>
-            <a href="https://discord.gg/Ym2kEbnNzg" target="_blank" rel="noopener" aria-label="Discord">
-              <img src="images/discord-icon.png" alt="Discord">
-            </a>
-            <a href="https://www.youtube.com/@curoboticsteam" target="_blank" rel="noopener" aria-label="YouTube">
-              <img src="images/youtube-icon.png" alt="YouTube">
-            </a>
-          </div>
+          <div class="footer-socials">${renderSocialLinks()}</div>
         </div>
 
         <div class="footer-nav">
@@ -89,13 +103,13 @@ function loadFooter() {
           <h4 class="footer-heading">Resources</h4>
           <ul class="footer-links">
             <li><a href="https://www.arc-robotics.org/" target="_blank" rel="noopener">ARC Robotics</a></li>
-            <li><a href="https://forms.gle/WEQET7xzyizAgc7LA" target="_blank" rel="noopener">Join the Team</a></li>
+            <li><a href="${config.links.apply}" target="_blank" rel="noopener">Join the Team</a></li>
           </ul>
         </div>
 
         <div class="footer-newsletter">
           <h4 class="footer-heading">Stay Updated</h4>
-          <p class="text-muted" style="font-size: 0.9rem; margin-bottom: var(--space-md);">
+          <p class="footer-newsletter-copy text-muted">
             Subscribe to get news about competitions and team updates.
           </p>
           <form class="newsletter-form" action="#" method="POST">
@@ -109,17 +123,7 @@ function loadFooter() {
         <p class="footer-copyright">
           &copy; 2026 <a href="https://www.colorado.edu/" target="_blank" rel="noopener">CU Robotics</a> | University of Colorado Boulder
         </p>
-        <div class="footer-socials">
-          <a href="https://www.instagram.com/curoboticsteam/" target="_blank" rel="noopener" aria-label="Instagram">
-            <img src="images/instagram-icon.png" alt="Instagram">
-          </a>
-          <a href="https://discord.gg/Ym2kEbnNzg" target="_blank" rel="noopener" aria-label="Discord">
-            <img src="images/discord-icon.png" alt="Discord">
-          </a>
-          <a href="https://www.youtube.com/@curoboticsteam" target="_blank" rel="noopener" aria-label="YouTube">
-            <img src="images/youtube-icon.png" alt="YouTube">
-          </a>
-        </div>
+        <div class="footer-socials">${renderSocialLinks()}</div>
       </div>
     </div>
   </footer>
@@ -137,19 +141,18 @@ async function loadSponsors() {
   if (!track) return;
 
   try {
-    const response = await fetch('data/sponsors.json');
-    const data = await response.json();
+    const data = await fetchJSON('data/sponsors.json');
     const sponsors = data.sponsors;
 
     // Create sponsor item HTML
     function createSponsorHTML(sponsor) {
       const iconHTML = sponsor.icon
-        ? `<img src="${sponsor.icon}" alt="${sponsor.name}" class="sponsor-icon" onerror="this.style.display='none'">`
+        ? `<img src="${escapeHTML(sponsor.icon)}" alt="${escapeHTML(sponsor.name)}" class="sponsor-icon">`
         : '';
       return `
-        <a href="${sponsor.url}" target="_blank" rel="noopener" class="sponsor-item">
+        <a href="${escapeHTML(sponsor.url)}" target="_blank" rel="noopener" class="sponsor-item">
           ${iconHTML}
-          <span>${sponsor.name}</span>
+          <span>${escapeHTML(sponsor.name)}</span>
         </a>
         <span class="sponsor-divider"></span>
       `;
@@ -169,7 +172,15 @@ async function loadSponsors() {
       <div class="sponsor-ticker-content">${repeatedContent}</div>
       <div class="sponsor-ticker-content" aria-hidden="true">${repeatedContent}</div>
     `;
+    track.querySelectorAll('.sponsor-icon').forEach(icon => {
+      icon.addEventListener('error', () => icon.remove());
+    });
   } catch (error) {
     console.error('Error loading sponsors:', error);
   }
 }
+
+loadHeader(document.body.dataset.page);
+loadFooter();
+loadSponsors();
+})();
