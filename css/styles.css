@@ -1409,12 +1409,13 @@ p {
 }
 
 .group-label {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  font-weight: 500;
-  color: var(--cu-white);
-  margin-bottom: var(--space-sm);
-  letter-spacing: 0.14em;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--cu-gold);
+  margin-bottom: var(--space-md);
+  letter-spacing: 0.02em;
 }
 
 .leadership-grid {
@@ -1479,12 +1480,6 @@ p {
 /* The one distinction worth drawing: directors carry the gold. */
 .leader-rank-director .leader-role {
   color: var(--cu-gold);
-}
-
-.leader-major {
-  font-size: 0.7rem;
-  color: var(--text-muted);
-  margin-bottom: 0;
 }
 
 .leader-card.leader-tbd {

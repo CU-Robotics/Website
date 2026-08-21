@@ -286,14 +286,14 @@ function renderLeadership(leadership) {
             <div class="leadership-group">
               <h4 class="group-label">${escapeHTML(group.name)}</h4>
               <div class="leadership-grid">
-                ${group.members.map(member => createLeaderCard(member, isCurrent, yearGroup.year)).join('')}
+                ${group.members.map(member => createLeaderCard(member, isCurrent)).join('')}
               </div>
             </div>
           `).join('')}
         </div>
       ` : `
         <div class="leadership-grid">
-          ${yearGroup.members.map(member => createLeaderCard(member, isCurrent, yearGroup.year)).join('')}
+          ${yearGroup.members.map(member => createLeaderCard(member, isCurrent)).join('')}
         </div>
       `}
     </div>
@@ -302,15 +302,7 @@ function renderLeadership(leadership) {
   initImageFallbacks(container);
 }
 
-function getClassStanding(graduationYear, seasonYear) {
-  if (!graduationYear) return '';
-
-  const seasonEndYear = Number.parseInt(seasonYear?.split('-')[1], 10) || new Date().getFullYear();
-  const yearsUntilGraduation = Number.parseInt(graduationYear, 10) - seasonEndYear;
-  return ['Senior', 'Junior', 'Sophomore', 'Freshman'][Math.max(0, Math.min(yearsUntilGraduation, 3))];
-}
-
-function createLeaderCard(member, isCurrent, seasonYear) {
+function createLeaderCard(member, isCurrent) {
   const isTBD = member.name === 'TBD';
   const socials = [];
 
@@ -319,9 +311,6 @@ function createLeaderCard(member, isCurrent, seasonYear) {
   if (member.github) socials.push(`<a href="${escapeHTML(member.github)}" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>`);
 
   const photoSrc = member.photo || 'images/Members/placeholder-avatar.svg';
-  const classStanding = getClassStanding(member.graduationYear, seasonYear);
-  const yearInfo = member.major ? `${member.major}${member.year ? ` | ${member.year}` : ''}` : classStanding;
-
   // Directors (and the president) outrank leads; the rail node says which.
   const rank = /director|president|head/i.test(member.role || '') ? 'leader-rank-director' : 'leader-rank-lead';
 
@@ -335,7 +324,6 @@ function createLeaderCard(member, isCurrent, seasonYear) {
       <div class="leader-info">
         <h4 class="leader-name">${escapeHTML(member.name)}</h4>
         <p class="leader-role">${escapeHTML(member.role)}</p>
-        ${yearInfo && yearInfo !== 'To Be Announced' ? `<p class="leader-major">${escapeHTML(yearInfo)}</p>` : ''}
         ${socials.length ? `<div class="leader-socials">${socials.join('')}</div>` : ''}
       </div>
     </div>
