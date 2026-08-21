@@ -987,13 +987,29 @@ p {
   letter-spacing: 0.14em;
 }
 
-/* Subsystem columns. Tops align because the grid says so; nothing is
-   stretched because align-items does not. */
+.club-leadership {
+  padding-bottom: var(--space-lg);
+  margin-bottom: var(--space-lg);
+  border-bottom: 1px solid rgba(207, 184, 124, 0.16);
+}
+
+.club-leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: var(--space-md);
+  max-width: 36rem;
+}
+
 .leadership-groups-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: var(--space-lg) var(--space-md);
   align-items: start;
+}
+
+.leadership-group {
+  padding-left: var(--space-md);
+  border-left: 1px solid rgba(207, 184, 124, 0.22);
 }
 
 .group-label {
@@ -1004,6 +1020,26 @@ p {
   color: var(--cu-gold);
   margin-bottom: var(--space-md);
   letter-spacing: 0.02em;
+}
+
+.leadership-tier + .leadership-tier {
+  padding-top: var(--space-md);
+  margin-top: var(--space-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hierarchy-label {
+  margin-bottom: var(--space-sm);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.leadership-tier-directors .hierarchy-label {
+  color: var(--cu-gold);
 }
 
 .leadership-grid {
@@ -1113,6 +1149,10 @@ p {
 
   .year-header .year-label {
     font-size: 1.4rem;
+  }
+
+  .club-leadership-grid {
+    grid-template-columns: 1fr;
   }
 }
 

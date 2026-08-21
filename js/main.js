@@ -177,6 +177,8 @@ function renderLeadership(leadership) {
 
   container.innerHTML = leadership.map((yearGroup, yearIndex) => {
     const isCurrent = yearIndex === 0;
+    const clubLeadership = yearGroup.groups?.find(group => group.name === 'Leadership');
+    const subteams = yearGroup.groups?.filter(group => group.name !== 'Leadership');
 
     return `
     <div class="leadership-year">
@@ -185,15 +187,16 @@ function renderLeadership(leadership) {
         ${yearGroup.season ? `<span class="season-label">${escapeHTML(yearGroup.season)}</span>` : ''}
       </div>
       ${yearGroup.groups ? `
-        <div class="leadership-groups-container">
-          ${yearGroup.groups.map(group => `
-            <div class="leadership-group">
-              <h4 class="group-label">${escapeHTML(group.name)}</h4>
-              <div class="leadership-grid">
-                ${group.members.map(member => createLeaderCard(member, isCurrent)).join('')}
-              </div>
+        ${clubLeadership ? `
+          <div class="club-leadership">
+            <h4 class="group-label">Club Leadership</h4>
+            <div class="club-leadership-grid">
+              ${clubLeadership.members.map(member => createLeaderCard(member, isCurrent)).join('')}
             </div>
-          `).join('')}
+          </div>
+        ` : ''}
+        <div class="leadership-groups-container">
+          ${subteams.map(group => createLeadershipGroup(group, isCurrent)).join('')}
         </div>
       ` : `
         <div class="leadership-grid">
@@ -206,6 +209,37 @@ function renderLeadership(leadership) {
   initImageFallbacks(container);
 }
 
+function createLeadershipGroup(group, isCurrent) {
+  const directors = group.members.filter(isDirector);
+  const leads = group.members.filter(member => !isDirector(member));
+
+  return `
+    <section class="leadership-group">
+      <h4 class="group-label">${escapeHTML(group.name)}</h4>
+      ${directors.length ? `
+        <div class="leadership-tier leadership-tier-directors">
+          <p class="hierarchy-label">${directors.length === 1 ? 'Director' : 'Directors'}</p>
+          <div class="leadership-grid">
+            ${directors.map(member => createLeaderCard(member, isCurrent)).join('')}
+          </div>
+        </div>
+      ` : ''}
+      ${leads.length ? `
+        <div class="leadership-tier leadership-tier-leads">
+          <p class="hierarchy-label">${leads.length === 1 ? 'Lead' : 'Leads'}</p>
+          <div class="leadership-grid">
+            ${leads.map(member => createLeaderCard(member, isCurrent)).join('')}
+          </div>
+        </div>
+      ` : ''}
+    </section>
+  `;
+}
+
+function isDirector(member) {
+  return /director|president|head/i.test(member.role || '');
+}
+
 function createLeaderCard(member, isCurrent) {
   const isTBD = member.name === 'TBD';
   const socials = [];
@@ -215,8 +249,7 @@ function createLeaderCard(member, isCurrent) {
   if (member.github) socials.push(`<a href="${escapeHTML(member.github)}" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>`);
 
   const photoSrc = member.photo || 'images/Members/placeholder-avatar.svg';
-  // Directors (and the president) outrank leads; the rail node says which.
-  const rank = /director|president|head/i.test(member.role || '') ? 'leader-rank-director' : 'leader-rank-lead';
+  const rank = isDirector(member) ? 'leader-rank-director' : 'leader-rank-lead';
 
   return `
     <div class="leader-card ${rank} ${isTBD ? 'leader-tbd' : ''} ${isCurrent ? 'leader-current' : ''}">
