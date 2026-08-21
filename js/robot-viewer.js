@@ -143,7 +143,9 @@ class RobotViewer {
     this.renderer.setPixelRatio(maxPixelRatio);
     this.renderer.outputEncoding = THREE.sRGBEncoding;
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    this.renderer.toneMappingExposure = 1;
+    this.renderer.toneMappingExposure = 0.85;
+    this.renderer.shadowMap.enabled = true;
+    this.renderer.shadowMap.type = THREE.PCFShadowMap;
     this.renderer.setClearColor(0x000000, 0);
 
     // Find or create canvas container
@@ -153,26 +155,35 @@ class RobotViewer {
 
   createLights() {
     // Ambient light
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.12);
     this.scene.add(ambientLight);
 
     // Main gold-tinted key light
-    const keyLight = new THREE.DirectionalLight(this.goldColor, 1);
+    const keyLight = new THREE.DirectionalLight(this.goldColor, 0.65);
     keyLight.position.set(5, 5, 5);
     this.scene.add(keyLight);
 
+    const overheadLight = new THREE.SpotLight(this.goldColorLight, 2, 20, Math.PI / 5, 0.15, 1.5);
+    overheadLight.position.set(0, 7, -4);
+    overheadLight.target.position.set(0, 0.5, 0);
+    overheadLight.castShadow = true;
+    overheadLight.shadow.mapSize.setScalar(isMobileDevice() ? 1024 : 2048);
+    overheadLight.shadow.bias = -0.0005;
+    overheadLight.shadow.normalBias = 0.02;
+    this.scene.add(overheadLight, overheadLight.target);
+
     // Fill light (white)
-    const fillLight = new THREE.DirectionalLight(0xffffff, 0.5);
+    const fillLight = new THREE.DirectionalLight(0xffffff, 0.18);
     fillLight.position.set(-3, 3, -3);
     this.scene.add(fillLight);
 
     // Rim light (gold accent)
-    const rimLight = new THREE.DirectionalLight(this.goldColorLight, 0.8);
+    const rimLight = new THREE.DirectionalLight(this.goldColorLight, 0.55);
     rimLight.position.set(0, 5, -5);
     this.scene.add(rimLight);
 
     // Bottom fill for dramatic effect
-    const bottomLight = new THREE.DirectionalLight(0x444444, 0.3);
+    const bottomLight = new THREE.DirectionalLight(0x444444, 0.08);
     bottomLight.position.set(0, -3, 0);
     this.scene.add(bottomLight);
 
@@ -280,6 +291,9 @@ class RobotViewer {
 
         this.model.traverse((child) => {
           if (child.isMesh) {
+            child.castShadow = true;
+            child.receiveShadow = true;
+
             // Enhance metallic materials slightly
             if (child.material) {
               child.material.envMapIntensity = 0.5;
