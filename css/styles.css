@@ -893,6 +893,20 @@ p {
   display: none;
 }
 
+.leadership-page-header {
+  margin-bottom: var(--space-xl);
+}
+
+.leadership-page-header h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: var(--space-sm);
+}
+
+.leadership-page-header p {
+  max-width: 48rem;
+  font-size: 1.05rem;
+}
+
 .video-container {
   position: relative;
   width: 100%;
