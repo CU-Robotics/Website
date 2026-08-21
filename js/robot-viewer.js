@@ -22,9 +22,7 @@ class RobotViewer {
     this.renderer = null;
     this.controls = null;
     this.model = null;
-    this.mixer = null;
-    this.clock = new THREE.Clock();
-    this.autoRotate = true;
+    this.autoRotate = false;
     this.isLoading = false;
     this._modelCache = new Map();
 
@@ -182,8 +180,7 @@ class RobotViewer {
 
   createControls() {
     this.controls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
-    this.controls.enableDamping = true;
-    this.controls.dampingFactor = 0.05;
+    this.controls.enableDamping = false;
     this.controls.enableZoom = false;
     this.controls.enablePan = false;
     this.controls.minDistance = 1;
@@ -290,13 +287,6 @@ class RobotViewer {
           }
         });
 
-        // Handle animations if present
-        if (gltf.animations && gltf.animations.length) {
-          this.mixer = new THREE.AnimationMixer(this.model);
-          const action = this.mixer.clipAction(gltf.animations[0]);
-          action.play();
-        }
-
         this.scene.add(this.model);
         this.hideLoading();
         this.isLoading = false;
@@ -371,22 +361,7 @@ class RobotViewer {
   }
 
   addEventListeners() {
-    // Window resize
     window.addEventListener('resize', () => this.onWindowResize());
-
-    // Pause auto-rotate during user interaction, resume after
-    this.controls.addEventListener('start', () => {
-      this._wasAutoRotating = this.controls.autoRotate;
-      this.controls.autoRotate = false;
-    });
-
-    this.controls.addEventListener('end', () => {
-      if (this._wasAutoRotating && this.autoRotate) {
-        setTimeout(() => {
-          this.controls.autoRotate = true;
-        }, 3000); // Resume after 3 seconds of inactivity
-      }
-    });
   }
 
   onWindowResize() {
@@ -400,13 +375,6 @@ class RobotViewer {
 
   animate() {
     requestAnimationFrame(() => this.animate());
-
-    const delta = this.clock.getDelta();
-
-    // Update animations
-    if (this.mixer) {
-      this.mixer.update(delta);
-    }
 
     // Update controls
     this.controls.update();

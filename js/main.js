@@ -1,6 +1,6 @@
 /**
  * CU Robotics - Main JavaScript
- * Handles animations, scroll effects, and UI interactions
+ * Handles UI interactions and JSON content loading
  */
 
 const { escapeHTML, fetchJSON } = window.CURobotics;
@@ -12,9 +12,6 @@ const { escapeHTML, fetchJSON } = window.CURobotics;
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initMobileMenu();
-  initScrollAnimations();
-  initStatsCounter();
-  initSmoothScroll();
   loadJSONContent();
 });
 
@@ -96,114 +93,6 @@ function initMobileMenu() {
 }
 
 // ============================================
-// SCROLL ANIMATIONS
-// ============================================
-
-function initScrollAnimations() {
-  const animatedElements = document.querySelectorAll('.animate-on-scroll');
-
-  if (!animatedElements.length) return;
-
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px 0px -10% 0px',
-    threshold: 0.1
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        // Optional: unobserve after animation
-        // observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  animatedElements.forEach(el => observer.observe(el));
-}
-
-// ============================================
-// ANIMATED STATS COUNTER
-// ============================================
-
-function initStatsCounter() {
-  const statNumbers = document.querySelectorAll('.stat-number');
-
-  if (!statNumbers.length) return;
-
-  const observerOptions = {
-    threshold: 0.5
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        animateCounter(entry.target);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  statNumbers.forEach(stat => observer.observe(stat));
-}
-
-function animateCounter(element) {
-  const target = parseInt(element.dataset.target) || parseInt(element.textContent);
-  const duration = 2000; // 2 seconds
-  const start = 0;
-  const startTime = performance.now();
-
-  function update(currentTime) {
-    const elapsed = currentTime - startTime;
-    const progress = Math.min(elapsed / duration, 1);
-
-    // Easing function for smooth animation
-    const easeOut = 1 - Math.pow(1 - progress, 3);
-    const current = Math.floor(start + (target - start) * easeOut);
-
-    element.textContent = current.toLocaleString();
-
-    if (progress < 1) {
-      requestAnimationFrame(update);
-    } else {
-      // Add suffix if present
-      const suffix = element.dataset.suffix || '';
-      element.textContent = target.toLocaleString() + suffix;
-    }
-  }
-
-  requestAnimationFrame(update);
-}
-
-// ============================================
-// SMOOTH SCROLL
-// ============================================
-
-function initSmoothScroll() {
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const href = this.getAttribute('href');
-
-      // Skip if it's just "#"
-      if (href === '#') return;
-
-      const target = document.querySelector(href);
-      if (target) {
-        e.preventDefault();
-        const navHeight = document.querySelector('.navbar')?.offsetHeight || 0;
-        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
-
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
-      }
-    });
-  });
-}
-
-// ============================================
 // JSON CONTENT LOADING
 // ============================================
 
@@ -235,7 +124,7 @@ function renderAchievements(achievements) {
   container.innerHTML = achievements.map(yearGroup => {
     const cards = `<div class="achievements-grid">
       ${yearGroup.items.map((item, index) => `
-        <article class="achievement-card animate-on-scroll stagger-${(index % 4) + 1}">
+        <article class="achievement-card">
           ${item.image ? `<img src="${escapeHTML(item.image)}" alt="${escapeHTML(item.competition)}" class="achievement-image" data-image-fallback="remove">` : ''}
           <div class="achievement-content">
             <span class="achievement-competition">${escapeHTML(item.competition)}</span>
@@ -255,7 +144,7 @@ function renderAchievements(achievements) {
         <div class="achievement-season-layout">
           <div class="achievement-season-gallery">
             ${yearGroup.seasonImages.map(image => `
-              <figure class="achievement-season-photo animate-on-scroll">
+              <figure class="achievement-season-photo">
                 <img src="${escapeHTML(image.src)}" alt="${escapeHTML(image.alt || yearGroup.year)}" loading="lazy" data-image-fallback="remove">
                 ${image.caption ? `<figcaption>${escapeHTML(image.caption)}</figcaption>` : ''}
               </figure>
@@ -270,8 +159,6 @@ function renderAchievements(achievements) {
 
   initImageFallbacks(container);
 
-  // Re-initialize scroll animations for new content
-  initScrollAnimations();
 }
 
 async function loadLeadership() {
