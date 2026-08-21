@@ -828,81 +828,12 @@ p {
   margin-top: var(--space-sm);
 }
 
-/* ============================================
-   COMPETITION SECTION
-   ============================================ */
-.competition {
-  background: transparent;
-  position: relative;
-  overflow: hidden;
-}
-
-.competition-layout {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: var(--space-2xl);
-  align-items: center;
-}
-
-.competition-content {
-  position: relative;
-  z-index: 1;
-}
-
-.competition-visual {
-  position: relative;
-}
-
-.trophy-container {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.trophy-icon {
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-}
-
-/* Info cards in competition */
-.competition-cards {
-  display: grid;
-  gap: var(--space-md);
-  margin-top: var(--space-xl);
-}
-
-.comp-card {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-md);
-  padding: var(--space-lg);
-  background: var(--bg-secondary);
-  border-radius: var(--radius-md);
-  border-left: 3px solid var(--cu-gold);
-  transition: all var(--transition-base);
-}
-
-.comp-card:hover {
-  background: var(--bg-tertiary);
-  transform: translateX(8px);
-}
-
-.comp-card-icon {
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(207, 184, 124, 0.1);
-  border-radius: var(--radius-md);
-  flex-shrink: 0;
-}
-
-.comp-card-icon svg {
-  width: 24px;
-  height: 24px;
-  stroke: var(--cu-gold);
+.competition-image {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto;
 }
 
 /* ============================================
@@ -2089,17 +2020,12 @@ p {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .competition-layout,
   .contact-layout {
     grid-template-columns: 1fr;
   }
 
   .contact-info {
     position: static;
-  }
-
-  .competition-visual {
-    order: -1;
   }
 
   .grid-60-40,
