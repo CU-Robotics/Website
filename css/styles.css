@@ -1512,17 +1512,6 @@ p {
   outline-offset: 3px;
 }
 
-/* Past seasons sit back. */
-.leadership-year:not(:first-child) .leadership-groups-container {
-  opacity: 0.65;
-  transition: opacity var(--transition-base);
-}
-
-.leadership-year:not(:first-child):hover .leadership-groups-container,
-.leadership-year:not(:first-child):focus-within .leadership-groups-container {
-  opacity: 1;
-}
-
 /* Leadership page responsive */
 @media (max-width: 1099px) and (min-width: 700px) {
   .leadership-groups-container {
@@ -1537,12 +1526,6 @@ p {
 
   .year-header .year-label {
     font-size: 1.4rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .leadership-year:not(:first-child) .leadership-groups-container {
-    transition: none;
   }
 }
 

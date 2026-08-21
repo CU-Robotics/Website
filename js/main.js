@@ -259,7 +259,7 @@ function renderAchievements(achievements) {
 
 async function loadLeadership() {
   try {
-    const data = await fetchJSON('data/leaders.json');
+    const data = await fetchJSON('data/leaders.json?v=20260821');
     renderLeadership(data.leadership);
   } catch (error) {
     console.error('Error loading leadership:', error);
@@ -278,7 +278,7 @@ function renderLeadership(leadership) {
     <div class="leadership-year">
       <div class="year-header">
         <h3 class="year-label">${escapeHTML(yearGroup.year)}</h3>
-        <span class="season-label">${escapeHTML(yearGroup.season)}</span>
+        ${yearGroup.season ? `<span class="season-label">${escapeHTML(yearGroup.season)}</span>` : ''}
       </div>
       ${yearGroup.groups ? `
         <div class="leadership-groups-container">
