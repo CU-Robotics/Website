@@ -92,7 +92,6 @@ function loadFooter() {
               <li><a href="index.html">Home</a></li>
               <li><a href="team.html">Leadership</a></li>
               <li><a href="achievements.html">Achievements</a></li>
-              <li><a href="contact.html">Contact</a></li>
             </ul>
           </div>
 
@@ -101,6 +100,15 @@ function loadFooter() {
             <ul class="footer-links">
               <li><a href="https://www.arc-robotics.org/" target="_blank" rel="noopener">ARC Robotics</a></li>
               <li><a href="${config.links.apply}" target="_blank" rel="noopener">Join the Team</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-nav">
+            <h4 class="footer-heading">Connect</h4>
+            <ul class="footer-links">
+              <li><a href="mailto:curobotics@colorado.edu">curobotics@colorado.edu</a></li>
+              <li><span>Meetings at the Idea Forge</span></li>
+              <li><a href="${config.links.discord}" target="_blank" rel="noopener">Current schedule on Discord</a></li>
             </ul>
           </div>
         </div>
