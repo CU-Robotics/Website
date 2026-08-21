@@ -868,6 +868,12 @@ p {
   -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 80%);
 }
 
+.subpage .geo-background,
+.subpage .geo-shapes,
+.subpage .grid-overlay {
+  display: none;
+}
+
 /* ============================================
    CARDS
    ============================================ */
@@ -953,6 +959,29 @@ p {
   right: 0;
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(207, 184, 124, 0.3), transparent);
+}
+
+.leadership-section {
+  padding: var(--nav-height) 0 0;
+}
+
+.leadership-section > .container {
+  max-width: none;
+  padding: 0;
+}
+
+.leadership-section .content-block {
+  padding: var(--space-2xl) clamp(var(--space-lg), 8vw, var(--space-2xl));
+  background: rgba(15, 15, 15, 0.92);
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.leadership-section .content-block::before {
+  display: none;
 }
 
 /* CTA Section */
