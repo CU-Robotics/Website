@@ -31,7 +31,6 @@ function loadHeader(activePage) {
       <ul class="nav-links">
         <li><a href="index.html" ${activePage === 'home' ? 'class="active"' : ''}>Home</a></li>
         <li><a href="team.html" ${activePage === 'team' ? 'class="active"' : ''}>Leadership</a></li>
-        <li><a href="projects.html" ${activePage === 'projects' ? 'class="active"' : ''}>Projects</a></li>
         <li><a href="achievements.html" ${activePage === 'achievements' ? 'class="active"' : ''}>Achievements</a></li>
         <li><a href="contact.html" ${activePage === 'contact' ? 'class="active"' : ''}>Contact</a></li>
       </ul>
@@ -52,7 +51,6 @@ function loadHeader(activePage) {
     <ul class="mobile-nav-links">
       <li><a href="index.html" ${activePage === 'home' ? 'class="active"' : ''}>Home</a></li>
       <li><a href="team.html" ${activePage === 'team' ? 'class="active"' : ''}>Leadership</a></li>
-      <li><a href="projects.html" ${activePage === 'projects' ? 'class="active"' : ''}>Projects</a></li>
       <li><a href="achievements.html" ${activePage === 'achievements' ? 'class="active"' : ''}>Achievements</a></li>
       <li><a href="contact.html" ${activePage === 'contact' ? 'class="active"' : ''}>Contact</a></li>
     </ul>
@@ -100,7 +98,6 @@ function loadFooter() {
           <ul class="footer-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="team.html">Leadership</a></li>
-            <li><a href="projects.html">Projects</a></li>
             <li><a href="achievements.html">Achievements</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
@@ -192,89 +189,5 @@ async function loadSponsors() {
     `;
   } catch (error) {
     console.error('Error loading sponsors:', error);
-  }
-}
-
-// Load projects from JSON
-async function loadProjects() {
-  const container = document.querySelector('.projects-grid');
-  if (!container) return;
-
-  try {
-    const response = await fetch('data/projects.json');
-    const data = await response.json();
-    const projects = data.projects;
-
-    // SVG icons for software/outreach projects
-    const icons = {
-      code: `<svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--cu-gold)" stroke-width="1.5" opacity="0.8">
-        <polyline points="16 18 22 12 16 6"/>
-        <polyline points="8 6 2 12 8 18"/>
-      </svg>`,
-      eye: `<svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--cu-gold)" stroke-width="1.5" opacity="0.8">
-        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-        <circle cx="12" cy="12" r="3"/>
-      </svg>`,
-      users: `<svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--cu-gold)" stroke-width="1.5" opacity="0.8">
-        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-        <circle cx="9" cy="7" r="4"/>
-        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-      </svg>`,
-      tool: `<svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--cu-gold)" stroke-width="1.5" opacity="0.8">
-        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-      </svg>`
-    };
-
-    function createProjectCard(project, index) {
-      const staggerClass = `stagger-${(index % 4) + 1}`;
-      const externalAttr = project.link.external ? 'target="_blank" rel="noopener"' : '';
-
-      // Image or icon
-      let imageHTML;
-      if (project.image) {
-        imageHTML = `<img src="${project.image}" alt="${project.title}">`;
-      } else {
-        const iconSVG = icons[project.icon] || icons.tool;
-        imageHTML = `<div style="background: linear-gradient(135deg, var(--cu-charcoal) 0%, var(--cu-black) 100%); height: 100%; display: flex; align-items: center; justify-content: center;">
-          ${iconSVG}
-        </div>`;
-      }
-
-      // Tags
-      const tagsHTML = project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('');
-
-      return `
-        <div class="project-card animate-on-scroll ${staggerClass}" data-category="${project.category}">
-          <div class="project-image">
-            ${imageHTML}
-            <div class="project-overlay">
-              <div class="project-tags">
-                ${tagsHTML}
-              </div>
-            </div>
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">${project.title}</h3>
-            <p class="project-description">${project.description}</p>
-            <a href="${project.link.url}" ${externalAttr} class="project-link">
-              ${project.link.text}
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-      `;
-    }
-
-    container.innerHTML = projects.map((project, index) => createProjectCard(project, index)).join('');
-
-    // Re-initialize animations for dynamically loaded content
-    if (typeof initScrollAnimations === 'function') {
-      initScrollAnimations();
-    }
-  } catch (error) {
-    console.error('Error loading projects:', error);
   }
 }

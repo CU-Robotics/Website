@@ -33,7 +33,6 @@ A modern, responsive website for the CU Robotics ARC competition team at the Uni
 website/
 ├── index.html              # Homepage
 ├── team.html               # Team/Leaders page
-├── projects.html           # Projects showcase
 ├── achievements.html       # Awards timeline
 ├── contact.html            # Contact form
 ├── README.md               # This file

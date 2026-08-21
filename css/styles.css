@@ -1851,139 +1851,6 @@ p {
 }
 
 /* ============================================
-   PROJECTS PAGE
-   ============================================ */
-.projects-filter {
-  display: flex;
-  justify-content: center;
-  gap: var(--space-sm);
-  margin-bottom: var(--space-2xl);
-  flex-wrap: wrap;
-}
-
-.filter-btn {
-  padding: var(--space-sm) var(--space-lg);
-  font-family: var(--font-display);
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text-secondary);
-  background: transparent;
-  border: 1px solid rgba(207, 184, 124, 0.2);
-  border-radius: var(--radius-xl);
-  cursor: pointer;
-  transition: all var(--transition-fast);
-}
-
-.filter-btn:hover,
-.filter-btn.active {
-  color: var(--cu-gold);
-  border-color: var(--cu-gold);
-  background: rgba(207, 184, 124, 0.1);
-}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: var(--space-xl);
-}
-
-.project-card {
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  background: var(--bg-secondary);
-  border: 1px solid rgba(207, 184, 124, 0.1);
-  transition: all var(--transition-base);
-}
-
-.project-card:hover {
-  border-color: var(--cu-gold);
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-xl), var(--glow-gold-sm);
-}
-
-.project-image {
-  position: relative;
-  height: 220px;
-  overflow: hidden;
-}
-
-.project-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform var(--transition-slow);
-}
-
-.project-card:hover .project-image img {
-  transform: scale(1.1);
-}
-
-.project-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.8) 100%);
-  display: flex;
-  align-items: flex-end;
-  padding: var(--space-lg);
-  opacity: 0;
-  transition: opacity var(--transition-base);
-}
-
-.project-card:hover .project-overlay {
-  opacity: 1;
-}
-
-.project-tags {
-  display: flex;
-  gap: var(--space-xs);
-  flex-wrap: wrap;
-}
-
-.project-tag {
-  padding: var(--space-xs) var(--space-sm);
-  background: rgba(207, 184, 124, 0.2);
-  color: var(--cu-gold);
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  border-radius: var(--radius-sm);
-}
-
-.project-content {
-  padding: var(--space-lg);
-}
-
-.project-title {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--cu-white);
-  margin-bottom: var(--space-sm);
-}
-
-.project-description {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  margin-bottom: var(--space-md);
-}
-
-.project-link {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-xs);
-  color: var(--cu-gold);
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: gap var(--transition-fast);
-}
-
-.project-link:hover {
-  gap: var(--space-sm);
-}
-
-/* ============================================
    CONTACT PAGE
    ============================================ */
 .contact-layout {
@@ -2534,8 +2401,7 @@ p {
   }
 
   .team-grid,
-  .achievements-grid,
-  .projects-grid {
+  .achievements-grid {
     grid-template-columns: 1fr;
   }
 

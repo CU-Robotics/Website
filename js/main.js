@@ -250,7 +250,7 @@ async function loadJSONContent() {
     await loadTeamMembers();
   }
 
-  // Load robots if on homepage or projects page
+  // Load robots if on homepage
   if (document.querySelector('.robots-container')) {
     await loadRobots();
   }
