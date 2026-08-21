@@ -1637,176 +1637,92 @@ p {
 }
 
 /* Leadership Timeline */
+/* ============================================
+   LEADERSHIP — a plain roster. No spine, no rails, no boxes: a hairline
+   per season, a label per subsystem, and the people.
+   ============================================ */
 .leadership-timeline {
   position: relative;
-  padding-left: var(--space-2xl);
-}
-
-.leadership-timeline::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(180deg, var(--cu-gold), rgba(207, 184, 124, 0.2));
 }
 
 .leadership-year {
-  margin-bottom: var(--space-3xl);
-  position: relative;
+  margin-bottom: var(--space-2xl);
 }
 
 .leadership-year:last-child {
   margin-bottom: 0;
 }
 
-.leadership-year .year-marker {
-  position: absolute;
-  left: calc(-1 * var(--space-2xl) - 12px);
-  width: 24px;
-  height: 24px;
-  background: var(--cu-gold);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: var(--glow-gold);
-  z-index: 1;
-}
-
-.leadership-year .year-marker::after {
-  content: '';
-  width: 10px;
-  height: 10px;
-  background: var(--cu-black);
-  border-radius: 50%;
+.year-marker {
+  display: none;
 }
 
 .year-header {
   display: flex;
   align-items: baseline;
+  justify-content: space-between;
   gap: var(--space-md);
-  margin-bottom: var(--space-xl);
   flex-wrap: wrap;
+  padding-bottom: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  border-bottom: 1px solid rgba(207, 184, 124, 0.25);
 }
 
 .year-header .year-label {
   font-family: var(--font-display);
-  font-size: 2rem;
-  font-weight: 800;
+  font-size: 1.75rem;
+  font-weight: 700;
   color: var(--cu-gold);
   margin: 0;
 }
 
 .season-label {
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.7rem;
   color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  padding: var(--space-xs) var(--space-sm);
-  background: rgba(207, 184, 124, 0.1);
-  border-radius: var(--radius-sm);
-  border: 1px solid rgba(207, 184, 124, 0.2);
+  letter-spacing: 0.14em;
 }
 
-/* Groups displayed in columns */
+/* Subsystem columns. Tops align because the grid says so; nothing is
+   stretched because align-items does not. */
 .leadership-groups-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--space-md);
-  /* Size each group to its own content instead of the tallest in the row,
-     and let dense packing backfill the gaps small groups leave behind. */
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg) var(--space-md);
   align-items: start;
-  grid-auto-flow: row dense;
-}
-
-/* Groups with a lot of members get two columns of cards so they stay
-   roughly as tall as the smaller groups beside them. */
-.leadership-group-wide {
-  grid-column: span 2;
-}
-
-.leadership-group-wide .leadership-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.leadership-group {
-  background: rgba(20, 20, 20, 0.5);
-  border-radius: var(--radius-md);
-  padding: var(--space-md);
-  border: 1px solid rgba(207, 184, 124, 0.1);
 }
 
 .group-label {
-  font-family: var(--font-display);
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
   color: var(--cu-gold);
   margin-bottom: var(--space-sm);
-  padding-bottom: var(--space-xs);
-  border-bottom: 1px solid rgba(207, 184, 124, 0.2);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.14em;
 }
 
 .leadership-grid {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xs);
+  gap: var(--space-md);
 }
 
 .leader-card {
   display: flex;
-  flex-direction: row;
   align-items: flex-start;
-  text-align: left;
   gap: var(--space-sm);
-  padding: var(--space-sm);
-  background: rgba(28, 28, 28, 0.6);
-  border-radius: var(--radius-md);
-  border: 1px solid rgba(207, 184, 124, 0.1);
-  transition: all var(--transition-base);
   position: relative;
-  z-index: 1;
-}
-
-.leader-card:hover {
-  border-color: rgba(207, 184, 124, 0.3);
-  background: rgba(28, 28, 28, 0.95);
-  z-index: 10;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-}
-
-.leader-card:hover .leader-bio {
-  -webkit-line-clamp: unset;
-  display: block;
-}
-
-.leader-card.leader-current {
-  border-color: rgba(207, 184, 124, 0.25);
-  background: rgba(207, 184, 124, 0.04);
-}
-
-.leader-card.leader-tbd {
-  opacity: 0.6;
-  border-style: dashed;
-}
-
-.leader-card.leader-tbd:hover {
-  opacity: 0.9;
 }
 
 .leader-photo {
   flex-shrink: 0;
-  width: 56px;
-  height: 56px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   overflow: hidden;
-  border: 2px solid var(--cu-gold);
-  box-shadow: 0 0 8px rgba(207, 184, 124, 0.25);
+  border: 1px solid rgba(207, 184, 124, 0.4);
 }
 
 .leader-photo img {
@@ -1838,75 +1754,68 @@ p {
 }
 
 .leader-role {
-  font-size: 0.7rem;
-  color: var(--cu-gold);
-  font-weight: 600;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.08em;
   margin-bottom: 0;
-  line-height: 1.3;
+  line-height: 1.4;
+}
+
+/* The one distinction worth drawing: directors carry the gold. */
+.leader-rank-director .leader-role {
+  color: var(--cu-gold);
 }
 
 .leader-major {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   color: var(--text-muted);
   margin-bottom: 0;
 }
 
-.leader-bio {
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-  line-height: 1.4;
-  margin-top: 3px;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+.leader-card.leader-tbd {
+  opacity: 0.5;
 }
 
 .leader-socials {
   display: flex;
-  gap: 6px;
-  margin-top: 6px;
+  gap: var(--space-sm);
+  margin-top: 4px;
 }
 
 .leader-socials a {
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(207, 184, 124, 0.08);
-  border: 1px solid rgba(207, 184, 124, 0.2);
-  border-radius: 50%;
-  color: var(--cu-gold);
-  transition: all var(--transition-fast);
+  color: var(--text-muted);
+  transition: color var(--transition-fast);
 }
 
 .leader-socials a svg {
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
+  display: block;
 }
 
 .leader-socials a:hover {
-  background: var(--cu-gold);
-  border-color: var(--cu-gold);
-  color: var(--cu-black);
+  color: var(--cu-gold);
+}
+
+.leader-socials a:focus-visible {
+  outline: 2px solid var(--cu-gold);
+  outline-offset: 3px;
+}
+
+/* Past seasons sit back. */
+.leadership-year:not(:first-child) .leadership-groups-container {
+  opacity: 0.65;
+  transition: opacity var(--transition-base);
+}
+
+.leadership-year:not(:first-child):hover .leadership-groups-container,
+.leadership-year:not(:first-child):focus-within .leadership-groups-container {
+  opacity: 1;
 }
 
 /* Leadership page responsive */
-@media (min-width: 1400px) {
-  .leadership-groups-container {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-@media (max-width: 1399px) and (min-width: 1100px) {
-  .leadership-groups-container {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
 @media (max-width: 1099px) and (min-width: 700px) {
   .leadership-groups-container {
     grid-template-columns: repeat(2, 1fr);
@@ -1917,44 +1826,28 @@ p {
   .leadership-groups-container {
     grid-template-columns: 1fr;
   }
-}
-
-/* Below two columns there is nothing to span, and the cards are too
-   narrow to sit side by side. */
-@media (max-width: 699px) {
-  .leadership-group-wide {
-    grid-column: span 1;
-  }
-
-  .leadership-group-wide .leadership-grid {
-    display: flex;
-  }
-}
-
-@media (max-width: 768px) {
-  .leadership-timeline {
-    padding-left: var(--space-lg);
-  }
-
-  .leadership-year .year-marker {
-    left: calc(-1 * var(--space-lg) - 8px);
-    width: 16px;
-    height: 16px;
-  }
-
-  .leadership-year .year-marker::after {
-    width: 6px;
-    height: 6px;
-  }
-
-  .year-header {
-    flex-direction: column;
-    gap: var(--space-xs);
-  }
 
   .year-header .year-label {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .leadership-year:not(:first-child) .leadership-groups-container {
+    transition: none;
+  }
+}
+
+/* Join note: one line and a way in. */
+.join-note {
+  max-width: 44ch;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.join-note p {
+  color: var(--text-secondary);
+  margin: var(--space-md) 0 var(--space-lg);
 }
 
 /* ============================================

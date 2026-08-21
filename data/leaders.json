@@ -23,6 +23,15 @@
               "email": "owmarsh12@gmail.com",
               "linkedin": "https://www.linkedin.com/in/owen-marsh-67095330b",
               "github": ""
+            },
+            {
+              "name": "Elisha",
+              "role": "Director of Outreach",
+              "years": "2026-2027",
+              "bio": "",
+              "email": "",
+              "linkedin": "",
+              "github": ""
             }
           ]
         },
@@ -42,6 +51,15 @@
             {
               "name": "Scott K.",
               "role": "Mechanical Lead",
+              "years": "2026-2027",
+              "bio": "",
+              "email": "",
+              "linkedin": "",
+              "github": ""
+            },
+            {
+              "name": "Noah",
+              "role": "Drone Lead",
               "years": "2026-2027",
               "bio": "",
               "email": "",
@@ -149,36 +167,8 @@
               "github": ""
             },
             {
-              "name": "Eric V.",
+              "name": "Eric",
               "role": "Firmware Lead",
-              "years": "2026-2027",
-              "bio": "",
-              "email": "",
-              "linkedin": "",
-              "github": ""
-            }
-          ]
-        },
-        {
-          "name": "Drone",
-          "members": [
-            {
-              "name": "Noah",
-              "role": "Drone Lead",
-              "years": "2026-2027",
-              "bio": "",
-              "email": "",
-              "linkedin": "",
-              "github": ""
-            }
-          ]
-        },
-        {
-          "name": "Outreach",
-          "members": [
-            {
-              "name": "Elisha",
-              "role": "Director of Outreach",
               "years": "2026-2027",
               "bio": "",
               "email": "",

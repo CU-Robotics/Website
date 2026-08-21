@@ -309,9 +309,11 @@ function renderLeadership(leadership) {
   const container = document.querySelector('.leadership-container');
   if (!container) return;
 
-  container.innerHTML = leadership.map((yearGroup, yearIndex) => `
+  container.innerHTML = leadership.map((yearGroup, yearIndex) => {
+    const isCurrent = yearIndex === 0;
+
+    return `
     <div class="leadership-year animate-on-scroll">
-      <div class="year-marker"></div>
       <div class="year-header">
         <h3 class="year-label">${yearGroup.year}</h3>
         <span class="season-label">${yearGroup.season}</span>
@@ -319,21 +321,22 @@ function renderLeadership(leadership) {
       ${yearGroup.groups ? `
         <div class="leadership-groups-container">
           ${yearGroup.groups.map(group => `
-            <div class="leadership-group ${group.members.length >= 4 ? 'leadership-group-wide' : ''}">
+            <div class="leadership-group">
               <h4 class="group-label">${group.name}</h4>
               <div class="leadership-grid">
-                ${group.members.map((member, index) => createLeaderCard(member, index, yearIndex === 0, yearGroup.year)).join('')}
+                ${group.members.map((member, index) => createLeaderCard(member, index, isCurrent, yearGroup.year)).join('')}
               </div>
             </div>
           `).join('')}
         </div>
       ` : `
         <div class="leadership-grid">
-          ${yearGroup.members.map((member, index) => createLeaderCard(member, index, yearIndex === 0, yearGroup.year)).join('')}
+          ${yearGroup.members.map((member, index) => createLeaderCard(member, index, isCurrent, yearGroup.year)).join('')}
         </div>
       `}
     </div>
-  `).join('');
+  `;
+  }).join('');
 
   // Re-initialize scroll animations for new content
   initScrollAnimations();
@@ -370,8 +373,11 @@ function createLeaderCard(member, index, isCurrent, seasonYear) {
   const yearInfo = member.major ? `${member.major}${member.year ? ' | ' + member.year : ''}` :
                    (classStanding ? classStanding : '');
 
+  // Directors (and the president) outrank leads; the rail node says which.
+  const rank = /director|president|head/i.test(member.role || '') ? 'leader-rank-director' : 'leader-rank-lead';
+
   return `
-    <div class="leader-card animate-on-scroll stagger-${(index % 4) + 1} ${isTBD ? 'leader-tbd' : ''} ${isCurrent ? 'leader-current' : ''}">
+    <div class="leader-card animate-on-scroll stagger-${(index % 4) + 1} ${rank} ${isTBD ? 'leader-tbd' : ''} ${isCurrent ? 'leader-current' : ''}">
       <div class="leader-photo">
         <img src="${photoSrc}" alt="${member.name}" onerror="this.src='images/placeholder-avatar.svg'">
         ${isCurrent && !isTBD ? '<span class="current-badge">Current</span>' : ''}
