@@ -65,7 +65,7 @@ function loadHeader(activePage) {
     ${renderNavigation(activePage, 'mobile-nav-links')}
     <div class="mobile-cta">
       ${renderDiscordButton()}
-      <a href="${config.links.apply}" target="_blank" rel="noopener" class="btn btn-outline mobile-apply-btn">Apply to Team</a>
+      <a href="${config.links.apply}" target="_blank" rel="noopener" class="btn btn-apply mobile-apply-btn">Apply to Team</a>
     </div>
   </div>
   `;
