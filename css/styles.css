@@ -597,6 +597,15 @@ p {
   display: none;
 }
 
+.home-page .competition-image-section > .container {
+  max-width: var(--container-max);
+  padding: 0 var(--space-lg);
+}
+
+.home-page .competition-image-section .content-block {
+  padding: var(--space-lg) 0;
+}
+
 .leadership-section {
   padding: var(--nav-height) 0 0;
 }
