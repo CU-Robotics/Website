@@ -1716,6 +1716,21 @@ p {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--space-md);
+  /* Size each group to its own content instead of the tallest in the row,
+     and let dense packing backfill the gaps small groups leave behind. */
+  align-items: start;
+  grid-auto-flow: row dense;
+}
+
+/* Groups with a lot of members get two columns of cards so they stay
+   roughly as tall as the smaller groups beside them. */
+.leadership-group-wide {
+  grid-column: span 2;
+}
+
+.leadership-group-wide .leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .leadership-group {
@@ -1901,6 +1916,18 @@ p {
 @media (max-width: 699px) {
   .leadership-groups-container {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Below two columns there is nothing to span, and the cards are too
+   narrow to sit side by side. */
+@media (max-width: 699px) {
+  .leadership-group-wide {
+    grid-column: span 1;
+  }
+
+  .leadership-group-wide .leadership-grid {
+    display: flex;
   }
 }
 

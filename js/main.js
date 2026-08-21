@@ -319,7 +319,7 @@ function renderLeadership(leadership) {
       ${yearGroup.groups ? `
         <div class="leadership-groups-container">
           ${yearGroup.groups.map(group => `
-            <div class="leadership-group">
+            <div class="leadership-group ${group.members.length >= 4 ? 'leadership-group-wide' : ''}">
               <h4 class="group-label">${group.name}</h4>
               <div class="leadership-grid">
                 ${group.members.map((member, index) => createLeaderCard(member, index, yearIndex === 0, yearGroup.year)).join('')}
@@ -381,7 +381,6 @@ function createLeaderCard(member, index, isCurrent, seasonYear) {
         <h4 class="leader-name">${member.name}</h4>
         <p class="leader-role">${member.role}</p>
         ${yearInfo && yearInfo !== 'To Be Announced' ? `<p class="leader-major">${yearInfo}</p>` : ''}
-        ${member.bio && !isTBD ? `<p class="leader-bio">${member.bio}</p>` : ''}
         ${socials.length ? `<div class="leader-socials">${socials.join('')}</div>` : ''}
       </div>
     </div>

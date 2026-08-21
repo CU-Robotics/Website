@@ -7,8 +7,191 @@
   },
   "leadership": [
     {
-      "year": "2025-2026",
+      "year": "2026-2027",
       "season": "Current Season",
+      "groups": [
+        {
+          "name": "Leadership",
+          "members": [
+            {
+              "name": "Owen Marsh",
+              "role": "President",
+              "photo": "images/Owen marsh.png",
+              "years": "2024-2027",
+              "graduationYear": "2027",
+              "bio": "",
+              "email": "owmarsh12@gmail.com",
+              "linkedin": "https://www.linkedin.com/in/owen-marsh-67095330b",
+              "github": ""
+            }
+          ]
+        },
+        {
+          "name": "Mechanical & Design",
+          "members": [
+            {
+              "name": "Owen Campbell",
+              "role": "Director of Mechanical",
+              "years": "2025-2027",
+              "graduationYear": "2028",
+              "bio": "",
+              "email": "owen.campbell@colorado.edu",
+              "linkedin": "https://www.linkedin.com/in/owen-campbell-a2353b238/",
+              "github": "https://github.com/frosty6742"
+            },
+            {
+              "name": "Scott K.",
+              "role": "Mechanical Lead",
+              "years": "2026-2027",
+              "bio": "",
+              "email": "",
+              "linkedin": "",
+              "github": ""
+            }
+          ]
+        },
+        {
+          "name": "Manufacturing",
+          "members": [
+            {
+              "name": "Alex H.",
+              "role": "Director of Manufacturing",
+              "years": "2026-2027",
+              "bio": "",
+              "email": "",
+              "linkedin": "",
+              "github": ""
+            },
+            {
+              "name": "Edie",
+              "role": "Manufacturing Lead",
+              "years": "2026-2027",
+              "bio": "",
+              "email": "",
+              "linkedin": "",
+              "github": ""
+            }
+          ]
+        },
+        {
+          "name": "Electrical",
+          "members": [
+            {
+              "name": "Bradley Huynh",
+              "role": "Director of Electrical Systems",
+              "photo": "images/Bradley Huynh.png",
+              "years": "2025-2027",
+              "graduationYear": "2027",
+              "bio": "",
+              "email": "huynhbradley717257@gmail.com",
+              "linkedin": "https://www.linkedin.com/in/bradley-huynh-5319162a3/",
+              "github": ""
+            },
+            {
+              "name": "Holden",
+              "role": "Electrical Lead",
+              "years": "2026-2027",
+              "bio": "",
+              "email": "",
+              "linkedin": "",
+              "github": ""
+            },
+            {
+              "name": "Gabe Ohnsttad",
+              "role": "Electrical Lead",
+              "years": "2026-2027",
+              "bio": "",
+              "email": "",
+              "linkedin": "",
+              "github": ""
+            }
+          ]
+        },
+        {
+          "name": "Software",
+          "members": [
+            {
+              "name": "Rocco Antoniou",
+              "role": "Co-Director of Software",
+              "photo": "images/Rocco.png",
+              "years": "2025-2027",
+              "graduationYear": "2027",
+              "bio": "",
+              "email": "roccoantoniou@gmail.com",
+              "linkedin": "https://www.linkedin.com/in/roccoantoniou",
+              "github": "https://github.com/roccoagain"
+            },
+            {
+              "name": "Siraaj",
+              "role": "Co-Director of Software",
+              "years": "2026-2027",
+              "bio": "",
+              "email": "",
+              "linkedin": "",
+              "github": ""
+            },
+            {
+              "name": "Daniel",
+              "role": "Software Lead",
+              "years": "2026-2027",
+              "bio": "",
+              "email": "",
+              "linkedin": "",
+              "github": ""
+            },
+            {
+              "name": "Alex",
+              "role": "Sentry Autonomy Lead",
+              "years": "2026-2027",
+              "bio": "",
+              "email": "",
+              "linkedin": "",
+              "github": ""
+            },
+            {
+              "name": "Eric V.",
+              "role": "Firmware Lead",
+              "years": "2026-2027",
+              "bio": "",
+              "email": "",
+              "linkedin": "",
+              "github": ""
+            }
+          ]
+        },
+        {
+          "name": "Drone",
+          "members": [
+            {
+              "name": "Noah",
+              "role": "Drone Lead",
+              "years": "2026-2027",
+              "bio": "",
+              "email": "",
+              "linkedin": "",
+              "github": ""
+            }
+          ]
+        },
+        {
+          "name": "Outreach",
+          "members": [
+            {
+              "name": "Elisha",
+              "role": "Director of Outreach",
+              "years": "2026-2027",
+              "bio": "",
+              "email": "",
+              "linkedin": "",
+              "github": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year": "2025-2026",
+      "season": "RoboMaster",
       "groups": [
         {
           "name": "Leadership",
