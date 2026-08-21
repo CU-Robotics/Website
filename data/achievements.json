@@ -2,9 +2,13 @@
   "achievements": [
     {
       "year": "2025-2026",
-      "teamImage": "images/team-arc-2026.jpg",
-      "teamImageAlt": "CU Robotics team at ARC Robotics 2026",
-      "teamImageCaption": "CU Robotics at ARC Robotics 2026",
+      "seasonImages": [
+        {
+          "src": "images/team-arc-2026.jpg",
+          "alt": "CU Robotics team at ARC Robotics 2026",
+          "caption": "CU Robotics at ARC Robotics 2026"
+        }
+      ],
       "items": [
         {
           "competition": "ARC 3v3",
@@ -16,9 +20,13 @@
     },
     {
       "year": "2024-2025",
-      "teamImage": "images/team-rmna-2025.jpg",
-      "teamImageAlt": "CU Robotics team at RoboMaster North America 2025",
-      "teamImageCaption": "CU Robotics at RoboMaster North America 2025",
+      "seasonImages": [
+        {
+          "src": "images/team-rmna-2025.jpg",
+          "alt": "CU Robotics team at RoboMaster North America 2025",
+          "caption": "CU Robotics at RoboMaster North America 2025"
+        }
+      ],
       "items": [
         {
           "competition": "ARC 1v1",
@@ -47,6 +55,18 @@
     },
     {
       "year": "2022-2023",
+      "seasonImages": [
+        {
+          "src": "images/rmna-2023.JPG",
+          "alt": "CU Robotics team working on robots at RoboMaster North America 2023",
+          "caption": "CU Robotics at RoboMaster North America 2023"
+        },
+        {
+          "src": "images/fleet-2023.jpg",
+          "alt": "CU Robotics 2023 robot fleet",
+          "caption": "The CU Robotics fleet in 2023"
+        }
+      ],
       "items": [
         {
           "competition": "RoboMaster 3v3",
@@ -83,9 +103,7 @@
     "description": "This file stores all team achievements. Add new achievements by following the structure above.",
     "fields": {
       "year": "The year of the achievement (string)",
-      "teamImage": "Optional team photo for the season",
-      "teamImageAlt": "Accessible description of the season photo",
-      "teamImageCaption": "Short caption displayed beneath the season photo",
+      "seasonImages": "Optional array of season photos with src, alt, and caption fields",
       "items": "Array of achievements for that year",
       "competition": "Name of the competition or event",
       "award": "The award or placement received",
@@ -95,7 +113,7 @@
     },
     "tips": [
       "Add new years at the TOP of the achievements array to show most recent first",
-      "Achievement card images should be 16:9; season team photos should be 4:3",
+      "Season team photos retain their original aspect ratio",
       "Keep descriptions concise - they display on cards",
       "Date field is optional but helps with accurate ordering"
     ]

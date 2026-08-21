@@ -220,7 +220,7 @@ async function loadJSONContent() {
 
 async function loadAchievements() {
   try {
-    const data = await fetchJSON('data/achievements.json?v=20260821-3');
+    const data = await fetchJSON('data/achievements.json?v=20260821-5');
     renderAchievements(data.achievements);
   } catch (error) {
     console.error('Error loading achievements:', error);
@@ -251,12 +251,16 @@ function renderAchievements(achievements) {
       <div class="year-header">
         <h2 class="year-label">${escapeHTML(yearGroup.year)}</h2>
       </div>
-      ${yearGroup.teamImage ? `
+      ${yearGroup.seasonImages?.length ? `
         <div class="achievement-season-layout">
-          <figure class="achievement-season-photo animate-on-scroll">
-            <img src="${escapeHTML(yearGroup.teamImage)}" alt="${escapeHTML(yearGroup.teamImageAlt || yearGroup.year)}" loading="lazy" data-image-fallback="remove">
-            ${yearGroup.teamImageCaption ? `<figcaption>${escapeHTML(yearGroup.teamImageCaption)}</figcaption>` : ''}
-          </figure>
+          <div class="achievement-season-gallery">
+            ${yearGroup.seasonImages.map(image => `
+              <figure class="achievement-season-photo animate-on-scroll">
+                <img src="${escapeHTML(image.src)}" alt="${escapeHTML(image.alt || yearGroup.year)}" loading="lazy" data-image-fallback="remove">
+                ${image.caption ? `<figcaption>${escapeHTML(image.caption)}</figcaption>` : ''}
+              </figure>
+            `).join('')}
+          </div>
           ${cards}
         </div>
       ` : cards}

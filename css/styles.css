@@ -896,6 +896,11 @@ p {
   grid-template-columns: 1fr;
 }
 
+.achievement-season-gallery {
+  display: grid;
+  gap: var(--space-md);
+}
+
 .achievement-season-photo {
   overflow: hidden;
   margin: 0;
@@ -907,8 +912,7 @@ p {
 .achievement-season-photo img {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+  height: auto;
 }
 
 .achievement-season-photo figcaption {
