@@ -1570,43 +1570,59 @@ p {
   }
 }
 
-/* Join note: one line and a way in. */
-.join-note {
-  max-width: 44ch;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.join-note p {
-  color: var(--text-secondary);
-  margin: var(--space-md) 0 var(--space-lg);
-}
-
 /* ============================================
    CONTACT PAGE
    ============================================ */
+.contact-section {
+  padding: calc(var(--nav-height) + var(--space-2xl)) 0 var(--space-2xl);
+}
+
+.contact-page-header {
+  max-width: 48rem;
+  margin-bottom: var(--space-2xl);
+}
+
+.contact-page-header h1 {
+  margin-bottom: var(--space-sm);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+.contact-page-header p {
+  font-size: 1.05rem;
+}
+
 .contact-layout {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: var(--space-2xl);
+  grid-template-columns: minmax(18rem, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(var(--space-xl), 8vw, var(--space-3xl));
   align-items: start;
 }
 
 .contact-info {
-  position: sticky;
-  top: calc(var(--nav-height) + var(--space-xl));
+  position: static;
+}
+
+.contact-info h2,
+.contact-form h2 {
+  margin-bottom: var(--space-xl);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+.contact-details {
+  border-top: 1px solid rgba(207, 184, 124, 0.2);
 }
 
 .contact-item {
   display: flex;
   align-items: flex-start;
   gap: var(--space-md);
-  margin-bottom: var(--space-xl);
+  padding: var(--space-lg) 0;
+  border-bottom: 1px solid rgba(207, 184, 124, 0.2);
 }
 
 .contact-icon {
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1643,12 +1659,15 @@ p {
   text-decoration: underline;
 }
 
+.contact-info h3 {
+  margin-top: var(--space-xl);
+  font-size: 1rem;
+}
+
 /* Contact form */
 .contact-form {
-  background: var(--bg-secondary);
-  padding: var(--space-2xl);
-  border-radius: var(--radius-lg);
-  border: 1px solid rgba(207, 184, 124, 0.1);
+  padding-left: clamp(var(--space-xl), 6vw, var(--space-2xl));
+  border-left: 1px solid rgba(207, 184, 124, 0.2);
 }
 
 .form-group {
@@ -1670,7 +1689,7 @@ p {
   font-family: var(--font-body);
   font-size: 1rem;
   color: var(--cu-white);
-  background: var(--bg-tertiary);
+  background: var(--bg-secondary);
   border: 1px solid rgba(207, 184, 124, 0.2);
   border-radius: var(--radius-md);
   transition: all var(--transition-fast);
@@ -1698,7 +1717,7 @@ p {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-md);
-  margin-top: var(--space-xl);
+  margin-top: var(--space-lg);
 }
 
 .social-link {
@@ -1706,9 +1725,9 @@ p {
   flex-direction: column;
   align-items: center;
   gap: var(--space-sm);
-  padding: var(--space-lg);
-  background: var(--bg-tertiary);
-  border: 1px solid rgba(207, 184, 124, 0.1);
+  padding: var(--space-md);
+  background: transparent;
+  border: 1px solid rgba(207, 184, 124, 0.2);
   border-radius: var(--radius-md);
   text-decoration: none;
   transition: all var(--transition-base);
@@ -1720,6 +1739,22 @@ p {
   box-shadow: var(--shadow-md);
 }
 
+.social-link-discord {
+  background: #5865f2;
+}
+
+.social-link-instagram {
+  background: linear-gradient(135deg, #833ab4 0%, #c13584 35%, #e1306c 55%, #fd1d1d 72%, #fcaf45 100%);
+}
+
+.social-link-instagram:hover {
+  background: linear-gradient(135deg, #9148bd 0%, #ce428f 35%, #e9437a 55%, #fd3939 72%, #fdbb61 100%);
+}
+
+.social-link-youtube {
+  background: #ff0000;
+}
+
 .social-link svg,
 .social-link img {
   width: 32px;
@@ -1728,7 +1763,7 @@ p {
 
 .social-link span {
   font-size: 0.85rem;
-  color: var(--text-secondary);
+  color: var(--cu-white);
 }
 
 /* ============================================
@@ -2076,6 +2111,13 @@ p {
     position: static;
   }
 
+  .contact-form {
+    padding-top: var(--space-xl);
+    padding-left: 0;
+    border-top: 1px solid rgba(207, 184, 124, 0.2);
+    border-left: 0;
+  }
+
   .grid-60-40,
   .grid-40-60 {
     grid-template-columns: 1fr;
@@ -2173,6 +2215,10 @@ p {
 
   .social-grid {
     grid-template-columns: 1fr;
+  }
+
+  .contact-page .social-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .robot-viewer {
