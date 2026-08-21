@@ -116,7 +116,6 @@ class RobotViewer {
     this.createRenderer();
     this.createLights();
     this.createControls();
-    this.createBackground();
     this.addEventListeners();
     this.animate();
 
@@ -126,14 +125,14 @@ class RobotViewer {
 
   createScene() {
     this.scene = new THREE.Scene();
+    this.scene.background = null;
   }
 
   createCamera() {
     const aspect = this.container.clientWidth / this.container.clientHeight;
     this.camera = new THREE.PerspectiveCamera(45, aspect, 0.1, 1000);
-    // Front-left elevated view matching preferred angle
-    this.camera.position.set(-4, 3, 4);
-    this.camera.lookAt(0, 0.5, 0);
+    this.camera.position.set(-4, 2.5, 4);
+    this.camera.lookAt(0, 0, 0);
   }
 
   createRenderer() {
@@ -147,8 +146,7 @@ class RobotViewer {
     this.renderer.outputEncoding = THREE.sRGBEncoding;
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
     this.renderer.toneMappingExposure = 1;
-    this.renderer.shadowMap.enabled = true;
-    this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    this.renderer.setClearColor(0x000000, 0);
 
     // Find or create canvas container
     const canvasContainer = this.container.querySelector('.viewer-canvas') || this.container;
@@ -163,12 +161,6 @@ class RobotViewer {
     // Main gold-tinted key light
     const keyLight = new THREE.DirectionalLight(this.goldColor, 1);
     keyLight.position.set(5, 5, 5);
-    keyLight.castShadow = true;
-    const shadowMapSize = isMobileDevice() ? 1024 : 2048;
-    keyLight.shadow.mapSize.width = shadowMapSize;
-    keyLight.shadow.mapSize.height = shadowMapSize;
-    keyLight.shadow.camera.near = 0.5;
-    keyLight.shadow.camera.far = 50;
     this.scene.add(keyLight);
 
     // Fill light (white)
@@ -192,38 +184,14 @@ class RobotViewer {
     this.controls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
     this.controls.enableDamping = true;
     this.controls.dampingFactor = 0.05;
-    this.controls.enableZoom = true;
-    this.controls.enablePan = true;
+    this.controls.enableZoom = false;
+    this.controls.enablePan = false;
     this.controls.minDistance = 1;
     this.controls.maxDistance = 10;
     this.controls.autoRotate = this.autoRotate;
     this.controls.autoRotateSpeed = 1;
-    this.controls.target.set(0, 0.5, 0);
+    this.controls.target.set(0, 0, 0);
     this.controls.update();
-  }
-
-  createBackground() {
-    this.scene.background = new THREE.Color(0x0f0f0f);
-
-    // Add a subtle ground plane
-    const groundGeometry = new THREE.PlaneGeometry(20, 20);
-    const groundMaterial = new THREE.MeshStandardMaterial({
-      color: 0x111111,
-      roughness: 0.8,
-      metalness: 0.2
-    });
-    const ground = new THREE.Mesh(groundGeometry, groundMaterial);
-    ground.rotation.x = -Math.PI / 2;
-    ground.position.y = -0.5;
-    ground.receiveShadow = true;
-    this.scene.add(ground);
-
-    // Add grid helper for visual interest
-    const gridHelper = new THREE.GridHelper(10, 20, this.goldColor, 0x333333);
-    gridHelper.position.y = -0.49;
-    gridHelper.material.opacity = 0.3;
-    gridHelper.material.transparent = true;
-    this.scene.add(gridHelper);
   }
 
   async loadActiveRobot() {
@@ -299,7 +267,7 @@ class RobotViewer {
         const size = box.getSize(new THREE.Vector3());
 
         const maxDim = Math.max(size.x, size.y, size.z);
-        const scale = 3.5 / maxDim; // Fit within 3.5 units for larger display
+        const scale = 4.6 / maxDim;
 
         this.model.scale.setScalar(scale);
 
@@ -308,17 +276,13 @@ class RobotViewer {
         const boxScaled = new THREE.Box3().setFromObject(this.model);
         const centerScaled = boxScaled.getCenter(new THREE.Vector3());
 
-        // Center the model horizontally, place on ground
+        // Center the model so it floats in the scene.
         this.model.position.x = -centerScaled.x;
         this.model.position.z = -centerScaled.z;
-        this.model.position.y = -boxScaled.min.y; // Place on ground
+        this.model.position.y = -centerScaled.y;
 
-        // Enable shadows
         this.model.traverse((child) => {
           if (child.isMesh) {
-            child.castShadow = true;
-            child.receiveShadow = true;
-
             // Enhance metallic materials slightly
             if (child.material) {
               child.material.envMapIntensity = 0.5;
@@ -342,11 +306,6 @@ class RobotViewer {
           setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
         }
 
-        // Update viewer title
-        const titleEl = this.container.querySelector('.viewer-title');
-        if (titleEl) {
-          titleEl.textContent = `3D Model: ${modelName}`;
-        }
       },
       (progress) => {
         const percent = Math.round((progress.loaded / progress.total) * 100);
@@ -411,58 +370,9 @@ class RobotViewer {
     this.scene.add(wireframe);
   }
 
-  toggleAutoRotate() {
-    this.autoRotate = !this.autoRotate;
-    this.controls.autoRotate = this.autoRotate;
-    return this.autoRotate;
-  }
-
-  resetView() {
-    this.camera.position.set(-4, 3, 4);
-    this.controls.target.set(0, 0.5, 0);
-    this.controls.update();
-  }
-
-  zoomIn() {
-    const direction = new THREE.Vector3();
-    this.camera.getWorldDirection(direction);
-    this.camera.position.addScaledVector(direction, 0.5);
-  }
-
-  zoomOut() {
-    const direction = new THREE.Vector3();
-    this.camera.getWorldDirection(direction);
-    this.camera.position.addScaledVector(direction, -0.5);
-  }
-
   addEventListeners() {
     // Window resize
     window.addEventListener('resize', () => this.onWindowResize());
-
-    // Control buttons
-    const autoRotateBtn = this.container.querySelector('[data-action="auto-rotate"]');
-    const resetBtn = this.container.querySelector('[data-action="reset"]');
-    const zoomInBtn = this.container.querySelector('[data-action="zoom-in"]');
-    const zoomOutBtn = this.container.querySelector('[data-action="zoom-out"]');
-
-    if (autoRotateBtn) {
-      autoRotateBtn.addEventListener('click', () => {
-        const isRotating = this.toggleAutoRotate();
-        autoRotateBtn.classList.toggle('active', isRotating);
-      });
-    }
-
-    if (resetBtn) {
-      resetBtn.addEventListener('click', () => this.resetView());
-    }
-
-    if (zoomInBtn) {
-      zoomInBtn.addEventListener('click', () => this.zoomIn());
-    }
-
-    if (zoomOutBtn) {
-      zoomOutBtn.addEventListener('click', () => this.zoomOut());
-    }
 
     // Pause auto-rotate during user interaction, resume after
     this.controls.addEventListener('start', () => {
@@ -522,39 +432,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const viewerContainer = document.getElementById('robot-viewer');
   if (!viewerContainer) return;
 
-  const tapOverlay = document.getElementById('viewer-tap-overlay');
-  const isMobile = isMobileDevice();
-
   function initViewer() {
     if (typeof THREE !== 'undefined') {
       window.robotViewer = new RobotViewer('robot-viewer');
     }
   }
 
-  // On mobile: require tap to load
-  if (isMobile && tapOverlay) {
-    tapOverlay.addEventListener('click', () => {
-      tapOverlay.classList.add('hidden');
-      initViewer();
-    });
+  if ('IntersectionObserver' in window) {
+    const viewerObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          initViewer();
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '100px', threshold: 0 });
+
+    viewerObserver.observe(viewerContainer);
   } else {
-    // On desktop: use IntersectionObserver for lazy loading
-    if (tapOverlay) tapOverlay.style.display = 'none';
-
-    if ('IntersectionObserver' in window) {
-      const viewerObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            initViewer();
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { rootMargin: '100px', threshold: 0 });
-
-      viewerObserver.observe(viewerContainer);
-    } else {
-      initViewer();
-    }
+    initViewer();
   }
 });
 

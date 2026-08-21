@@ -572,6 +572,13 @@ p {
   position: relative;
 }
 
+.hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  align-items: center;
+  gap: clamp(var(--space-lg), 4vw, var(--space-xl));
+}
+
 .arc-section {
   padding: var(--space-lg) 0;
 }
@@ -637,7 +644,7 @@ p {
 }
 
 .hero-title .line-2 {
-  font-size: clamp(3rem, 8vw, 7rem);
+  font-size: clamp(3rem, 6.5vw, 6rem);
   font-weight: 800;
   color: var(--cu-white);
   white-space: nowrap;
@@ -928,128 +935,25 @@ p {
 }
 
 /* ============================================
-   ROBOT SHOWCASE / 3D VIEWER
+   3D ROBOT VIEWER
    ============================================ */
-.robot-showcase {
-  background: transparent;
-  position: relative;
-}
-
 .robot-viewer-container {
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
-  border-radius: var(--radius-xl);
   overflow: hidden;
-  border: 2px solid var(--cu-gold);
-  box-shadow: var(--shadow-xl);
 }
 
 .robot-viewer {
   width: 100%;
-  height: 500px;
-  background: var(--bg-primary);
+  height: clamp(400px, 42vw, 540px);
+  background: transparent;
   position: relative;
+  cursor: grab;
 }
 
-.viewer-tap-overlay {
-  display: none;
-  position: absolute;
-  inset: 0;
-  background: var(--bg-primary);
-  z-index: 20;
-  cursor: pointer;
-  transition: opacity var(--transition-base);
-}
-
-.viewer-tap-overlay.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.tap-overlay-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-md);
-  color: var(--cu-gold);
-  text-align: center;
-}
-
-.tap-overlay-content svg {
-  opacity: 0.8;
-}
-
-.tap-overlay-content span {
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
-  letter-spacing: 0.1em;
-}
-
-.robot-viewer-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: var(--space-md) var(--space-lg);
-  background: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 10;
-}
-
-.viewer-title {
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  color: var(--cu-gold);
-  letter-spacing: 0.1em;
-}
-
-.viewer-controls {
-  display: flex;
-  gap: var(--space-sm);
-}
-
-.viewer-btn {
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(207, 184, 124, 0.1);
-  border: 1px solid rgba(207, 184, 124, 0.3);
-  border-radius: var(--radius-sm);
-  color: var(--cu-gold);
-  cursor: pointer;
-  transition: all var(--transition-fast);
-}
-
-.viewer-btn:hover {
-  background: var(--cu-gold);
-  color: var(--cu-black);
-}
-
-.viewer-btn.active {
-  background: var(--cu-gold);
-  color: var(--cu-black);
-}
-
-.robot-viewer-footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: var(--space-md) var(--space-lg);
-  background: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  gap: var(--space-sm);
-  z-index: 10;
+.robot-viewer:active {
+  cursor: grabbing;
 }
 
 /* Loading indicator */
@@ -1060,7 +964,7 @@ p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: var(--bg-primary);
+  background: transparent;
   z-index: 20;
 }
 
@@ -1075,10 +979,6 @@ p {
 
 .loading-spinner-centered {
   margin: 0 auto;
-}
-
-.viewer-instructions {
-  font-size: 0.75rem;
 }
 
 @keyframes spin {
@@ -2141,6 +2041,10 @@ p {
     font-size: clamp(2.5rem, 12vw, 4rem);
   }
 
+  .hero-layout {
+    grid-template-columns: 1fr;
+  }
+
   .arc-layout {
     grid-template-columns: 1fr;
   }
@@ -2198,9 +2102,6 @@ p {
     touch-action: pan-y pinch-zoom;
   }
 
-  .viewer-tap-overlay {
-    display: block;
-  }
 }
 
 @media (max-width: 600px) {
@@ -2208,9 +2109,6 @@ p {
     height: 300px;
   }
 
-  .viewer-controls {
-    gap: var(--space-xs);
-  }
 }
 
 @media (max-width: 480px) {
