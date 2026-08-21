@@ -62,9 +62,6 @@ function loadFooter() {
             <img src="images/logo.png" alt="CU Robotics">
             <span>CU Robotics</span>
           </div>
-          <p class="footer-tagline">
-            Design. Build. Code. Compete. Representing the University of Colorado Boulder in ARC Robotics Competition.
-          </p>
           <div class="footer-socials">
             <a href="https://www.instagram.com/curoboticsteam/" target="_blank" rel="noopener" aria-label="Instagram">
               <img src="images/instagram-icon.png" alt="Instagram">
