@@ -220,7 +220,7 @@ async function loadJSONContent() {
 
 async function loadAchievements() {
   try {
-    const data = await fetchJSON('data/achievements.json');
+    const data = await fetchJSON('data/achievements.json?v=20260821-2');
     renderAchievements(data.achievements);
   } catch (error) {
     console.error('Error loading achievements:', error);
@@ -233,22 +233,23 @@ function renderAchievements(achievements) {
   if (!container) return;
 
   container.innerHTML = achievements.map(yearGroup => `
-    <div class="achievement-year animate-on-scroll">
-      <div class="year-marker"></div>
-      <h3 class="year-label">${escapeHTML(yearGroup.year)}</h3>
+    <section class="achievement-year">
+      <div class="year-header">
+        <h2 class="year-label">${escapeHTML(yearGroup.year)}</h2>
+      </div>
       <div class="achievements-grid">
         ${yearGroup.items.map((item, index) => `
-          <div class="achievement-card animate-on-scroll stagger-${(index % 4) + 1}">
+          <article class="achievement-card animate-on-scroll stagger-${(index % 4) + 1}">
             ${item.image ? `<img src="${escapeHTML(item.image)}" alt="${escapeHTML(item.competition)}" class="achievement-image" data-image-fallback="remove">` : ''}
             <div class="achievement-content">
               <span class="achievement-award">${escapeHTML(item.award)}</span>
-              <h4 class="achievement-competition">${escapeHTML(item.competition)}</h4>
+              <h3 class="achievement-competition">${escapeHTML(item.competition)}</h3>
               <p class="achievement-description">${escapeHTML(item.description)}</p>
             </div>
-          </div>
+          </article>
         `).join('')}
       </div>
-    </div>
+    </section>
   `).join('');
 
   initImageFallbacks(container);

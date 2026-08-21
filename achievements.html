@@ -17,18 +17,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css?v=20260821-8">
 </head>
 <body class="subpage achievements-page" data-page="achievements">
   <div id="site-header"></div>
 
-  <!-- Achievements Section -->
-  <section class="section">
+  <section class="section achievements-section">
     <div class="container">
-      <!-- Summary Stats -->
-      <div class="stats-grid stats-grid-4 animate-on-scroll mb-2xl">
+      <header class="achievements-page-header">
+        <h1>Achievements</h1>
+      </header>
+
+      <div class="stats-grid animate-on-scroll mb-2xl">
         <div class="stat-item">
-          <div class="achievement-stat-number">5</div>
+          <div class="achievement-stat-number">6</div>
           <div class="stat-label">Seasons Competing</div>
         </div>
         <div class="stat-item">
@@ -37,17 +39,11 @@
         </div>
         <div class="stat-item">
           <div class="achievement-stat-number">3</div>
-          <div class="stat-label">Top 2 Finishes</div>
-        </div>
-        <div class="stat-item">
-          <div class="achievement-stat-number">4</div>
-          <div class="stat-label">Podium Placements</div>
+          <div class="stat-label">Top 3 Finishes</div>
         </div>
       </div>
 
-      <!-- Timeline Container (populated by JavaScript) -->
-      <div class="achievements-timeline achievements-container">
-        <!-- Loading placeholder -->
+      <div class="achievement-showcase achievements-container">
         <div class="text-center">
           <div class="loading-spinner loading-spinner-centered"></div>
           <p class="text-muted mt-md">Loading achievements...</p>
@@ -61,6 +57,6 @@
   <!-- Scripts -->
   <script src="js/site.js"></script>
   <script src="js/components.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=20260821-5"></script>
 </body>
 </html>
