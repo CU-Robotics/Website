@@ -375,8 +375,12 @@ p {
 .hero {
   position: relative;
   overflow: hidden;
-  padding-top: calc(var(--nav-height) + var(--space-md));
   padding-bottom: var(--space-lg);
+}
+
+.hero-stage {
+  position: relative;
+  padding-top: calc(var(--nav-height) + var(--space-md));
 }
 
 .hero-shader {
