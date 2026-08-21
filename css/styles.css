@@ -379,7 +379,25 @@ p {
   padding-bottom: var(--space-lg);
 }
 
+.hero-shader {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 58% 42%, rgba(207, 184, 124, 0.16), transparent 42%),
+    var(--bg-primary);
+}
+
+.hero-shader canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .hero-media {
+  position: relative;
+  z-index: 1;
   margin-top: var(--space-xl);
 }
 
@@ -392,6 +410,7 @@ p {
 
 .hero-content {
   position: relative;
+  z-index: 1;
 }
 
 .hero-layout {
