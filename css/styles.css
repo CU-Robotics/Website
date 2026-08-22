@@ -1433,6 +1433,10 @@ p {
     grid-template-columns: 1fr;
   }
 
+  .robot-viewer-container {
+    display: none;
+  }
+
   .leadership-page-header {
     grid-template-columns: 1fr;
   }
