@@ -38,15 +38,15 @@
         vec2 point = uv - 0.5;
         point.x *= uResolution.x / uResolution.y;
 
-        float breath = 0.92 + 0.08 * sin(uTime * 0.55);
+        float breath = 0.88 + 0.14 * sin(uTime * 0.55);
         float depth = 1.0 - uv.y;
         float drift = 0.025 * sin(depth * 4.0 + uTime * 0.14);
         float auraX = point.x + drift;
-        float spread = 0.12 + depth * 0.72;
+        float spread = 0.14 + depth * 0.78;
         float horizontalGlow = exp(-pow(auraX / spread, 2.0));
         float verticalGlow = exp(-depth * 1.85);
         float aura = horizontalGlow * verticalGlow;
-        float halo = exp(-length(vec2(auraX * 0.85, depth * 0.55)) * 3.1);
+        float halo = exp(-length(vec2(auraX * 0.85, depth * 0.55)) * 2.9);
         float core = exp(-abs(auraX) * 4.2) * exp(-depth * 2.4);
 
         vec3 background = vec3(0.082);

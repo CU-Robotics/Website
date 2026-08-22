@@ -1391,6 +1391,33 @@ p {
 
 }
 
+@media (min-width: 481px) and (max-width: 992px) {
+  .hero-cta {
+    grid-template-columns: minmax(8rem, 1fr) auto;
+  }
+
+  .hero-cta .btn-apply {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .hero-cta .btn-discord {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .hero-cta .btn-instagram,
+  .hero-cta .btn-youtube {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: start;
+  }
+
+  .hero-cta .btn-youtube {
+    margin-left: 4.25rem;
+  }
+}
+
 @media (max-width: 768px) {
   :root {
     --space-xl: 3rem;
