@@ -29,7 +29,7 @@ class RobotViewer {
     this.animationFrame = null;
     this.lastFrameTime = 0;
     this.frameInterval = 1000 / 30;
-    this._modelCache = new Map();
+    this.modelAbortController = null;
 
     this.animate = this.animate.bind(this);
     this.onWindowResize = this.onWindowResize.bind(this);
@@ -95,26 +95,7 @@ class RobotViewer {
     // Clear model data on page unload
     window.addEventListener('beforeunload', () => {
       this.dispose();
-      this._modelCache.clear();
     });
-
-    // Detect dev tools opening (basic detection)
-    let devToolsOpen = false;
-    const threshold = 160;
-    const checkDevTools = () => {
-      if (window.outerWidth - window.innerWidth > threshold ||
-          window.outerHeight - window.innerHeight > threshold) {
-        if (!devToolsOpen) {
-          devToolsOpen = true;
-          console.clear();
-          console.log('%c⚠️ CU Robotics', 'font-size: 24px; font-weight: bold; color: #CFB87C;');
-          console.log('%cThis content is protected. Unauthorized copying is prohibited.', 'font-size: 14px; color: #fff;');
-        }
-      } else {
-        devToolsOpen = false;
-      }
-    };
-    setInterval(checkDevTools, 1000);
   }
 
   init() {
@@ -212,105 +193,101 @@ class RobotViewer {
 
     this.isLoading = true;
     this.showLoading(modelName);
+    this.disposeModel();
 
-    // Remove existing model
-    if (this.model) {
-      this.scene.remove(this.model);
-      this.model = null;
-    }
-
-    const loader = new THREE.GLTFLoader();
-
-    // Add Draco decoder support if available
-    if (THREE.DRACOLoader) {
-      const dracoLoader = new THREE.DRACOLoader();
-      dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
-      loader.setDRACOLoader(dracoLoader);
-    }
-
-    // Obfuscated loading: fetch as blob, create object URL
-    // This makes it harder to find the original file path in network requests
-    let blobUrl;
     try {
-      const response = await fetch(modelPath, {
-        credentials: 'same-origin',
-        cache: 'no-store'
+      let gltf;
+      let lastError;
+
+      for (let attempt = 0; attempt < 2; attempt += 1) {
+        try {
+          gltf = await this.loadModelAttempt(modelPath, attempt);
+          break;
+        } catch (error) {
+          lastError = error;
+          if (attempt === 0) {
+            console.warn('Model load failed; retrying once:', error);
+          }
+        }
+      }
+
+      if (!gltf) throw lastError;
+
+      this.model = gltf.scene;
+      this.model.rotation.x = -Math.PI / 2;
+      this.model.updateMatrixWorld(true);
+
+      const box = new THREE.Box3().setFromObject(this.model);
+      const size = box.getSize(new THREE.Vector3());
+      const maxDim = Math.max(size.x, size.y, size.z);
+      this.model.scale.setScalar(4.6 / maxDim);
+
+      this.model.updateMatrixWorld(true);
+      const boxScaled = new THREE.Box3().setFromObject(this.model);
+      const centerScaled = boxScaled.getCenter(new THREE.Vector3());
+      this.model.position.set(-centerScaled.x, -centerScaled.y, -centerScaled.z);
+
+      this.model.traverse((child) => {
+        if (!child.isMesh) return;
+        child.castShadow = true;
+        child.receiveShadow = true;
+        const materials = Array.isArray(child.material) ? child.material : [child.material];
+        materials.forEach((material) => {
+          if (material) material.envMapIntensity = 0.5;
+        });
       });
+
+      this.scene.add(this.model);
+      this.renderer.shadowMap.needsUpdate = true;
+      this.hideLoading();
+    } catch (error) {
+      console.error('Error loading model:', error);
+      this.showPlaceholder();
+    } finally {
+      this.modelAbortController = null;
+      this.isLoading = false;
+    }
+  }
+
+  async loadModelAttempt(modelPath, attempt) {
+    const loader = new THREE.GLTFLoader();
+    const dracoLoader = new THREE.DRACOLoader();
+    dracoLoader.setDecoderPath('https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/libs/draco/');
+    loader.setDRACOLoader(dracoLoader);
+
+    const separator = modelPath.includes('?') ? '&' : '?';
+    const requestPath = attempt === 0 ? modelPath : `${modelPath}${separator}retry=${Date.now()}`;
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 20000);
+    this.modelAbortController = controller;
+
+    try {
+      const response = await fetch(requestPath, {
+        credentials: 'same-origin',
+        cache: attempt === 0 ? 'default' : 'reload',
+        signal: controller.signal
+      });
+
       if (!response.ok) {
         throw new Error(`Failed to load ${modelPath}: ${response.status} ${response.statusText}`);
       }
-      const blob = await response.blob();
-      blobUrl = URL.createObjectURL(blob);
-      this._modelCache.set(modelName, blobUrl);
-    } catch (e) {
-      // Fallback to direct loading if blob fails
-      blobUrl = modelPath;
-    }
 
-    loader.load(
-      blobUrl,
-      (gltf) => {
-        this.model = gltf.scene;
+      const modelData = await response.arrayBuffer();
+      const pathEnd = modelPath.lastIndexOf('/') + 1;
+      const resourcePath = pathEnd > 0 ? modelPath.slice(0, pathEnd) : '';
 
-        // First rotate model to lay flat (correct orientation from CAD export)
-        this.model.rotation.x = -Math.PI / 2;
-
-        // Update matrix so bounding box calculation is correct after rotation
-        this.model.updateMatrixWorld(true);
-
-        // Now calculate bounds after rotation
-        const box = new THREE.Box3().setFromObject(this.model);
-        const center = box.getCenter(new THREE.Vector3());
-        const size = box.getSize(new THREE.Vector3());
-
-        const maxDim = Math.max(size.x, size.y, size.z);
-        const scale = 4.6 / maxDim;
-
-        this.model.scale.setScalar(scale);
-
-        // Recalculate center after scaling
-        this.model.updateMatrixWorld(true);
-        const boxScaled = new THREE.Box3().setFromObject(this.model);
-        const centerScaled = boxScaled.getCenter(new THREE.Vector3());
-
-        // Center the model so it floats in the scene.
-        this.model.position.x = -centerScaled.x;
-        this.model.position.z = -centerScaled.z;
-        this.model.position.y = -centerScaled.y;
-
-        this.model.traverse((child) => {
-          if (child.isMesh) {
-            child.castShadow = true;
-            child.receiveShadow = true;
-
-            // Enhance metallic materials slightly
-            if (child.material) {
-              child.material.envMapIntensity = 0.5;
-            }
-          }
-        });
-
-        this.scene.add(this.model);
-        this.renderer.shadowMap.needsUpdate = true;
-        this.hideLoading();
-        this.isLoading = false;
-
-        // Revoke blob URL after loading to prevent easy access
-        if (blobUrl && blobUrl.startsWith('blob:')) {
-          setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
-        }
-
-      },
-      (progress) => {
-        const percent = Math.round((progress.loaded / progress.total) * 100);
-        this.updateLoadingProgress(percent);
-      },
-      (error) => {
-        console.error('Error loading model:', error);
-        this.showPlaceholder();
-        this.isLoading = false;
+      return await new Promise((resolve, reject) => {
+        loader.parse(modelData, resourcePath, resolve, reject);
+      });
+    } catch (error) {
+      if (error.name === 'AbortError') {
+        throw new Error(`Timed out loading ${modelPath}`);
       }
-    );
+      throw error;
+    } finally {
+      clearTimeout(timeout);
+      dracoLoader.dispose();
+    }
   }
 
   showLoading(modelName) {
@@ -409,6 +386,29 @@ class RobotViewer {
     this.animationFrame = null;
   }
 
+  disposeModel() {
+    if (!this.model) return;
+
+    const materials = new Set();
+    const textures = new Set();
+    this.model.traverse((child) => {
+      child.geometry?.dispose();
+      const childMaterials = Array.isArray(child.material) ? child.material : [child.material];
+      childMaterials.forEach((material) => {
+        if (!material) return;
+        materials.add(material);
+        Object.values(material).forEach((value) => {
+          if (value?.isTexture) textures.add(value);
+        });
+      });
+    });
+
+    textures.forEach((texture) => texture.dispose());
+    materials.forEach((material) => material.dispose());
+    this.scene?.remove(this.model);
+    this.model = null;
+  }
+
   animate(timestamp) {
     if (!this.isRendering) return;
 
@@ -423,11 +423,15 @@ class RobotViewer {
 
   dispose() {
     this.stopRendering();
+    this.modelAbortController?.abort();
+    this.disposeModel();
+    this.controls?.dispose();
     if (this.renderer) {
+      this.renderer.renderLists?.dispose();
       this.renderer.dispose();
-    }
-    if (this.model) {
-      this.scene.remove(this.model);
+      this.renderer.forceContextLoss();
+      this.renderer.domElement.remove();
+      this.renderer = null;
     }
     window.removeEventListener('resize', this.onWindowResize);
     document.removeEventListener('visibilitychange', this.onVisibilityChange);
