@@ -667,13 +667,8 @@ p {
   padding: var(--nav-height) 0 0;
 }
 
-.leadership-section > .container {
-  max-width: none;
-  padding: 0;
-}
-
 .leadership-section .content-block {
-  padding: var(--space-2xl) clamp(var(--space-lg), 8vw, var(--space-2xl));
+  padding: var(--space-2xl) 0;
   background: var(--bg-primary);
   border: 0;
   border-radius: 0;
