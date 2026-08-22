@@ -826,10 +826,15 @@ p {
   border: 3px solid rgba(207, 184, 124, 0.2);
   border-top-color: var(--cu-gold);
   border-radius: 50%;
+  animation: loading-spin 1s linear infinite;
 }
 
 .loading-spinner-centered {
   margin: 0 auto;
+}
+
+@keyframes loading-spin {
+  to { transform: rotate(360deg); }
 }
 
 .loading-text {
