@@ -417,9 +417,7 @@ p {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background:
-    radial-gradient(circle at 58% 42%, rgba(207, 184, 124, 0.16), transparent 42%),
-    var(--bg-primary);
+  background: var(--bg-primary);
 }
 
 .hero-shader canvas {
