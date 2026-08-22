@@ -443,6 +443,12 @@ p {
     var(--bg-primary);
 }
 
+.hero-shader canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .hero-media {
   position: relative;
   z-index: 1;
