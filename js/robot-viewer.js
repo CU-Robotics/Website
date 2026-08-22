@@ -24,7 +24,16 @@ class RobotViewer {
     this.model = null;
     this.autoRotate = true;
     this.isLoading = false;
+    this.isInViewport = true;
+    this.isRendering = false;
+    this.animationFrame = null;
+    this.lastFrameTime = 0;
+    this.frameInterval = 1000 / 30;
     this._modelCache = new Map();
+
+    this.animate = this.animate.bind(this);
+    this.onWindowResize = this.onWindowResize.bind(this);
+    this.onVisibilityChange = this.onVisibilityChange.bind(this);
 
     // CU Gold color for lighting
     this.goldColor = 0xCFB87C;
@@ -115,7 +124,7 @@ class RobotViewer {
     this.createLights();
     this.createControls();
     this.addEventListeners();
-    this.animate();
+    this.startRendering();
 
     // Try to load the active robot model
     this.loadActiveRobot();
@@ -139,13 +148,14 @@ class RobotViewer {
       alpha: true
     });
     this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
-    const maxPixelRatio = isMobileDevice() ? 1 : Math.min(window.devicePixelRatio, 2);
+    const maxPixelRatio = isMobileDevice() ? 1 : Math.min(window.devicePixelRatio, 1.25);
     this.renderer.setPixelRatio(maxPixelRatio);
     this.renderer.outputEncoding = THREE.sRGBEncoding;
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
     this.renderer.toneMappingExposure = 0.85;
     this.renderer.shadowMap.enabled = true;
     this.renderer.shadowMap.type = THREE.PCFShadowMap;
+    this.renderer.shadowMap.autoUpdate = false;
     this.renderer.setClearColor(0x000000, 0);
 
     // Find or create canvas container
@@ -176,7 +186,7 @@ class RobotViewer {
     this.controls.minDistance = 1;
     this.controls.maxDistance = 10;
     this.controls.autoRotate = this.autoRotate;
-    this.controls.autoRotateSpeed = 1;
+    this.controls.autoRotateSpeed = 2;
     this.controls.target.set(0, 0, 0);
     this.controls.update();
   }
@@ -281,6 +291,7 @@ class RobotViewer {
         });
 
         this.scene.add(this.model);
+        this.renderer.shadowMap.needsUpdate = true;
         this.hideLoading();
         this.isLoading = false;
 
@@ -354,7 +365,8 @@ class RobotViewer {
   }
 
   addEventListeners() {
-    window.addEventListener('resize', () => this.onWindowResize());
+    window.addEventListener('resize', this.onWindowResize);
+    document.addEventListener('visibilitychange', this.onVisibilityChange);
   }
 
   onWindowResize() {
@@ -366,18 +378,51 @@ class RobotViewer {
     this.renderer.setSize(width, height);
   }
 
-  animate() {
-    requestAnimationFrame(() => this.animate());
+  onVisibilityChange() {
+    if (document.hidden) {
+      this.stopRendering();
+    } else {
+      this.startRendering();
+    }
+  }
 
-    // Update controls
+  setViewportVisibility(isVisible) {
+    this.isInViewport = isVisible;
+    if (isVisible) {
+      this.startRendering();
+    } else {
+      this.stopRendering();
+    }
+  }
+
+  startRendering() {
+    if (this.isRendering || !this.isInViewport || document.hidden) return;
+
+    this.isRendering = true;
+    this.lastFrameTime = 0;
+    this.animationFrame = requestAnimationFrame(this.animate);
+  }
+
+  stopRendering() {
+    this.isRendering = false;
+    cancelAnimationFrame(this.animationFrame);
+    this.animationFrame = null;
+  }
+
+  animate(timestamp) {
+    if (!this.isRendering) return;
+
+    this.animationFrame = requestAnimationFrame(this.animate);
+    const elapsed = timestamp - this.lastFrameTime;
+    if (elapsed < this.frameInterval) return;
+    this.lastFrameTime = timestamp - (elapsed % this.frameInterval);
+
     this.controls.update();
-
-    // Render
     this.renderer.render(this.scene, this.camera);
   }
 
   dispose() {
-    // Clean up Three.js resources
+    this.stopRendering();
     if (this.renderer) {
       this.renderer.dispose();
     }
@@ -385,6 +430,7 @@ class RobotViewer {
       this.scene.remove(this.model);
     }
     window.removeEventListener('resize', this.onWindowResize);
+    document.removeEventListener('visibilitychange', this.onVisibilityChange);
   }
 }
 
@@ -394,20 +440,21 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!viewerContainer) return;
 
   function initViewer() {
-    if (typeof THREE !== 'undefined') {
+    if (!window.robotViewer && typeof THREE !== 'undefined') {
       window.robotViewer = new RobotViewer('robot-viewer');
     }
+    return window.robotViewer;
   }
 
   if ('IntersectionObserver' in window) {
-    const viewerObserver = new IntersectionObserver((entries, observer) => {
+    const viewerObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           initViewer();
-          observer.unobserve(entry.target);
         }
+        window.robotViewer?.setViewportVisibility(entry.isIntersecting);
       });
-    }, { rootMargin: '100px', threshold: 0 });
+    }, { threshold: 0 });
 
     viewerObserver.observe(viewerContainer);
   } else {
