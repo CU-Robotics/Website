@@ -27,21 +27,21 @@ function renderDiscordButton(size = '') {
   const sizeClass = size ? ` ${size}` : '';
   return `
     <a href="${config.links.discord}" target="_blank" rel="noopener" class="btn btn-outline btn-discord${sizeClass}">
-      <img src="images/Icons/discord-icon.png" alt="">Join Discord
+      <img src="images/Icons/discord.svg" alt="">Join Discord
     </a>
   `;
 }
 
 function renderSocialLinks() {
   const socialLinks = [
-    { label: 'Instagram', href: config.links.instagram, icon: 'instagram-icon.png' },
-    { label: 'Discord', href: config.links.discord, icon: 'discord-icon.png' },
-    { label: 'YouTube', href: config.links.youtube, icon: 'youtube-icon.png' }
+    { label: 'Instagram', href: config.links.instagram, icon: 'instagram.svg' },
+    { label: 'Discord', href: config.links.discord, icon: 'discord.svg' },
+    { label: 'YouTube', href: config.links.youtube, icon: 'youtube.svg' }
   ];
 
   return socialLinks.map(link => `
     <a href="${link.href}" target="_blank" rel="noopener" aria-label="${link.label}">
-      <img src="images/Icons/${link.icon}" alt="${link.label}">
+      <img src="images/Icons/${link.icon}" alt="">
     </a>
   `).join('');
 }
@@ -62,9 +62,8 @@ function loadHeader(activePage) {
       </div>
 
       <button class="mobile-menu-btn" aria-label="Open navigation" aria-controls="mobile-menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
+        <img class="menu-icon-open" src="images/Icons/bars.svg" alt="">
+        <img class="menu-icon-close" src="images/Icons/xmark.svg" alt="">
       </button>
     </div>
   </nav>
@@ -78,10 +77,10 @@ function loadHeader(activePage) {
         <a href="${config.links.apply}" target="_blank" rel="noopener" class="btn btn-apply btn-lg">Apply</a>
         ${renderDiscordButton('btn-lg')}
         <a href="${config.links.instagram}" target="_blank" rel="noopener" class="btn btn-lg btn-instagram" aria-label="Instagram">
-          <img src="images/Icons/instagram-icon.png" alt="">
+          <img src="images/Icons/instagram.svg" alt="">
         </a>
         <a href="${config.links.youtube}" target="_blank" rel="noopener" class="btn btn-lg btn-youtube" aria-label="YouTube">
-          <img src="images/Icons/youtube-icon.png" alt="">
+          <img src="images/Icons/youtube.svg" alt="">
         </a>
       </div>
     </div>
