@@ -1033,7 +1033,7 @@ p {
 
 .season-label {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
   letter-spacing: 0.14em;
 }
@@ -1065,7 +1065,7 @@ p {
 
 .group-label {
   font-family: var(--font-display);
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 700;
   line-height: 1.2;
   color: var(--cu-gold);
@@ -1083,7 +1083,7 @@ p {
   margin-bottom: var(--space-sm);
   color: var(--text-muted);
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1136,7 +1136,7 @@ p {
 
 .leader-name {
   font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--cu-white);
   margin-bottom: 0;
@@ -1145,7 +1145,7 @@ p {
 
 .leader-role {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   color: var(--text-muted);
   letter-spacing: 0.08em;
   margin-bottom: 0;
