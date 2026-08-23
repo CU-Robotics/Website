@@ -44,6 +44,13 @@
     },
     {
       "year": "2023-2024",
+      "seasonImages": [
+        {
+          "src": "images/team-photo-2024.jpeg",
+          "alt": "CU Robotics 2024 team photo",
+          "caption": "CU Robotics team in 2024"
+        }
+      ],
       "items": [
         {
           "competition": "RoboMaster 1v1",
