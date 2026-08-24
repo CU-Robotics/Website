@@ -174,7 +174,7 @@ function renderAchievements(achievements) {
 
 async function loadLeadership() {
   try {
-    const data = await fetchJSON('data/leaders.json?v=20260821');
+    const data = await fetchJSON('data/leaders.json?v=20260824');
     renderLeadership(data.leadership);
   } catch (error) {
     console.error('Error loading leadership:', error);
