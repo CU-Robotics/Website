@@ -33,6 +33,7 @@
   --radius-md: 8px;
   --radius-lg: 16px;
   --radius-xl: 24px;
+  --radius-media: 6px;
   /* Shadows */
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
@@ -299,7 +300,7 @@ p {
   color: var(--cu-white);
   background: linear-gradient(135deg, #6673f0, #5865f2 55%, #4752c4);
   border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 0.75rem;
+  border-radius: 999px;
   box-shadow: none;
 }
 
@@ -363,7 +364,7 @@ p {
   color: #121212;
   background: linear-gradient(135deg, var(--cu-gold-light), var(--cu-gold) 58%, #bca35e);
   border: 1px solid rgba(255, 255, 255, 0.32);
-  border-radius: 0.75rem;
+  border-radius: 999px;
   box-shadow: none;
 }
 
@@ -429,6 +430,8 @@ p {
 .hero-media {
   position: relative;
   z-index: 1;
+  max-width: none;
+  padding: 0;
   margin-top: var(--space-xl);
 }
 
@@ -436,7 +439,7 @@ p {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-media);
 }
 
 .hero-content {
@@ -458,8 +461,8 @@ p {
 .arc-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
-  align-items: center;
-  gap: clamp(var(--space-lg), 6vw, var(--space-2xl));
+  align-items: end;
+  gap: clamp(var(--space-md), 3vw, var(--space-xl));
 }
 
 .arc-image {
@@ -467,7 +470,7 @@ p {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-media);
 }
 
 .arc-copy {
@@ -542,7 +545,7 @@ p {
 .hero-cta .btn {
   height: 3.5rem;
   padding: 0 1.5rem;
-  border-radius: 0.625rem;
+  border-radius: 999px;
 }
 
 .hero-cta .btn-apply {
@@ -681,16 +684,16 @@ p {
   width: 100%;
   max-width: 34rem;
   justify-self: end;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-media);
 }
 
 .mission-video {
   display: grid;
-  grid-template-columns: minmax(12rem, 0.4fr) minmax(0, 1fr);
-  align-items: center;
-  gap: clamp(var(--space-lg), 4vw, var(--space-xl));
+  grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
+  align-items: end;
+  gap: clamp(var(--space-md), 3vw, var(--space-xl));
   width: 100%;
-  max-width: 72rem;
+  max-width: calc(var(--container-max) - var(--space-lg) - var(--space-lg));
   margin: 0 auto;
 }
 
@@ -706,7 +709,7 @@ p {
   position: relative;
   width: 100%;
   padding-bottom: 56.25%; /* 16:9 aspect ratio */
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-media);
   overflow: hidden;
   border: 1px solid rgba(207, 184, 124, 0.2);
 }
@@ -754,14 +757,14 @@ p {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-media);
 }
 
 .fleet-layout {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  align-items: center;
-  gap: var(--space-lg);
+  grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
+  align-items: end;
+  gap: clamp(var(--space-md), 3vw, var(--space-xl));
 }
 
 .fleet-copy h2 {
@@ -928,7 +931,7 @@ p {
   margin: 0;
   background: var(--bg-secondary);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-media);
 }
 
 .achievement-season-photo img {
