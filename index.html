@@ -16,10 +16,10 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="css/styles.css?v=20260825-7">
+  <link rel="stylesheet" href="css/styles.css?v=20260825-22">
 </head>
 <body class="home-page" data-page="home">
   <div id="site-header"></div>
@@ -32,18 +32,20 @@
       <div class="container hero-content">
         <div class="hero-layout">
         <div class="hero-copy">
-          <h1 class="hero-title">
-            <span class="line-1">University of Colorado Boulder</span>
-            <span class="line-2">CU Robotics</span>
-          </h1>
+          <div class="hero-title-box">
+            <h1 class="hero-title">
+              <span class="line-1">University of Colorado Boulder</span>
+              <span class="line-2">CU Robotics</span>
+            </h1>
+          </div>
 
           <p class="hero-bio">Founded during the 2020-2021 season, CU Robotics is CU Boulder's student-led ARC Robotics team. We design, build, and program competitive robots while giving students hands-on engineering experience.</p>
 
           <div class="hero-cta">
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSfr1fjCq-EcG25cvdB_M74agJZroZQ0sKbubcRbbM5reN8n0Q/viewform" target="_blank" rel="noopener" class="btn btn-apply btn-lg">Register</a>
-            <a href="https://discord.gg/Ym2kEbnNzg" target="_blank" rel="noopener" class="btn btn-outline btn-lg btn-discord"><img src="images/Icons/discord.svg" alt="">Join Discord</a>
-            <a href="https://www.instagram.com/curoboticsteam/" target="_blank" rel="noopener" class="btn btn-lg btn-instagram" aria-label="Instagram"><img src="images/Icons/instagram.svg" alt=""></a>
-            <a href="https://www.youtube.com/@curoboticsteam" target="_blank" rel="noopener" class="btn btn-lg btn-youtube" aria-label="YouTube"><img src="images/Icons/youtube.svg" alt=""></a>
+            <a href="https://discord.gg/Ym2kEbnNzg" target="_blank" rel="noopener" class="btn btn-lg btn-icon" aria-label="Discord"><img src="images/Icons/discord.svg" alt=""></a>
+            <a href="https://www.instagram.com/curoboticsteam/" target="_blank" rel="noopener" class="btn btn-lg btn-icon" aria-label="Instagram"><img src="images/Icons/instagram.svg" alt=""></a>
+            <a href="https://www.youtube.com/@curoboticsteam" target="_blank" rel="noopener" class="btn btn-lg btn-icon" aria-label="YouTube"><img src="images/Icons/youtube.svg" alt=""></a>
           </div>
         </div>
 
@@ -68,22 +70,40 @@
               <p class="text-muted mt-sm">Add a .glb or .gltf file to the models folder and update robots.json</p>
             </div>
           </div>
+          <p class="viewer-hint">Drag to rotate &middot; Scroll to zoom</p>
         </div>
         </div>
       </div>
     </div>
 
-    <div class="container hero-media">
-      <img src="images/fleet-blue-long.png" alt="CU Robotics robot fleet">
-    </div>
+  </section>
 
+  <!-- Weekly Meetings -->
+  <section class="meetings-section">
+    <div class="container meetings-banner">
+      <img class="meetings-image" src="images/fleet-blue-long.png" alt="CU Robotics robot fleet" loading="lazy">
+      <div class="meetings-overlay">
+        <h2 class="meetings-title">Weekly Meetings</h2>
+        <div class="meetings-grid">
+          <div class="meeting-card">
+            <span class="meeting-day">Tuesdays</span>
+            <span class="meeting-time">6:30 &ndash; 9:30pm</span>
+            <span class="meeting-location">CU Idea Forge Commons</span>
+          </div>
+          <div class="meeting-card">
+            <span class="meeting-day">Saturdays</span>
+            <span class="meeting-time">4 &ndash; 7pm</span>
+            <span class="meeting-location">CU Idea Forge Commons</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section class="arc-section">
     <div class="container arc-layout">
       <img class="arc-image" src="images/werk.png" alt="CU Robotics members working on a competition robot in the arena" loading="lazy">
       <div class="arc-copy">
-        <p class="arc-eyebrow">The Competition</p>
         <h2>ARC Robotics</h2>
         <p>
           ARC is a robotics competition where participants showcase their engineering through tactical combat and technical challenges. Its events include 3v3, 1v1, and more, putting robot design, strategy, and execution to the test.
@@ -93,27 +113,22 @@
     </div>
   </section>
 
-  <!-- Mission Section -->
-  <section id="about" class="section mission">
-    <div class="container">
-      <div class="content-block">
-        <!-- RoboMaster Highlights -->
-        <div class="mission-video">
-          <div class="video-container">
-            <iframe
-              src="https://www.youtube.com/embed/O2fp67X3vsg"
-              title="RoboMaster Highlights"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-            </iframe>
-          </div>
-          <div class="mission-video-copy">
-            <h2>Our Highlights</h2>
-            <p>Highlights from the 2025 competition featuring first-person gameplay, our auto-aim in action, and what our drivers see through the robots during matches.</p>
-          </div>
-        </div>
+  <!-- Highlights: full-bleed footage -->
+  <section id="about" class="showcase-section">
+    <div class="showcase-video" aria-hidden="true">
+      <iframe
+        src="https://www.youtube.com/embed/O2fp67X3vsg?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=O2fp67X3vsg&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;disablekb=1&amp;iv_load_policy=3&amp;playsinline=1"
+        title=""
+        frameborder="0"
+        tabindex="-1"
+        allow="autoplay; encrypted-media"></iframe>
+    </div>
 
+    <div class="container showcase-content">
+      <div class="showcase-panel">
+        <h2>Our Highlights</h2>
+        <p>Highlights from the 2025 competition featuring first-person gameplay, our auto-aim in action, and what our drivers see through the robots during matches.</p>
+        <a class="btn btn-outline showcase-cta" href="https://www.youtube.com/watch?v=O2fp67X3vsg" target="_blank" rel="noopener">Watch with sound</a>
       </div>
     </div>
   </section>
@@ -144,11 +159,11 @@
   <script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/DRACOLoader.js"></script>
-  <script defer src="js/hero-shader.js?v=20260822-1"></script>
+  <script defer src="js/hero-shader.js?v=20260825-2"></script>
   <!-- Main Scripts -->
   <script src="js/site.js?v=20260821-1"></script>
-  <script src="js/components.js?v=20260821-5"></script>
-  <script src="js/main.js?v=20260824-1"></script>
-  <script src="js/robot-viewer.js?v=20260821-14"></script>
+  <script src="js/components.js?v=20260825-7"></script>
+  <script src="js/main.js?v=20260825-2"></script>
+  <script src="js/robot-viewer.js?v=20260825-15"></script>
 </body>
 </html>

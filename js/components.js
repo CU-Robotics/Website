@@ -70,16 +70,17 @@ function loadHeader(activePage) {
 
   <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation" aria-hidden="true" inert>
     <div class="mobile-menu-inner">
-      <p class="mobile-menu-label">Explore</p>
       ${renderMobileNavigation(activePage)}
 
       <div class="mobile-cta">
         <a href="${config.links.apply}" target="_blank" rel="noopener" class="btn btn-apply btn-lg">Apply</a>
-        ${renderDiscordButton('btn-lg')}
-        <a href="${config.links.instagram}" target="_blank" rel="noopener" class="btn btn-lg btn-instagram" aria-label="Instagram">
+        <a href="${config.links.discord}" target="_blank" rel="noopener" class="btn btn-lg btn-icon" aria-label="Discord">
+          <img src="images/Icons/discord.svg" alt="">
+        </a>
+        <a href="${config.links.instagram}" target="_blank" rel="noopener" class="btn btn-lg btn-icon" aria-label="Instagram">
           <img src="images/Icons/instagram.svg" alt="">
         </a>
-        <a href="${config.links.youtube}" target="_blank" rel="noopener" class="btn btn-lg btn-youtube" aria-label="YouTube">
+        <a href="${config.links.youtube}" target="_blank" rel="noopener" class="btn btn-lg btn-icon" aria-label="YouTube">
           <img src="images/Icons/youtube.svg" alt="">
         </a>
       </div>

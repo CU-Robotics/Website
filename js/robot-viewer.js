@@ -162,10 +162,11 @@ class RobotViewer {
   createControls() {
     this.controls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
     this.controls.enableDamping = false;
-    this.controls.enableZoom = false;
+    this.controls.enableZoom = true;
+    this.controls.zoomSpeed = 0.6;
     this.controls.enablePan = false;
-    this.controls.minDistance = 1;
-    this.controls.maxDistance = 10;
+    this.controls.minDistance = 2;
+    this.controls.maxDistance = 8;
     this.controls.autoRotate = this.autoRotate;
     this.controls.autoRotateSpeed = 2;
     this.controls.target.set(0, 0, 0);
