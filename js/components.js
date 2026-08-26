@@ -113,7 +113,7 @@ function loadFooter() {
             <ul class="footer-links">
               <li><a href="index.html">Home</a></li>
               <li><a href="team.html">Leadership</a></li>
-              <li><a href="achievements.html">Achievements</a></li>
+              <li><a href="achievements.html">Timeline</a></li>
             </ul>
           </div>
 

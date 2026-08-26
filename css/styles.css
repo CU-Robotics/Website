@@ -122,13 +122,15 @@ p {
   content: '';
   position: absolute;
   inset: 0;
-  background: var(--bg-primary);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  /* Same recipe as the captions over the timeline photos: the bar is
+     translucent so the blur has something to work on. */
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .navbar.scrolled::before {
-  background: var(--bg-primary);
+  background: rgba(0, 0, 0, 0.6);
 }
 
 .navbar-content {
@@ -576,7 +578,6 @@ p {
   max-width: 34rem;
   padding: var(--space-lg);
   background: rgba(0, 0, 0, 0.55);
-  border-left: 3px solid var(--cu-gold);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
@@ -647,10 +648,10 @@ p {
   display: inline-block;
   margin-bottom: var(--space-md);
   padding: var(--space-md) var(--space-lg);
-  background: rgba(0, 0, 0, 0.55);
-  border-left: 3px solid var(--cu-gold);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: var(--radius-media);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .hero-title {
@@ -825,12 +826,10 @@ p {
 }
 
 /* No glass fill needed - the photo has already faded out behind the copy,
-   so the title sits on flat background. The gold rule stays as the accent. */
+   so the title sits on flat background. */
 .page-cover-box {
   display: inline-block;
   margin-bottom: var(--space-md);
-  padding-left: var(--space-md);
-  border-left: 3px solid var(--cu-gold);
 }
 
 .page-cover-box h1 {
@@ -1134,7 +1133,6 @@ p {
   margin: var(--space-md);
   padding: var(--space-md);
   background: rgba(0, 0, 0, 0.6);
-  border-left: 3px solid var(--cu-gold);
   border-radius: var(--radius-media);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
