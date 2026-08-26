@@ -162,11 +162,10 @@ class RobotViewer {
   createControls() {
     this.controls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
     this.controls.enableDamping = false;
-    this.controls.enableZoom = true;
-    this.controls.zoomSpeed = 0.6;
+    // Zoom is off so the wheel always scrolls the page instead of being
+    // swallowed by the viewer; the model is framed at a fixed size instead.
+    this.controls.enableZoom = false;
     this.controls.enablePan = false;
-    this.controls.minDistance = 2;
-    this.controls.maxDistance = 8;
     this.controls.autoRotate = this.autoRotate;
     this.controls.autoRotateSpeed = 2;
     this.controls.target.set(0, 0, 0);
@@ -239,6 +238,7 @@ class RobotViewer {
       });
 
       this.scene.add(this.model);
+      this.frameModel();
       this.renderer.shadowMap.needsUpdate = true;
       this.hideLoading();
     } catch (error) {
@@ -354,6 +354,103 @@ class RobotViewer {
     this.camera.aspect = width / height;
     this.camera.updateProjectionMatrix();
     this.renderer.setSize(width, height);
+    this.frameModel();
+  }
+
+  // Pulls the camera to the one distance that fills the viewer with the model.
+  // The model is bounded as a cylinder around the auto-rotate axis, so the fit
+  // holds at every angle of the spin and the size never changes on its own.
+  frameModel() {
+    if (!this.model) return;
+
+    // Measured once per model; resize only needs to redo the arithmetic.
+    this.silhouette = this.silhouette || this.measureSilhouette();
+
+    // The camera looks down at the robot, so a flat trig fit is off by the tilt.
+    // Start from a distance the model certainly fits inside and pull in until
+    // its silhouette just touches the edges. Four passes settle it.
+    const vFov = this.camera.fov * Math.PI / 180;
+    const direction = this.camera.position.clone().sub(this.controls.target).normalize();
+    let distance = this.silhouetteRadius / Math.sin(vFov / 2);
+
+    // Aiming at the model's centre leaves it low in the frame, because the
+    // camera looks down at it. Each pass re-aims at the middle of what is
+    // actually on screen and then pulls in to the new fit.
+    this.controls.target.set(0, 0, 0);
+
+    for (let pass = 0; pass < 6; pass++) {
+      this.camera.position.copy(this.controls.target).addScaledVector(direction, distance);
+      this.camera.updateMatrixWorld(true);
+
+      let top = -Infinity;
+      let bottom = Infinity;
+      let side = 0;
+
+      this.silhouette.forEach((point) => {
+        const projected = point.clone().project(this.camera);
+        top = Math.max(top, projected.y);
+        bottom = Math.min(bottom, projected.y);
+        side = Math.max(side, Math.abs(projected.x));
+      });
+
+      const visibleHeight = 2 * distance * Math.tan(vFov / 2);
+      this.controls.target.y += ((top + bottom) / 2) * (visibleHeight / 2);
+      distance *= Math.max((top - bottom) / 2, side) * 1.06;
+    }
+
+    this.camera.position.copy(this.controls.target).addScaledVector(direction, distance);
+    this.controls.update();
+  }
+
+  // The shape the robot sweeps out as it spins, measured off the vertices: the
+  // widest radius in each horizontal slice, turned back into rings. A single
+  // cylinder would take the base's width at the turret's height and frame the
+  // robot far smaller than it needs to be.
+  measureSilhouette() {
+    this.model.updateMatrixWorld(true);
+
+    const SLICES = 24;
+    const box = new THREE.Box3().setFromObject(this.model);
+    const bottom = box.min.y;
+    const sliceHeight = (box.max.y - bottom) / SLICES;
+    const radii = new Array(SLICES).fill(0);
+    const vertex = new THREE.Vector3();
+
+    this.model.traverse((child) => {
+      if (!child.isMesh || !child.geometry) return;
+      const positions = child.geometry.attributes.position;
+      if (!positions) return;
+
+      for (let i = 0; i < positions.count; i++) {
+        vertex.fromBufferAttribute(positions, i).applyMatrix4(child.matrixWorld);
+        const slice = Math.min(SLICES - 1, Math.floor((vertex.y - bottom) / sliceHeight));
+        radii[slice] = Math.max(radii[slice], Math.hypot(vertex.x, vertex.z));
+      }
+    });
+
+    const points = [];
+    this.silhouetteRadius = 0;
+
+    radii.forEach((radius, slice) => {
+      if (radius === 0) return;
+      const yLow = bottom + slice * sliceHeight;
+      const yHigh = yLow + sliceHeight;
+
+      for (let i = 0; i < 16; i++) {
+        const angle = (i / 16) * Math.PI * 2;
+        const x = Math.cos(angle) * radius;
+        const z = Math.sin(angle) * radius;
+        points.push(new THREE.Vector3(x, yLow, z), new THREE.Vector3(x, yHigh, z));
+      }
+
+      this.silhouetteRadius = Math.max(
+        this.silhouetteRadius,
+        Math.hypot(radius, yLow),
+        Math.hypot(radius, yHigh)
+      );
+    });
+
+    return points;
   }
 
   onVisibilityChange() {
@@ -388,6 +485,7 @@ class RobotViewer {
   }
 
   disposeModel() {
+    this.silhouette = null;
     if (!this.model) return;
 
     const materials = new Set();
