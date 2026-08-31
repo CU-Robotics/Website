@@ -326,7 +326,7 @@
             {
               "name": "Jack Miller",
               "role": "Firmware Lead",
-              "photo": "images/Members/jack-miller.png",
+              "photo": "images/Members/jack-miller.png?v=20260830-1",
               "years": "2025-2026",
               "graduationYear": "2027",
               "bio": "I build embedded systems, break things on accident, and fix them on purpose!",
@@ -353,7 +353,7 @@
             {
               "name": "Ephram Cukier",
               "role": "Software Lead",
-              "photo": "images/Members/ephram-cukier.png",
+              "photo": "images/Members/ephram-cukier.png?v=20260830-1",
               "years": "2024-present",
               "graduationYear": "2026",
               "bio": "I like cheese 🧀",
@@ -498,7 +498,7 @@
             {
               "name": "Ephram Cukier",
               "role": "Software Lead",
-              "photo": "images/Members/ephram-cukier.png",
+              "photo": "images/Members/ephram-cukier.png?v=20260830-1",
               "years": "2024-2025",
               "graduationYear": "2026",
               "bio": "",
