@@ -853,6 +853,12 @@ p {
     rgba(207, 184, 124, 0.2) 3.5rem);
 }
 
+/* Keep the leadership dividers on the copy side of the cover image. */
+.leadership-page .page-cover .cover-divider,
+.leadership-page .page-cover .year-header {
+  width: min(100%, 34rem);
+}
+
 /* One column: the photo spans the width and fades downward instead */
 @media (max-width: 860px) {
   .page-cover-bg {
