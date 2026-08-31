@@ -1352,14 +1352,32 @@ p {
   margin-top: var(--space-2xl);
 }
 
+.alumni .year-header {
+  justify-content: flex-start;
+}
+
+.alumni-note {
+  margin: calc(-1 * var(--space-sm)) 0 var(--space-md);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.alumni-note::before {
+  content: "↳";
+  margin-right: 0.4rem;
+  color: var(--cu-gold);
+}
+
+.alumni .leader-grid {
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+}
+
 .leader-card-alum {
   background: transparent;
   border-color: rgba(255, 255, 255, 0.1);
 }
 
 .leader-card-alum .leader-photo {
-  width: 44px;
-  height: 44px;
   border-color: rgba(255, 255, 255, 0.18);
 }
 
@@ -1372,6 +1390,22 @@ p {
 .leader-card-alum .leader-name {
   font-size: 0.95rem;
   color: var(--text-secondary);
+}
+
+.leader-distinction {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  padding: 0.08rem 0.35rem;
+  border: 1px solid rgba(207, 184, 124, 0.4);
+  border-radius: var(--radius-btn);
+  color: var(--cu-gold);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  vertical-align: middle;
 }
 
 .leader-card-alum .leader-role,
