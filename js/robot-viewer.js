@@ -1,7 +1,6 @@
 /**
  * CU Robotics - 3D Robot Viewer
  * Interactive Three.js viewer for robot models
- * Protected against casual downloading
  */
 
 function isMobileDevice() {
@@ -40,11 +39,11 @@ class RobotViewer {
     this.goldColorLight = 0xE8D9A9;
 
     this.init();
-    this.initProtection();
+    this.initViewerInteractions();
   }
 
-  // Protection against casual model downloading
-  initProtection() {
+  // Keep browser interaction handling scoped to the viewer itself.
+  initViewerInteractions() {
     const container = this.container;
 
     // Disable right-click context menu on viewer
@@ -62,35 +61,6 @@ class RobotViewer {
     // Disable selection
     container.style.userSelect = 'none';
     container.style.webkitUserSelect = 'none';
-
-    // Block common keyboard shortcuts for dev tools
-    document.addEventListener('keydown', (e) => {
-      // F12
-      if (e.key === 'F12') {
-        e.preventDefault();
-        return false;
-      }
-      // Ctrl+Shift+I (Dev Tools)
-      if (e.ctrlKey && e.shiftKey && e.key === 'I') {
-        e.preventDefault();
-        return false;
-      }
-      // Ctrl+Shift+J (Console)
-      if (e.ctrlKey && e.shiftKey && e.key === 'J') {
-        e.preventDefault();
-        return false;
-      }
-      // Ctrl+U (View Source)
-      if (e.ctrlKey && e.key === 'u') {
-        e.preventDefault();
-        return false;
-      }
-      // Ctrl+S (Save)
-      if (e.ctrlKey && e.key === 's') {
-        e.preventDefault();
-        return false;
-      }
-    });
 
     // Clear model data on page unload
     window.addEventListener('beforeunload', () => {
