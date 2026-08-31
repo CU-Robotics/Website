@@ -1237,11 +1237,6 @@ p {
   border-radius: var(--radius-media);
 }
 
-.leader-card:hover {
-  border-color: rgba(207, 184, 124, 0.4);
-  background: rgba(207, 184, 124, 0.06);
-}
-
 .leader-photo {
   flex-shrink: 0;
   width: 56px;
@@ -1264,6 +1259,7 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 30%;
 }
 
 /* Initials stand in when a member has no portrait */
