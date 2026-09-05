@@ -1014,7 +1014,6 @@ p {
   background: transparent;
   position: relative;
   cursor: grab;
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><g fill="none" stroke="%23CFB87C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 15.5V9a2 2 0 0 1 4 0"/><path d="M15 15.5V7a2 2 0 0 1 4 0v8.5"/><path d="M19 15.5V8a2 2 0 0 1 4 0v10c0 4.5-3 8-7.5 8S8 22.5 8 18v-4a2 2 0 0 1 4 0"/></g></svg>') 16 16, grab;
 }
 
 .robot-viewer:active {
