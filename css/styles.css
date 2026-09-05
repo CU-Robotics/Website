@@ -645,38 +645,46 @@ p {
 }
 
 .hero-title-box {
-  display: inline-block;
   margin-bottom: var(--space-md);
-  padding: var(--space-md) var(--space-lg);
-  background: rgba(0, 0, 0, 0.6);
-  border-radius: var(--radius-media);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  padding: var(--space-md) 0;
 }
 
 .hero-title {
   margin: 0;
 }
 
-.hero-title span {
-  display: block;
+.hero-title .line-1 {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.1rem;
+  color: var(--cu-gold);
+  font-size: clamp(0.65rem, 0.95vw, 0.8rem);
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  line-height: 1.5;
+  text-transform: uppercase;
 }
 
-.hero-title .line-1 {
-  font-size: clamp(1rem, 2vw, 1.5rem);
-  font-weight: 400;
-  color: var(--text-secondary);
-  letter-spacing: 0.08em;
-  margin-bottom: var(--space-sm);
+.hero-title .line-1::before {
+  content: "";
+  flex: 0 0 1.5rem;
+  height: 1px;
+  background: currentColor;
 }
 
 .hero-title .line-2 {
+  display: block;
   font-size: clamp(3rem, 6.5vw, 6rem);
-  font-weight: 800;
-  color: var(--cu-white);
+  font-weight: 700;
+  color: var(--cu-gold);
   white-space: nowrap;
-  letter-spacing: -0.02em;
-  line-height: 0.95;
+  letter-spacing: -0.055em;
+  line-height: 1;
+}
+
+.hero-title .hero-initials {
+  color: var(--cu-white);
 }
 
 .hero-bio {
@@ -710,6 +718,29 @@ p {
   width: 3.5rem;
   height: 3.5rem;
   padding: 0;
+}
+
+/* Hero social colors: Discord and YouTube brand palettes.
+   Instagram is a CSS approximation of its multicolor brand gradient. */
+.hero-cta .btn-icon[aria-label="Discord"] {
+  background: #5865f2;
+  border-color: transparent;
+}
+
+.hero-cta .btn-icon[aria-label="YouTube"] {
+  background: #ff0033;
+  border-color: transparent;
+}
+
+.hero-cta .btn-icon[aria-label="Instagram"] {
+  background: radial-gradient(circle at 25% 110%, #ffdc80 0%, #fcaf45 18%, #f77737 32%, #e1306c 52%, #c13584 65%, #833ab4 82%, #5851db 100%);
+  border-color: transparent;
+  background-origin: border-box;
+  background-repeat: no-repeat;
+}
+
+.hero-cta .btn-icon:hover {
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.65);
 }
 
 /* Content wrapper for sections - solid background for readability */
