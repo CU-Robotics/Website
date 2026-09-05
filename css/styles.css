@@ -709,9 +709,24 @@ p {
 }
 
 .hero-cta .btn-apply {
+  color: var(--cu-black);
+  background: var(--cu-gold);
   min-width: 0;
   font-size: 1rem;
   letter-spacing: 0;
+}
+
+.hero-cta .btn-apply:hover {
+  background: var(--cu-gold-light);
+}
+
+.nav-cta .btn-discord {
+  background: #5865f2;
+  border-color: transparent;
+}
+
+.nav-cta .btn-discord:hover {
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.65);
 }
 
 .hero-cta .btn-icon {
