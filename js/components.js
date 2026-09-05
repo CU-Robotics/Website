@@ -1,5 +1,5 @@
 (function initSiteComponents() {
-const { config, escapeHTML, fetchJSON } = window.CURobotics;
+const { config } = window.CURobotics;
 
 function renderNavigation(activePage, listClass) {
   return `
@@ -152,52 +152,6 @@ function loadFooter() {
   }
 }
 
-// Load sponsors from JSON
-async function loadSponsors() {
-  const track = document.getElementById('sponsor-track');
-  if (!track) return;
-
-  try {
-    const data = await fetchJSON('data/sponsors.json');
-    const sponsors = data.sponsors;
-
-    // Create sponsor item HTML
-    function createSponsorHTML(sponsor) {
-      const iconHTML = sponsor.icon
-        ? `<img src="${escapeHTML(sponsor.icon)}" alt="${escapeHTML(sponsor.name)}" class="sponsor-icon">`
-        : '';
-      return `
-        <a href="${escapeHTML(sponsor.url)}" target="_blank" rel="noopener" class="sponsor-item">
-          ${iconHTML}
-          <span>${escapeHTML(sponsor.name)}</span>
-        </a>
-        <span class="sponsor-divider"></span>
-      `;
-    }
-
-    // Build content - repeat sponsors enough times to fill the screen
-    let sponsorHTML = '';
-    for (const sponsor of sponsors) {
-      sponsorHTML += createSponsorHTML(sponsor);
-    }
-
-    // Create two identical tracks for seamless infinite scroll
-    // Repeat the content 3x in each track to ensure no gaps
-    const repeatedContent = sponsorHTML + sponsorHTML + sponsorHTML;
-
-    track.innerHTML = `
-      <div class="sponsor-ticker-content">${repeatedContent}</div>
-      <div class="sponsor-ticker-content" aria-hidden="true">${repeatedContent}</div>
-    `;
-    track.querySelectorAll('.sponsor-icon').forEach(icon => {
-      icon.addEventListener('error', () => icon.remove());
-    });
-  } catch (error) {
-    console.error('Error loading sponsors:', error);
-  }
-}
-
 loadHeader(document.body.dataset.page);
 loadFooter();
-loadSponsors();
 })();
