@@ -1,0 +1,334 @@
+/* Homepage editorial layout. Shared navigation and hero controls live in styles.css. */
+.home-page .hero {
+  padding-bottom: 0;
+}
+
+.home-page .hero-stage {
+  min-height: min(100svh, 48rem);
+}
+
+.home-section {
+  padding: clamp(4rem, 8vw, 7.5rem) 0;
+}
+
+.home-section h2 {
+  font-size: clamp(2.5rem, 4.8vw, 4.75rem);
+  font-weight: 600;
+  letter-spacing: -0.055em;
+  line-height: 1.04;
+}
+
+.home-description {
+  max-width: 32rem;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+}
+
+.home-text-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--cu-gold);
+  color: var(--cu-gold);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.home-text-link span,
+.home-meeting-link span {
+  font-size: 1.25rem;
+}
+
+.home-text-link:hover {
+  color: var(--cu-white);
+  border-color: var(--cu-white);
+}
+
+.home-text-link:focus-visible,
+.home-video-preview:focus-visible,
+.home-meeting-link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 6px;
+}
+
+/* A compact, high-contrast schedule separates the hero from the story. */
+.home-meetings {
+  background: var(--cu-gold);
+  color: var(--cu-black);
+}
+
+.home-meeting-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr 0.8fr auto;
+  align-items: center;
+  gap: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.home-meetings h2,
+.home-meetings h3,
+.home-meetings p,
+.home-meetings a {
+  color: var(--cu-black);
+}
+
+.home-meeting-intro h2 {
+  margin-bottom: 0.35rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.home-meeting-intro p {
+  font-size: 0.85rem;
+}
+
+.home-meeting-time {
+  border-left: 1px solid rgba(0, 0, 0, 0.25);
+  padding-left: 2rem;
+}
+
+.home-meeting-time h3 {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.home-meeting-time p {
+  margin-top: 0.35rem;
+  font-size: clamp(1.3rem, 2.1vw, 1.85rem);
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+}
+
+.home-meeting-time p span {
+  margin-left: 0.15rem;
+  font-size: 0.85rem;
+  letter-spacing: 0;
+}
+
+.home-meeting-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-underline-offset: 0.35em;
+}
+
+.home-story-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  align-items: center;
+  gap: clamp(2rem, 7vw, 7rem);
+}
+
+.home-story-copy h2 {
+  margin-bottom: 2rem;
+}
+
+.home-story-copy .home-description + .home-description {
+  margin-top: 1rem;
+}
+
+.home-story-copy .home-text-link {
+  margin-top: 1.5rem;
+}
+
+.home-story-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-media);
+}
+
+.home-story-photo figcaption {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-top: 0.9rem;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+}
+
+.home-fleet {
+  background: #0d0d0d;
+}
+
+.home-section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.home-fleet-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-media);
+}
+
+.home-fleet-photo figcaption {
+  padding: 0.8rem 0;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+}
+
+.home-robot-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.5rem, 4vw, 4rem);
+  margin-top: 1rem;
+}
+
+.home-robot-list article {
+  border-top: 1px solid #454035;
+  padding-top: 1.5rem;
+}
+
+.home-robot-list h3 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.3rem, 2.2vw, 1.9rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+
+.home-robot-list h3 span {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  letter-spacing: 0;
+}
+
+.home-robot-list article > p:last-child {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.home-highlights-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: clamp(2rem, 6vw, 6rem);
+}
+
+.home-video-preview {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-media);
+  color: var(--cu-white);
+  background: var(--cu-black);
+}
+
+.home-video-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+  opacity: 0.75;
+}
+
+.home-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background: var(--cu-gold);
+  color: var(--cu-black);
+  transform: translate(-50%, -50%);
+}
+
+.home-play svg {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+.home-video-preview:hover .home-play {
+  background: var(--cu-white);
+}
+
+.home-video-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 1.25rem 1rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  font-size: 0.75rem;
+}
+
+.home-highlights-copy h2 {
+  margin-bottom: 1.5rem;
+}
+
+.home-highlights-copy .home-text-link {
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 1000px) {
+  .home-meeting-grid {
+    grid-template-columns: 1.2fr 1fr 0.8fr;
+    gap: 1.5rem;
+  }
+
+  .home-meeting-link {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-page .hero-stage {
+    min-height: min(90svh, 44rem);
+  }
+
+  .home-story-grid,
+  .home-highlights-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .home-section-heading {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .home-robot-list {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .home-highlights-copy {
+    grid-row: 1;
+  }
+
+}
+
+@media (max-width: 520px) {
+  .home-meeting-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .home-meeting-intro {
+    grid-column: 1 / -1;
+  }
+
+  .home-meeting-time {
+    padding: 1rem 0 0;
+    border-left: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.25);
+  }
+}

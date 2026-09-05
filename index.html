@@ -20,10 +20,12 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/styles.css?v=20260905-5">
+  <link rel="stylesheet" href="css/home.css?v=20260905-2">
 </head>
 <body class="home-page" data-page="home">
   <div id="site-header"></div>
 
+  <main id="main-content">
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-stage">
@@ -67,7 +69,7 @@
                 </svg>
               </div>
               <h4>3D Model Failed to Load</h4>
-              <p class="text-muted mt-sm">Add a .glb or .gltf file to the models folder and update robots.json</p>
+              <p class="text-muted mt-sm">The interactive model is unavailable. You can see our robots below.</p>
             </div>
           </div>
           <p class="viewer-hint">Drag to rotate</p>
@@ -78,79 +80,89 @@
 
   </section>
 
-  <!-- Weekly Meetings -->
-  <section class="meetings-section">
-    <div class="container meetings-banner">
-      <img class="meetings-image" src="images/fleet-blue-long.png" alt="CU Robotics robot fleet" loading="lazy">
-      <div class="meetings-bar">
-        <h2 class="meetings-title">Weekly Meetings</h2>
-        <div class="meetings-grid">
-          <div class="meeting-card">
-            <span class="meeting-day">Tuesdays</span>
-            <span class="meeting-time">6:30 &ndash; 9:30pm</span>
-            <span class="meeting-location">CU Idea Forge Commons</span>
-          </div>
-          <div class="meeting-card">
-            <span class="meeting-day">Saturdays</span>
-            <span class="meeting-time">4 &ndash; 7pm</span>
-            <span class="meeting-location">CU Idea Forge Commons</span>
-          </div>
-        </div>
+  <!-- Meeting times stay close to the introduction. -->
+  <section class="home-meetings" aria-labelledby="meeting-heading">
+    <div class="container home-meeting-grid">
+      <div class="home-meeting-intro">
+        <h2 id="meeting-heading">Weekly meetings</h2>
+        <p>CU Idea Forge Commons</p>
       </div>
+      <div class="home-meeting-time">
+        <h3>Tuesdays</h3>
+        <p>6:30–9:30<span>pm</span></p>
+      </div>
+      <div class="home-meeting-time">
+        <h3>Saturdays</h3>
+        <p>4–7<span>pm</span></p>
+      </div>
+      <a class="home-meeting-link" href="https://discord.gg/Ym2kEbnNzg" target="_blank" rel="noopener">Updates on Discord <span aria-hidden="true">↗</span></a>
     </div>
   </section>
 
-  <section class="arc-section">
-    <div class="container arc-layout">
-      <img class="arc-image" src="images/werk.png" alt="CU Robotics members working on a competition robot in the arena" loading="lazy">
-      <div class="arc-copy">
-        <h2>ARC Robotics</h2>
-        <p>
-          ARC is a robotics competition where participants showcase their engineering through tactical combat and technical challenges. Its events include 3v3, 1v1, and more, putting robot design, strategy, and execution to the test.
-        </p>
-        <a class="arc-link" href="https://www.arc-robotics.org/" target="_blank" rel="noopener">Learn about ARC Robotics</a>
+  <section class="home-story home-section" aria-labelledby="competition-heading">
+    <div class="container home-story-grid">
+      <div class="home-story-copy">
+
+        <h2 id="competition-heading">Battle Tested</h2>
+        <p class="home-description">ARC Robotics brings robot design, programming, and strategy together in tactical competition. We build the machines and the systems that put them to work.</p>
+        <p class="home-description">From 3v3 matches to 1v1 challenges, every event puts our engineering to the test.</p>
+        <a class="home-text-link" href="https://www.arc-robotics.org/" target="_blank" rel="noopener">Explore ARC Robotics <span aria-hidden="true">↗</span></a>
       </div>
+      <figure class="home-story-photo">
+        <img src="images/werk.png" alt="CU Robotics members preparing an infantry robot in the competition arena" width="1046" height="946" loading="lazy">
+        <figcaption><span>CU Robotics at competition</span><span>Design. Build. Code. Compete.</span></figcaption>
+      </figure>
     </div>
   </section>
 
-  <!-- Highlights: full-bleed footage -->
-  <section id="about" class="showcase-section">
-    <div class="showcase-video" aria-hidden="true">
-      <iframe
-        src="https://www.youtube.com/embed/O2fp67X3vsg?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=O2fp67X3vsg&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;disablekb=1&amp;iv_load_policy=3&amp;playsinline=1"
-        title=""
-        frameborder="0"
-        tabindex="-1"
-        allow="autoplay; encrypted-media"></iframe>
-    </div>
-
-    <div class="container showcase-content">
-      <div class="showcase-panel">
-        <h2>Our Highlights</h2>
-        <p>Highlights from the 2025 competition featuring first-person gameplay, our auto-aim in action, and what our drivers see through the robots during matches.</p>
-        <a class="btn btn-outline showcase-cta" href="https://www.youtube.com/watch?v=O2fp67X3vsg" target="_blank" rel="noopener">Watch</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Robot Fleet -->
-  <section class="section competition-image-section">
+  <section class="home-fleet home-section" aria-labelledby="fleet-heading">
     <div class="container">
-      <div class="content-block">
-        <div class="fleet-layout">
-          <img class="competition-image" src="images/fleet-at-comp.png" alt="CU Robotics robot fleet at competition">
-          <div class="fleet-copy">
-            <h2>3V3 Fleet</h2>
-            <ul class="fleet-list">
-              <li><strong>Infantry / Standard</strong><span>A fast, versatile robot that fires 17 mm projectiles.</span></li>
-              <li><strong>Sentry</strong><span>The same class as the Infantry, but fully autonomous—navigating the field and engaging opponents without a driver.</span></li>
-              <li><strong>Hero</strong><span>A larger, heavy-hitting robot that fires golf balls for greater damage.</span></li>
-            </ul>
-          </div>
+      <div class="home-section-heading">
+        <div>
+
+          <h2 id="fleet-heading">Our Robots</h2>
         </div>
+      </div>
+      <figure class="home-fleet-photo">
+        <img src="images/fleet-blue-long.png" alt="Three CU Robotics robots illuminated in blue" width="1746" height="778" loading="lazy">
+        <figcaption>CU Robotics / 3v3 fleet</figcaption>
+      </figure>
+      <div class="home-robot-list">
+        <article>
+
+          <h3>Infantry <span>/ Standard</span></h3>
+          <p>A fast, versatile robot that fires 17 mm projectiles.</p>
+        </article>
+        <article>
+
+          <h3>Sentry</h3>
+          <p>The same class as the Infantry, but fully autonomous—navigating the field and engaging opponents without a driver.</p>
+        </article>
+        <article>
+
+          <h3>Hero</h3>
+          <p>A larger, heavy-hitting robot that fires golf balls for greater damage.</p>
+        </article>
       </div>
     </div>
   </section>
+
+  <section id="about" class="home-highlights home-section" aria-labelledby="highlights-heading">
+    <div class="container home-highlights-grid">
+      <a class="home-video-preview" href="https://www.youtube.com/watch?v=O2fp67X3vsg" target="_blank" rel="noopener" aria-label="Watch CU Robotics 2025 competition highlights on YouTube">
+        <img src="https://i.ytimg.com/vi/O2fp67X3vsg/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy">
+        <span class="home-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+        <span class="home-video-caption">2025 competition highlights <span aria-hidden="true">↗</span></span>
+      </a>
+      <div class="home-highlights-copy">
+
+        <h2 id="highlights-heading">Our Highlights</h2>
+        <p class="home-description">First-person gameplay, auto-aim, and the view from behind the controls. Watch our highlights from the 2025 competition.</p>
+        <a class="home-text-link" href="https://www.youtube.com/watch?v=O2fp67X3vsg" target="_blank" rel="noopener">Watch the highlights <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+  </main>
 
   <div id="site-footer"></div>
 
