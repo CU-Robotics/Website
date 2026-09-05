@@ -48,10 +48,10 @@ function renderSocialLinks() {
 
 function loadHeader(activePage) {
   const headerHTML = `
-  <nav class="navbar">
+  <nav class="navbar" aria-label="Main navigation">
     <div class="container navbar-content">
       <a href="index.html" class="logo">
-        <img src="images/cu-robotics-logo.png" alt="CU Robotics Logo">
+        <img src="images/cu-robotics-logo.png" alt="" width="36" height="36">
         <span class="logo-text">CU <span>Robotics</span></span>
       </a>
 
