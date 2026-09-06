@@ -27,7 +27,7 @@ class RobotViewer {
     this.isRendering = false;
     this.animationFrame = null;
     this.lastFrameTime = 0;
-    this.frameInterval = 1000 / 30;
+    this.frameInterval = 1000 / 24;
     this.modelAbortController = null;
 
     this.animate = this.animate.bind(this);
