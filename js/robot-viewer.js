@@ -115,9 +115,9 @@ class RobotViewer {
   }
 
   createLights() {
-    // Low, off-axis key shapes the chassis; filtered shadows retain depth.
+    // Camera-relative offsets: left/right and above the view, with +Z toward it.
     const keyLight = new THREE.DirectionalLight(0xfff3e3, 0.3);
-    keyLight.position.set(-40, 30, 35);
+    keyLight.position.set(-20, 30, 50);
     keyLight.castShadow = true;
     keyLight.shadow.mapSize.set(1024, 1024);
     keyLight.shadow.camera.left = -4;
@@ -130,8 +130,10 @@ class RobotViewer {
 
     // Restrained fill opens dark surfaces without equalizing both sides.
     const fillLight = new THREE.DirectionalLight(0xe4ebf5, 0.06);
-    fillLight.position.set(30, 10, -20);
-    this.scene.add(keyLight, keyLight.target, fillLight);
+    fillLight.position.set(30, 10, 20);
+    this.lightRig = new THREE.Group();
+    this.lightRig.add(keyLight, keyLight.target, fillLight, fillLight.target);
+    this.scene.add(this.lightRig);
   }
 
   createControls() {
@@ -492,6 +494,13 @@ class RobotViewer {
     this.lastFrameTime = timestamp - (elapsed % this.frameInterval);
 
     this.controls.update();
+    // OrbitControls moves the camera; rotate the lights around the same target.
+    if (!this.lightRig.quaternion.equals(this.camera.quaternion) ||
+        !this.lightRig.position.equals(this.controls.target)) {
+      this.lightRig.quaternion.copy(this.camera.quaternion);
+      this.lightRig.position.copy(this.controls.target);
+      this.renderer.shadowMap.needsUpdate = true;
+    }
     this.renderer.render(this.scene, this.camera);
   }
 
