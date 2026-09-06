@@ -29,38 +29,57 @@
       uniform float uTime;
       uniform vec2 uResolution;
 
+      float hash(vec2 point) {
+        return fract(sin(dot(point, vec2(127.1, 311.7))) * 43758.5453);
+      }
+
       float noise(vec2 point) {
-        return fract(sin(dot(point, vec2(12.9898, 78.233))) * 43758.5453);
+        vec2 cell = floor(point);
+        vec2 local = fract(point);
+        vec2 blend = local * local * (3.0 - 2.0 * local);
+        return mix(
+          mix(hash(cell), hash(cell + vec2(1.0, 0.0)), blend.x),
+          mix(hash(cell + vec2(0.0, 1.0)), hash(cell + vec2(1.0)), blend.x),
+          blend.y
+        );
+      }
+
+      float fbm(vec2 point) {
+        float value = 0.0;
+        float weight = 0.5;
+        mat2 rotation = mat2(0.8, -0.6, 0.6, 0.8);
+        for (int octave = 0; octave < 5; octave++) {
+          value += weight * noise(point);
+          point = rotation * point * 2.03 + vec2(17.1, 9.2);
+          weight *= 0.5;
+        }
+        return value;
       }
 
       void main() {
         vec2 uv = gl_FragCoord.xy / uResolution;
-        vec2 point = uv - 0.5;
-        point.x *= uResolution.x / uResolution.y;
+        float depth = 1.0 - uv.x;
+        float x = uv.y - 0.5;
 
-        float breath = 0.88 + 0.14 * sin(uTime * 0.55);
-        float depth = 1.0 - uv.y;
-        float drift = 0.025 * sin(depth * 4.0 + uTime * 0.14);
-        float auraX = point.x + drift;
-        float spread = 0.14 + depth * 0.78;
-        float horizontalGlow = exp(-pow(auraX / spread, 2.0));
-        float verticalGlow = exp(-depth * 1.85);
-        float aura = horizontalGlow * verticalGlow;
-        float halo = exp(-length(vec2(auraX * 0.85, depth * 0.55)) * 2.9);
-        float core = exp(-abs(auraX) * 4.2) * exp(-depth * 2.4);
+        // Advect from right to left, preserving the original soft smoke texture.
+        vec2 flow = vec2(x * 3.0,
+          depth * (uResolution.x / uResolution.y) * 2.8 - uTime * 0.085);
+        vec2 curl = vec2(
+          fbm(flow + vec2(0.0, 4.7)),
+          fbm(flow + vec2(8.3, 1.2))
+        );
+        float billows = fbm(flow + 2.8 * (curl - 0.5));
+        float wisps = fbm(flow * 1.8 + 3.0 * (curl - 0.5) + vec2(5.1));
+        float density = smoothstep(0.27, 0.76, billows * 0.75 + wisps * 0.25);
 
-        vec3 background = vec3(0.082);
-        vec3 deepGold = vec3(0.12, 0.075, 0.018);
-        vec3 gold = vec3(0.812, 0.722, 0.486);
-        vec3 auraColor = mix(deepGold, gold, 0.38 + core * 0.42);
-
-        vec3 color = background;
-        float intensity = clamp((aura * 0.46 + halo * 0.14) * breath, 0.0, 0.58);
-        color = mix(color, auraColor, intensity);
-
-        float grain = noise(gl_FragCoord.xy) - 0.5;
-        color += grain * (0.008 + intensity * 0.08);
-
+        // A broad source on the right thins out toward the left.
+        float center = x + (curl.x - 0.5) * (0.35 + depth * 0.7);
+        float spread = 0.48 + depth * 0.62;
+        float plume = exp(-pow(center / spread, 2.0));
+        float fade = 1.0 - smoothstep(0.1, 1.0, depth);
+        float opacity = density * plume * fade * 0.58;
+        vec3 color = mix(vec3(0.082), vec3(0.55), opacity);
+        color += (hash(gl_FragCoord.xy) - 0.5) * 0.006;
         gl_FragColor = vec4(color, 1.0);
       }
     `

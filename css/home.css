@@ -7,6 +7,25 @@
   min-height: min(100svh, 48rem);
 }
 
+.home-page .hero-title .line-1,
+.home-page .hero-title .line-2 {
+  color: var(--cu-white);
+}
+
+.home-page .hero-title .line-1::before {
+  content: none;
+}
+
+.home-page .hero-cta .btn-apply {
+  background: var(--cu-white);
+  border-color: var(--cu-white);
+}
+
+.home-page .hero-cta .btn-apply:hover {
+  background: #e5e5e5;
+  border-color: #e5e5e5;
+}
+
 .home-section {
   padding: clamp(4rem, 8vw, 7.5rem) 0;
 }
