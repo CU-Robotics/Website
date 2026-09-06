@@ -8,29 +8,6 @@
   line-height: 1;
   letter-spacing: -.065em;
 }
-.season-index {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .5rem 2rem;
-  align-items: center;
-  margin-top: 3.5rem;
-  padding: 1.25rem 0;
-  border-top: 1px solid #454035;
-  border-bottom: 1px solid #454035;
-}
-.season-index > span {
-  color: var(--text-muted);
-  font-size: .75rem;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  margin-right: auto;
-}
-.season-index a { color: var(--text-secondary); font-size: .9rem; padding: .35rem 0; }
-.season-index a:hover { color: var(--cu-white); }
-.season-index a:focus-visible {
-  outline: 2px solid var(--cu-gold);
-  outline-offset: 5px;
-}
 .season-history { padding: 1rem 0 3rem; }
 .season-entry {
   position: relative;
@@ -81,6 +58,7 @@
 .season-entry .season-media img { height: auto; width: 100%; display: block; }
 .season-entry .season-media-split { display: grid; gap: .5rem; }
 .season-entry .season-caption {
+  align-self: start;
   grid-column: 2;
   grid-row: 1;
   width: auto;
@@ -102,11 +80,8 @@
   .season-entry::before { left: 7rem; }
   .season-year::after { left: calc(7rem - 4px); }
   .season-year { font-size: 2rem; }
-  .season-index { gap: .5rem 1.25rem; }
 }
 @media (max-width: 700px) {
-  .season-index { margin-top: 2rem; gap: .5rem 1.5rem; }
-  .season-index > span { flex-basis: 100%; }
   .season-entry { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; padding: 2rem 0 2.5rem 1.5rem; }
   .season-entry::before { left: 0; }
   .season-year { display: flex; align-items: baseline; gap: .5rem; }
