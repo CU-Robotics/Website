@@ -3,7 +3,7 @@
   if (!container || typeof THREE === 'undefined') return;
 
   const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: false });
-  // Soft smoke needs far fewer pixels than the foreground model.
+  // The soft background needs far fewer pixels than the foreground model.
   renderer.setPixelRatio(0.5);
   renderer.setClearColor(0x000000, 0);
   container.appendChild(renderer.domElement);
@@ -12,7 +12,6 @@
   const camera = new THREE.Camera();
   const uniforms = {
     uTime: { value: 0 },
-    uSpotlight: { value: new THREE.Vector2(0.72, 0) },
     uResolution: { value: new THREE.Vector2(1, 1) }
   };
 
@@ -29,68 +28,40 @@
       precision highp float;
 
       uniform float uTime;
-      uniform vec2 uSpotlight;
       uniform vec2 uResolution;
 
-      float hash(vec2 point) {
-        return fract(sin(dot(point, vec2(127.1, 311.7))) * 43758.5453);
-      }
-
       float noise(vec2 point) {
-        vec2 cell = floor(point);
-        vec2 local = fract(point);
-        vec2 blend = local * local * (3.0 - 2.0 * local);
-        return mix(
-          mix(hash(cell), hash(cell + vec2(1.0, 0.0)), blend.x),
-          mix(hash(cell + vec2(0.0, 1.0)), hash(cell + vec2(1.0)), blend.x),
-          blend.y
-        );
-      }
-
-      float fbm(vec2 point) {
-        float value = 0.0;
-        float weight = 0.5;
-        mat2 rotation = mat2(0.8, -0.6, 0.6, 0.8);
-        for (int octave = 0; octave < 5; octave++) {
-          value += weight * noise(point);
-          point = rotation * point * 2.03 + vec2(17.1, 9.2);
-          weight *= 0.5;
-        }
-        return value;
+        return fract(sin(dot(point, vec2(12.9898, 78.233))) * 43758.5453);
       }
 
       void main() {
         vec2 uv = gl_FragCoord.xy / uResolution;
+        vec2 point = uv - 0.5;
+        point.x *= uResolution.x / uResolution.y;
+
+        float breath = 0.88 + 0.14 * sin(uTime * 0.55);
         float depth = 1.0 - uv.y;
-        float x = (uv.x - 0.5) * uResolution.x / uResolution.y;
+        float drift = 0.025 * sin(depth * 4.0 + uTime * 0.14);
+        float auraX = point.x + drift;
+        float spread = 0.14 + depth * 0.78;
+        float horizontalGlow = exp(-pow(auraX / spread, 2.0));
+        float verticalGlow = exp(-depth * 1.85);
+        float aura = horizontalGlow * verticalGlow;
+        float halo = exp(-length(vec2(auraX * 0.85, depth * 0.55)) * 2.9);
+        float core = exp(-abs(auraX) * 4.2) * exp(-depth * 2.4);
 
-        // Drift downward from the top, preserving the soft smoke texture.
-        vec2 flow = vec2(x * 3.0,
-          depth * 2.8 - uTime * 0.085);
-        vec2 curl = vec2(
-          fbm(flow + vec2(0.0, 4.7)),
-          fbm(flow + vec2(8.3, 1.2))
-        );
-        float billows = fbm(flow + 2.8 * (curl - 0.5));
-        float wisps = fbm(flow * 1.8 + 3.0 * (curl - 0.5) + vec2(5.1));
-        float density = smoothstep(0.27, 0.76, billows * 0.75 + wisps * 0.25);
+        vec3 background = vec3(0.082);
+        vec3 deepGray = vec3(0.075);
+        vec3 white = vec3(1.0);
+        vec3 auraColor = mix(deepGray, white, 0.38 + core * 0.42);
 
-        // A broad source at the top thins out toward the bottom.
-        float center = x + (curl.x - 0.5) * (0.35 + depth * 0.7);
-        float spread = 0.48 + depth * 0.62;
-        float plume = exp(-pow(center / spread, 2.0));
-        float fade = 1.0 - smoothstep(0.1, 1.0, depth);
-        float opacity = density * plume * fade * 0.58;
-        vec3 color = mix(vec3(0.082), vec3(0.55, 0.489, 0.329), opacity);
-        // A feathered overhead cone catches the smoke behind the robot.
-        float drop = 1.0 - uv.y;
-        float beamX = (uv.x - uSpotlight.x) * uResolution.x / uResolution.y;
-        float beamWidth = 0.055 + drop * 0.38;
-        float beam = exp(-pow(beamX / beamWidth, 2.0) * 1.5);
-        float beamFade = exp(-drop * 0.85) * (1.0 - smoothstep(0.7, 1.0, drop));
-        float scattering = 0.25 + density * 0.65;
-        color += vec3(0.9, 0.94, 1.0) * beam * beamFade * scattering * uSpotlight.y;
-        color += (hash(gl_FragCoord.xy) - 0.5) * 0.006;
+        vec3 color = background;
+        float intensity = clamp((aura * 0.46 + halo * 0.14) * breath, 0.0, 0.58);
+        color = mix(color, auraColor, intensity);
+
+        float grain = noise(gl_FragCoord.xy) - 0.5;
+        color += grain * (0.008 + intensity * 0.08);
+
         gl_FragColor = vec4(color, 1.0);
       }
     `
@@ -102,14 +73,6 @@
     const width = container.clientWidth;
     const height = container.clientHeight;
     if (width <= 0 || height <= 0) return;
-    const viewer = document.getElementById('robot-viewer');
-    const bounds = container.getBoundingClientRect();
-    const robotBounds = viewer?.getBoundingClientRect();
-    const visible = robotBounds && robotBounds.width > 0 && robotBounds.height > 0;
-    uniforms.uSpotlight.value.set(
-      visible ? (robotBounds.left + robotBounds.width / 2 - bounds.left) / width : 0.5,
-      visible ? 1 : 0
-    );
     renderer.setSize(width, height, false);
     uniforms.uResolution.value.set(
       width * renderer.getPixelRatio(),
