@@ -18,32 +18,40 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/styles.css?v=20260905-6">
+  <link rel="stylesheet" href="css/timeline.css?v=20260906-1">
 </head>
 <body class="subpage achievements-page" data-page="achievements">
   <div id="site-header"></div>
 
-  <!-- Cover: title floating over the photo, like the home page -->
-  <header class="page-cover">
-    <div class="page-cover-bg" aria-hidden="true">
-      <img src="images/fleet-2023-in-game.jpeg" alt="">
-    </div>
-
-    <div class="container page-cover-content">
-      <div class="page-cover-box">
-        <h1>Timeline</h1>
+  <main id="main-content">
+  <header class="timeline-intro container">
+    <p class="timeline-eyebrow">CU Robotics / Since 2020</p>
+    <div class="timeline-intro-grid">
+      <h1>Our team.<br>Our <span>timeline.</span></h1>
+      <div class="timeline-intro-copy">
+        <p>Six seasons of building robots and taking them into competition. Follow CU Robotics from our first RoboMaster event to ARC Robotics.</p>
+        <a class="timeline-start" href="#season-2025">Explore the seasons <span aria-hidden="true">↓</span></a>
       </div>
-      <p class="page-cover-lede">Founded during the 2020-2021 season, CU Robotics has competed for six seasons. Our proudest results include becoming RoboMaster 1v1 champions and finishing as the RoboMaster 3v3 runner-up.</p>
     </div>
+    <nav class="season-index" aria-label="Jump to season">
+      <span>Seasons</span>
+      <a href="#season-2025">2025–26</a>
+      <a href="#season-2024">2024–25</a>
+      <a href="#season-2023">2023–24</a>
+      <a href="#season-2022">2022–23</a>
+      <a href="#season-2021">2021–22</a>
+      <a href="#season-2020">2020–21</a>
+    </nav>
   </header>
 
   <section class="section achievements-section">
     <div class="container">
-      <div class="season-grid">
-        <article class="season-card">
+      <div class="season-history">
+        <article class="season-entry" id="season-2025" aria-labelledby="year-2025">
+          <h2 class="season-year" id="year-2025"><span>2025</span><span class="season-year-end">— 2026</span></h2>
           <div class="season-media">
             <img src="images/team-arc-2026.jpeg" alt="CU Robotics team at ARC Robotics 2026" loading="lazy">
           </div>
-          <span class="season-badge">2025-2026</span>
           <div class="season-caption">
             <div class="award">
               <h3 class="award-place">4th Place</h3>
@@ -52,11 +60,11 @@
             </div>
           </div>
         </article>
-        <article class="season-card">
+        <article class="season-entry" id="season-2024" aria-labelledby="year-2024">
+          <h2 class="season-year" id="year-2024"><span>2024</span><span class="season-year-end">— 2025</span></h2>
           <div class="season-media">
             <img src="images/team-rmna-2025.jpeg" alt="CU Robotics team at RoboMaster North America 2025" loading="lazy">
           </div>
-          <span class="season-badge">2024-2025</span>
           <div class="season-caption">
             <div class="award">
               <h3 class="award-place">1st Place</h3>
@@ -70,11 +78,11 @@
             </div>
           </div>
         </article>
-        <article class="season-card">
+        <article class="season-entry" id="season-2023" aria-labelledby="year-2023">
+          <h2 class="season-year" id="year-2023"><span>2023</span><span class="season-year-end">— 2024</span></h2>
           <div class="season-media">
             <img src="images/team-photo-2024.jpeg" alt="CU Robotics 2024 team photo" loading="lazy">
           </div>
-          <span class="season-badge">2023-2024</span>
           <div class="season-caption">
             <div class="award">
               <h3 class="award-place">2nd Place</h3>
@@ -83,12 +91,12 @@
             </div>
           </div>
         </article>
-        <article class="season-card">
+        <article class="season-entry" id="season-2022" aria-labelledby="year-2022">
+          <h2 class="season-year" id="year-2022"><span>2022</span><span class="season-year-end">— 2023</span></h2>
           <div class="season-media season-media-split">
             <img src="images/rmna-2023.jpeg" alt="CU Robotics team working on robots at RoboMaster North America 2023" loading="lazy">
             <img src="images/fleet-2023.jpeg" alt="CU Robotics 2023 robot fleet" loading="lazy">
           </div>
-          <span class="season-badge">2022-2023</span>
           <div class="season-caption">
             <div class="award">
               <h3 class="award-place">Top 8</h3>
@@ -97,8 +105,8 @@
             </div>
           </div>
         </article>
-        <article class="season-card season-card-text">
-          <span class="season-badge">2021-2022</span>
+        <article class="season-entry season-card-text" id="season-2021" aria-labelledby="year-2021">
+          <h2 class="season-year" id="year-2021"><span>2021</span><span class="season-year-end">— 2022</span></h2>
           <div class="season-caption">
             <div class="award">
               <h3 class="award-place">First 3v3 Competition</h3>
@@ -107,8 +115,8 @@
             </div>
           </div>
         </article>
-        <article class="season-card season-card-text">
-          <span class="season-badge">2020-2021</span>
+        <article class="season-entry season-card-text" id="season-2020" aria-labelledby="year-2020">
+          <h2 class="season-year" id="year-2020"><span>2020</span><span class="season-year-end">— 2021</span></h2>
           <div class="season-caption">
             <div class="award">
               <h3 class="award-place">Team Founded</h3>
@@ -120,6 +128,8 @@
       </div>
     </div>
   </section>
+
+  </main>
 
   <div id="site-footer"></div>
 
