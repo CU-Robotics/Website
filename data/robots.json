@@ -2,12 +2,12 @@
   "robots": [
     {
       "id": "infantry",
-      "name": "Infantry",
+      "name": "Gerald",
       "season": "2024-2025",
       "status": "active",
       "description": "",
       "image": "",
-      "model3d": "models/infantryOptimized_black.glb"
+      "model3d": "models/GeraldOptimized.glb"
     }
   ],
   "_documentation": {

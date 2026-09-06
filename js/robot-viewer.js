@@ -115,18 +115,23 @@ class RobotViewer {
   }
 
   createLights() {
-    const spotlight = new THREE.SpotLight(this.goldColorLight, 2.2, 20, Math.PI / 5, 0.15, 1.5);
-    spotlight.position.set(0, 7, -4);
-    spotlight.target.position.set(0, 0.5, 0);
-    spotlight.castShadow = true;
-    spotlight.shadow.mapSize.setScalar(isMobileDevice() ? 1024 : 2048);
-    spotlight.shadow.bias = -0.0005;
-    spotlight.shadow.normalBias = 0.02;
-    this.scene.add(spotlight, spotlight.target);
+    // Low, off-axis key shapes the chassis; filtered shadows retain depth.
+    const keyLight = new THREE.DirectionalLight(0xfff3e3, 0.3);
+    keyLight.position.set(-40, 30, 35);
+    keyLight.castShadow = true;
+    keyLight.shadow.mapSize.set(1024, 1024);
+    keyLight.shadow.camera.left = -4;
+    keyLight.shadow.camera.right = 4;
+    keyLight.shadow.camera.top = 4;
+    keyLight.shadow.camera.bottom = -4;
+    keyLight.shadow.radius = 6;
+    keyLight.shadow.bias = -0.0002;
+    keyLight.shadow.normalBias = 0.015;
 
-    const fillLight = new THREE.DirectionalLight(0xdde5f2, 0.9);
-    fillLight.position.set(3, 4, 5);
-    this.scene.add(fillLight);
+    // Restrained fill opens dark surfaces without equalizing both sides.
+    const fillLight = new THREE.DirectionalLight(0xe4ebf5, 0.06);
+    fillLight.position.set(30, 10, -20);
+    this.scene.add(keyLight, keyLight.target, fillLight);
   }
 
   createControls() {
@@ -144,7 +149,7 @@ class RobotViewer {
 
   async loadActiveRobot() {
     try {
-      const data = await window.CURobotics.fetchJSON('data/robots.json');
+      const data = await window.CURobotics.fetchJSON('data/robots.json?v=20260905-1');
       const activeRobot = data.robots.find(r => r.status === 'active');
 
       if (activeRobot && activeRobot.model3d) {
