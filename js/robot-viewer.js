@@ -87,7 +87,7 @@ class RobotViewer {
   }
 
   createCamera() {
-    const aspect = this.container.clientWidth / this.container.clientHeight;
+    const aspect = this.container.clientWidth / this.container.clientHeight || 1;
     this.camera = new THREE.PerspectiveCamera(45, aspect, 0.1, 1000);
     this.camera.position.set(-4, 2.5, 4);
     this.camera.lookAt(0, 0, 0);
@@ -328,6 +328,9 @@ class RobotViewer {
     const width = this.container.clientWidth;
     const height = this.container.clientHeight;
 
+    // CSS hides the viewer at narrow widths; preserve valid camera state.
+    if (width <= 0 || height <= 0) return;
+
     this.camera.aspect = width / height;
     this.camera.updateProjectionMatrix();
     this.renderer.setSize(width, height);
@@ -338,7 +341,8 @@ class RobotViewer {
   // The model is bounded as a cylinder around the auto-rotate axis, so the fit
   // holds at every angle of the spin and the size never changes on its own.
   frameModel() {
-    if (!this.model) return;
+    if (!this.model || this.container.clientWidth <= 0 ||
+        this.container.clientHeight <= 0) return;
 
     // Measured once per model; resize only needs to redo the arithmetic.
     this.silhouette = this.silhouette || this.measureSilhouette();
