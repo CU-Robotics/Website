@@ -3,35 +3,10 @@
   padding-top: calc(var(--nav-height) + clamp(3rem, 7vw, 6rem));
   padding-bottom: 0;
 }
-.timeline-eyebrow {
-  color: var(--cu-gold);
-  font-size: .75rem;
-  font-weight: 600;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;
-}
-.timeline-intro-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  align-items: end;
-  gap: 3rem;
-}
 .timeline-intro h1 {
   font-size: clamp(3.5rem, 7.5vw, 7rem);
   line-height: 1;
   letter-spacing: -.065em;
-}
-.timeline-intro h1 span { color: var(--cu-gold); }
-.timeline-intro-copy { max-width: 29rem; padding-bottom: .25rem; }
-.timeline-intro-copy p { font-size: 1.05rem; }
-.timeline-start {
-  display: inline-flex;
-  align-items: center;
-  gap: 2rem;
-  margin-top: 1.5rem;
-  color: var(--cu-gold);
-  font-size: .9rem;
 }
 .season-index {
   display: flex;
@@ -51,8 +26,8 @@
   margin-right: auto;
 }
 .season-index a { color: var(--text-secondary); font-size: .9rem; padding: .35rem 0; }
-.season-index a:hover, .timeline-start:hover { color: var(--cu-white); }
-.season-index a:focus-visible, .timeline-start:focus-visible {
+.season-index a:hover { color: var(--cu-white); }
+.season-index a:focus-visible {
   outline: 2px solid var(--cu-gold);
   outline-offset: 5px;
 }
@@ -130,9 +105,6 @@
   .season-index { gap: .5rem 1.25rem; }
 }
 @media (max-width: 700px) {
-  .timeline-intro-grid { grid-template-columns: 1fr; gap: 1.75rem; }
-  .timeline-intro-copy { max-width: 34rem; }
-  .timeline-intro-copy p { font-size: 1rem; }
   .season-index { margin-top: 2rem; gap: .5rem 1.5rem; }
   .season-index > span { flex-basis: 100%; }
   .season-entry { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; padding: 2rem 0 2.5rem 1.5rem; }
