@@ -81,7 +81,7 @@
         float plume = exp(-pow(center / spread, 2.0));
         float fade = 1.0 - smoothstep(0.1, 1.0, depth);
         float opacity = density * plume * fade * 0.58;
-        vec3 color = mix(vec3(0.082), vec3(0.55), opacity);
+        vec3 color = mix(vec3(0.082), vec3(0.55, 0.489, 0.329), opacity);
         // A feathered overhead cone catches the smoke behind the robot.
         float drop = 1.0 - uv.y;
         float beamX = (uv.x - uSpotlight.x) * uResolution.x / uResolution.y;
