@@ -12,6 +12,7 @@
   const camera = new THREE.Camera();
   const uniforms = {
     uTime: { value: 0 },
+    uGlowX: { value: 0.5 },
     uResolution: { value: new THREE.Vector2(1, 1) }
   };
 
@@ -28,6 +29,7 @@
       precision highp float;
 
       uniform float uTime;
+      uniform float uGlowX;
       uniform vec2 uResolution;
 
       float noise(vec2 point) {
@@ -36,7 +38,7 @@
 
       void main() {
         vec2 uv = gl_FragCoord.xy / uResolution;
-        vec2 point = uv - 0.5;
+        vec2 point = uv - vec2(uGlowX, 0.5);
         point.x *= uResolution.x / uResolution.y;
 
         float breath = 0.88 + 0.14 * sin(uTime * 0.55);
@@ -73,6 +75,11 @@
     const width = container.clientWidth;
     const height = container.clientHeight;
     if (width <= 0 || height <= 0) return;
+    const bounds = container.getBoundingClientRect();
+    const robotBounds = document.getElementById('robot-viewer')?.getBoundingClientRect();
+    uniforms.uGlowX.value = robotBounds && robotBounds.width > 0
+      ? (robotBounds.left + robotBounds.width / 2 - bounds.left) / width
+      : 0.5;
     renderer.setSize(width, height, false);
     uniforms.uResolution.value.set(
       width * renderer.getPixelRatio(),
