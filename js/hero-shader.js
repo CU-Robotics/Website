@@ -3,8 +3,8 @@
   if (!container || typeof THREE === 'undefined') return;
 
   const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: false });
-  // The soft background needs far fewer pixels than the foreground model.
-  renderer.setPixelRatio(0.5);
+  // One sample per CSS pixel keeps the grain fine without Retina oversampling.
+  renderer.setPixelRatio(1);
   renderer.setClearColor(0x000000, 0);
   container.appendChild(renderer.domElement);
 
