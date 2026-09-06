@@ -17,13 +17,13 @@
 }
 
 .home-page .hero-cta .btn-apply {
-  background: var(--cu-white);
-  border-color: var(--cu-white);
+  background: var(--cu-gold);
+  border-color: var(--cu-gold);
 }
 
 .home-page .hero-cta .btn-apply:hover {
-  background: #e5e5e5;
-  border-color: #e5e5e5;
+  background: var(--cu-gold-light);
+  border-color: var(--cu-gold-light);
 }
 
 .home-section {

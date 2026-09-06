@@ -51,9 +51,9 @@
         float core = exp(-abs(auraX) * 4.2) * exp(-depth * 2.4);
 
         vec3 background = vec3(0.082);
-        vec3 deepGray = vec3(0.075);
-        vec3 white = vec3(1.0);
-        vec3 auraColor = mix(deepGray, white, 0.38 + core * 0.42);
+        vec3 deepGold = vec3(0.12, 0.075, 0.018);
+        vec3 gold = vec3(0.812, 0.722, 0.486);
+        vec3 auraColor = mix(deepGold, gold, 0.38 + core * 0.42);
 
         vec3 color = background;
         float intensity = clamp((aura * 0.46 + halo * 0.14) * breath, 0.0, 0.58);
