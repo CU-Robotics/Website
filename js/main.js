@@ -13,35 +13,22 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ============================================
-// NAVBAR - Glassmorphism & Scroll Effects
+// NAVBAR - Scroll state and active link
 // ============================================
 
 function initNavbar() {
   const navbar = document.querySelector('.navbar');
   if (!navbar) return;
 
-  let lastScroll = 0;
-  const scrollThreshold = 50;
+  const scrollThreshold = 24;
 
-  window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
+  // The bar is transparent over the hero and turns solid once the page moves.
+  function updateNavbar() {
+    navbar.classList.toggle('scrolled', window.scrollY > scrollThreshold);
+  }
 
-    // Add scrolled class for background change
-    if (currentScroll > scrollThreshold) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-
-    // Hide/show navbar on scroll direction (optional)
-    // if (currentScroll > lastScroll && currentScroll > 200) {
-    //   navbar.style.transform = 'translateY(-100%)';
-    // } else {
-    //   navbar.style.transform = 'translateY(0)';
-    // }
-
-    lastScroll = currentScroll;
-  });
+  window.addEventListener('scroll', updateNavbar, { passive: true });
+  updateNavbar();
 
   // Active link highlighting
   const navLinks = document.querySelectorAll('.nav-links a');

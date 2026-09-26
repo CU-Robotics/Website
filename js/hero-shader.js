@@ -52,7 +52,7 @@
         float halo = exp(-length(vec2(auraX * 0.85, depth * 0.55)) * 2.9);
         float core = exp(-abs(auraX) * 4.2) * exp(-depth * 2.4);
 
-        vec3 background = vec3(0.082);
+        vec3 background = vec3(0.0);
         vec3 deepGold = vec3(0.12, 0.075, 0.018);
         vec3 gold = vec3(0.812, 0.722, 0.486);
         vec3 auraColor = mix(deepGold, gold, 0.38 + core * 0.42);

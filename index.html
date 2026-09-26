@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="CU Robotics - Competitive ARC Robotics team at the University of Colorado Boulder. Design. Build. Code. Compete.">
   <meta name="keywords" content="CU Robotics, ARC, robotics, University of Colorado, Boulder, competition, engineering">
-  <meta name="theme-color" content="#CFB87C">
+  <meta name="theme-color" content="#000000">
 
   <title>CU Robotics | ARC Competition Team at CU Boulder</title>
 
@@ -16,33 +16,54 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="css/styles.css?v=20260905-6">
-  <link rel="stylesheet" href="css/home.css?v=20260905-5">
+  <link rel="stylesheet" href="css/styles.css?v=20260926-2">
+  <link rel="stylesheet" href="css/home.css?v=20260926-2">
 </head>
 <body class="home-page" data-page="home">
   <div id="site-header"></div>
 
   <main id="main-content">
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-stage">
-      <div id="hero-shader" class="hero-shader" aria-hidden="true"></div>
+  <!-- Hero: the wordmark sits behind the robot, which turns in front of it. -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div id="hero-shader" class="hero-shader" aria-hidden="true"></div>
 
-      <div class="container hero-content">
-        <div class="hero-layout">
-        <div class="hero-copy">
-          <div class="hero-title-box">
-            <h1 class="hero-title">
-              <span class="line-1">University of Colorado Boulder</span>
-              <span class="line-2"><span class="hero-initials">CU</span> Robotics</span>
-            </h1>
+    <div class="container hero-inner">
+      <h1 class="hero-wordmark" id="hero-title">
+        <span class="hero-wordmark-line"><span>CU</span></span>
+        <span class="hero-wordmark-line"><span>Robotics</span></span>
+      </h1>
+
+      <div class="robot-viewer-container">
+        <div id="robot-viewer" class="robot-viewer">
+          <div class="viewer-canvas"></div>
+
+          <div class="viewer-loading hidden">
+            <div class="loading-spinner"></div>
+            <span class="loading-text">Loading 3D model</span>
           </div>
 
-          <p class="hero-bio">Founded during the 2020-2021 season, CU Robotics is CU Boulder's student-led ARC Robotics team. We design, build, and program competitive robots while giving students hands-on engineering experience.</p>
+          <div class="viewer-placeholder">
+            <div class="placeholder-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                <line x1="12" y1="22.08" x2="12" y2="12"/>
+              </svg>
+            </div>
+            <h4>The 3D model didn't load</h4>
+            <p class="text-muted mt-sm">Scroll down to see our robots.</p>
+          </div>
+        </div>
+      </div>
 
+      <div class="hero-foot">
+        <p class="hero-bio">CU Boulder's student-led ARC Robotics team, founded in the 2020–2021 season. We design, build, and program competitive robots while giving students hands-on engineering experience.</p>
+
+        <div class="hero-actions">
+          <p class="viewer-hint">Drag the robot to turn it</p>
           <div class="hero-cta">
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSfr1fjCq-EcG25cvdB_M74agJZroZQ0sKbubcRbbM5reN8n0Q/viewform" target="_blank" rel="noopener" class="btn btn-apply btn-lg">Register</a>
             <a href="https://discord.gg/Ym2kEbnNzg" target="_blank" rel="noopener" class="btn btn-lg btn-icon" aria-label="Discord"><img src="images/Icons/discord.svg" alt=""></a>
@@ -50,34 +71,8 @@
             <a href="https://www.youtube.com/@curoboticsteam" target="_blank" rel="noopener" class="btn btn-lg btn-icon" aria-label="YouTube"><img src="images/Icons/youtube.svg" alt=""></a>
           </div>
         </div>
-
-        <div class="robot-viewer-container">
-          <div id="robot-viewer" class="robot-viewer">
-            <div class="viewer-canvas"></div>
-
-            <div class="viewer-loading hidden">
-              <div class="loading-spinner"></div>
-              <span class="loading-text">Loading 3D Model...</span>
-            </div>
-
-            <div class="viewer-placeholder">
-              <div class="placeholder-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-                  <line x1="12" y1="22.08" x2="12" y2="12"/>
-                </svg>
-              </div>
-              <h4>3D Model Failed to Load</h4>
-              <p class="text-muted mt-sm">The interactive model is unavailable. You can see our robots below.</p>
-            </div>
-          </div>
-          <p class="viewer-hint">Drag to rotate</p>
-        </div>
-        </div>
       </div>
     </div>
-
   </section>
 
   <!-- Meeting times stay close to the introduction. -->
@@ -85,64 +80,88 @@
     <div class="container home-meeting-grid">
       <div class="home-meeting-intro">
         <h2 id="meeting-heading">Weekly meetings</h2>
-        <p>CU Idea Forge Commons</p>
+        <p>Idea Forge Commons, CU Boulder</p>
       </div>
-      <div class="home-meeting-time">
-        <h3>Tuesdays</h3>
-        <p>6:30–9:30<span>pm</span></p>
-      </div>
-      <div class="home-meeting-time">
-        <h3>Saturdays</h3>
-        <p>4–7<span>pm</span></p>
-      </div>
-      <a class="home-meeting-link" href="https://discord.gg/Ym2kEbnNzg" target="_blank" rel="noopener">Updates on Discord <span aria-hidden="true">↗</span></a>
+      <dl class="home-meeting-times">
+        <div class="home-meeting-time">
+          <dt>Tuesdays</dt>
+          <dd>6:30–9:30<span>pm</span></dd>
+        </div>
+        <div class="home-meeting-time">
+          <dt>Saturdays</dt>
+          <dd>4–7<span>pm</span></dd>
+        </div>
+      </dl>
+      <a class="home-meeting-link" href="https://discord.gg/Ym2kEbnNzg" target="_blank" rel="noopener">Schedule updates on Discord <span aria-hidden="true">↗</span></a>
     </div>
   </section>
 
-  <section class="home-fleet home-section" aria-labelledby="fleet-heading">
+  <!-- The lineup: one photo per alliance color, switched by the toggle. -->
+  <section class="lineup" id="robots" data-alliance="blue" aria-labelledby="fleet-heading">
     <div class="container">
-      <div class="home-section-heading">
-        <div>
-
-          <h2 id="fleet-heading">Our Robots</h2>
+      <div class="home-section-head">
+        <h2 id="fleet-heading">Our robots</h2>
+        <p class="home-description">Three robots, designed and built by students, make up our lineup for ARC 3v3 matches.</p>
+        <div class="alliance-toggle" role="group" aria-label="Alliance color">
+          <button type="button" data-alliance="blue" aria-pressed="true">Blue</button>
+          <button type="button" data-alliance="red" aria-pressed="false">Red</button>
         </div>
       </div>
-      <figure class="home-fleet-photo">
-        <img src="images/fleet-blue-long.png" alt="Three CU Robotics robots illuminated in blue" width="1746" height="778" loading="lazy">
-        <figcaption>CU Robotics / 3v3 fleet</figcaption>
-      </figure>
-      <div class="home-robot-list">
-        <article>
 
+      <figure class="lineup-photo">
+        <img class="lineup-img lineup-img-blue" src="images/fleet-blue.jpeg" alt="Hero, Sentry, and Infantry lit in blue alliance colors" width="1280" height="1115" loading="lazy">
+        <img class="lineup-img lineup-img-red" src="images/fleet-red.jpeg" alt="Hero, Sentry, and Infantry lit in red alliance colors" width="1280" height="1148" loading="lazy" aria-hidden="true">
+      </figure>
+
+      <ul class="lineup-list">
+        <li>
+          <span class="lineup-led" aria-hidden="true"></span>
           <h3>Hero</h3>
           <p>A larger, heavy-hitting robot that fires golf balls for greater damage.</p>
-        </article>
-        <article>
-
+        </li>
+        <li>
+          <span class="lineup-led" aria-hidden="true"></span>
           <h3>Sentry</h3>
-          <p>The same class as the Infantry, but fully autonomous—navigating the field and engaging opponents without a driver.</p>
-        </article>
-        <article>
-
+          <p>The same class as the Infantry, but fully autonomous. It navigates the field and engages opponents without a driver.</p>
+        </li>
+        <li>
+          <span class="lineup-led" aria-hidden="true"></span>
           <h3>Infantry <span>/ Standard</span></h3>
           <p>A fast, versatile robot that fires 17 mm projectiles.</p>
-        </article>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="reel" aria-labelledby="highlights-heading">
+    <div class="container">
+      <div class="home-section-head">
+        <h2 id="highlights-heading">Highlight reel</h2>
+        <p class="home-description">First-person gameplay from RMNA 2025, featuring our auto-aim.</p>
+        <a class="home-text-link" href="https://www.youtube.com/watch?v=O2fp67X3vsg" target="_blank" rel="noopener">Watch on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+
+      <div class="reel-player" data-video-id="O2fp67X3vsg">
+        <button type="button" class="reel-facade" aria-label="Play the 2025 highlight reel">
+          <img src="https://i.ytimg.com/vi/O2fp67X3vsg/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy">
+          <span class="reel-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+        </button>
       </div>
     </div>
   </section>
 
-  <section id="about" class="home-highlights home-section" aria-labelledby="highlights-heading">
-    <div class="container home-highlights-grid">
-      <a class="home-video-preview" href="https://www.youtube.com/watch?v=O2fp67X3vsg" target="_blank" rel="noopener" aria-label="Watch CU Robotics 2025 competition highlights on YouTube">
-        <img src="https://i.ytimg.com/vi/O2fp67X3vsg/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy">
-        <span class="home-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-        <span class="home-video-caption">2025 competition highlights <span aria-hidden="true">↗</span></span>
-      </a>
-      <div class="home-highlights-copy">
-
-        <h2 id="highlights-heading">Highlight Reel</h2>
-        <p class="home-description">First-person gameplay, featuring our auto-aim.</p>
-        <a class="home-text-link" href="https://www.youtube.com/watch?v=O2fp67X3vsg" target="_blank" rel="noopener">Watch the highlights <span aria-hidden="true">↗</span></a>
+  <section class="join" aria-labelledby="join-heading">
+    <div class="container join-grid">
+      <figure class="join-photo">
+        <img src="images/pit-crew-arc-2026.jpg" alt="Two CU Robotics members tuning an Infantry robot at ARC 2026" width="1046" height="946" loading="lazy">
+      </figure>
+      <div class="join-copy">
+        <h2 id="join-heading">Build with us</h2>
+        <p class="home-description">Register to join the team, then come to a Tuesday or Saturday meeting at the Idea Forge. We post schedule changes on Discord.</p>
+        <div class="join-actions">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfr1fjCq-EcG25cvdB_M74agJZroZQ0sKbubcRbbM5reN8n0Q/viewform" target="_blank" rel="noopener" class="btn btn-apply btn-lg">Register</a>
+          <a href="https://discord.gg/Ym2kEbnNzg" target="_blank" rel="noopener" class="btn btn-lg"><img src="images/Icons/discord.svg" alt="">Join Discord</a>
+        </div>
       </div>
     </div>
   </section>
@@ -155,11 +174,12 @@
   <script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/DRACOLoader.js"></script>
-  <script defer src="js/hero-shader.js?v=20260906-2"></script>
+  <script defer src="js/hero-shader.js?v=20260926-1"></script>
   <!-- Main Scripts -->
   <script src="js/site.js?v=20260826-1"></script>
-  <script src="js/components.js?v=20260905-2"></script>
-  <script src="js/main.js?v=20260825-2"></script>
-  <script src="js/robot-viewer.js?v=20260905-9"></script>
+  <script src="js/components.js?v=20260926-2"></script>
+  <script src="js/main.js?v=20260926-1"></script>
+  <script src="js/home.js?v=20260926-1"></script>
+  <script src="js/robot-viewer.js?v=20260926-1"></script>
 </body>
 </html>

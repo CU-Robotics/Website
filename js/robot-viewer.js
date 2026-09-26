@@ -27,7 +27,7 @@ class RobotViewer {
     this.isRendering = false;
     this.animationFrame = null;
     this.lastFrameTime = 0;
-    this.frameInterval = 1000 / 24;
+    this.frameInterval = 1000 / 60;
     this.modelAbortController = null;
 
     this.animate = this.animate.bind(this);
@@ -144,7 +144,9 @@ class RobotViewer {
     this.controls.enableZoom = false;
     this.controls.enablePan = false;
     this.controls.autoRotate = this.autoRotate;
-    this.controls.autoRotateSpeed = 2;
+    // OrbitControls turns a fixed angle per update, so the speed is tied to
+    // the frame rate: 0.8 at 60 fps is one turn every 75 seconds.
+    this.controls.autoRotateSpeed = 0.8;
     this.controls.target.set(0, 0, 0);
     this.controls.update();
   }
@@ -494,7 +496,9 @@ class RobotViewer {
 
     this.animationFrame = requestAnimationFrame(this.animate);
     const elapsed = timestamp - this.lastFrameTime;
-    if (elapsed < this.frameInterval) return;
+    // A millisecond of slack so a 60 Hz display's slightly early frames
+    // aren't skipped.
+    if (elapsed < this.frameInterval - 1) return;
     this.lastFrameTime = timestamp - (elapsed % this.frameInterval);
 
     this.controls.update();

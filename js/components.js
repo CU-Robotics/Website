@@ -26,7 +26,7 @@ function renderMobileNavigation(activePage) {
 function renderDiscordButton(size = '') {
   const sizeClass = size ? ` ${size}` : '';
   return `
-    <a href="${config.links.discord}" target="_blank" rel="noopener" class="btn btn-outline btn-discord${sizeClass}">
+    <a href="${config.links.discord}" target="_blank" rel="noopener" class="btn btn-outline${sizeClass}">
       <img src="images/Icons/discord.svg" alt="">Join Discord
     </a>
   `;
@@ -73,7 +73,7 @@ function loadHeader(activePage) {
       ${renderMobileNavigation(activePage)}
 
       <div class="mobile-cta">
-        <a href="${config.links.apply}" target="_blank" rel="noopener" class="btn btn-apply btn-lg">Apply</a>
+        <a href="${config.links.apply}" target="_blank" rel="noopener" class="btn btn-apply btn-lg">Register</a>
         <a href="${config.links.discord}" target="_blank" rel="noopener" class="btn btn-lg btn-icon" aria-label="Discord">
           <img src="images/Icons/discord.svg" alt="">
         </a>
@@ -101,15 +101,16 @@ function loadFooter() {
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="footer-logo">
-            <img src="images/cu-robotics-logo.png" alt="CU Robotics">
+            <img src="images/cu-robotics-logo.png" alt="">
             <span>CU Robotics</span>
           </div>
+          <p class="footer-tagline">The student-led ARC robotics team at the University of Colorado Boulder.</p>
           <div class="footer-socials">${renderSocialLinks()}</div>
         </div>
 
         <div class="footer-nav-group">
           <div class="footer-nav">
-            <h4 class="footer-heading">Navigation</h4>
+            <h4 class="footer-heading">Pages</h4>
             <ul class="footer-links">
               <li><a href="index.html">Home</a></li>
               <li><a href="team.html">Leadership</a></li>
@@ -118,29 +119,27 @@ function loadFooter() {
           </div>
 
           <div class="footer-nav">
-            <h4 class="footer-heading">Resources</h4>
+            <h4 class="footer-heading">Get involved</h4>
             <ul class="footer-links">
+              <li><a href="${config.links.apply}" target="_blank" rel="noopener">Register</a></li>
+              <li><a href="${config.links.discord}" target="_blank" rel="noopener">Discord</a></li>
               <li><a href="https://www.arc-robotics.org/" target="_blank" rel="noopener">ARC Robotics</a></li>
-              <li><a href="${config.links.apply}" target="_blank" rel="noopener">Join the Team</a></li>
             </ul>
           </div>
 
           <div class="footer-nav">
-            <h4 class="footer-heading">Connect</h4>
+            <h4 class="footer-heading">Contact</h4>
             <ul class="footer-links">
               <li><a href="mailto:curobotics@colorado.edu">curobotics@colorado.edu</a></li>
-              <li><span>Meetings at the Idea Forge</span></li>
-              <li><a href="${config.links.discord}" target="_blank" rel="noopener">Current schedule on Discord</a></li>
+              <li><span>Idea Forge, CU Boulder</span></li>
             </ul>
           </div>
         </div>
-
       </div>
 
       <div class="footer-bottom">
-        <p class="footer-copyright">
-          &copy; 2026 <a href="https://www.colorado.edu/" target="_blank" rel="noopener">CU Robotics</a> | University of Colorado Boulder
-        </p>
+        <p class="footer-copyright">&copy; 2026 CU Robotics</p>
+        <p class="footer-copyright"><a href="https://www.colorado.edu/" target="_blank" rel="noopener">University of Colorado Boulder</a></p>
       </div>
     </div>
   </footer>
