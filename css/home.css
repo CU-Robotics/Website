@@ -438,31 +438,32 @@
   outline-offset: -4px;
 }
 
-/* Bottom-right, clear of the thumbnail's own title and the faces. */
 .reel-play {
   position: absolute;
-  right: clamp(1rem, 2.5vw, 2rem);
-  bottom: clamp(1rem, 2.5vw, 2rem);
+  top: 50%;
+  left: 50%;
   display: grid;
   place-items: center;
-  width: clamp(3.5rem, 6vw, 5.5rem);
+  width: clamp(5rem, 11vw, 9rem);
   aspect-ratio: 1;
   border-radius: 50%;
   background: var(--cu-gold);
   color: var(--cu-black);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
-  transition: transform 0.3s var(--ease-out), background-color 0.2s ease;
+  box-shadow: 0 0 0 clamp(0.5rem, 1vw, 0.875rem) rgba(207, 184, 124, 0.25), 0 16px 48px rgba(0, 0, 0, 0.55);
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s var(--ease-out), background-color 0.2s ease, box-shadow 0.3s var(--ease-out);
 }
 
+/* The path's centroid sits at the middle of its box, so no nudge is needed. */
 .reel-play svg {
-  width: 42%;
-  height: 42%;
-  margin-left: 8%;
+  width: 44%;
+  height: 44%;
 }
 
 .reel-facade:hover .reel-play {
-  transform: scale(1.06);
+  transform: translate(-50%, -50%) scale(1.08);
   background: var(--cu-gold-light);
+  box-shadow: 0 0 0 clamp(0.75rem, 1.5vw, 1.25rem) rgba(207, 184, 124, 0.3), 0 16px 48px rgba(0, 0, 0, 0.55);
 }
 
 /* Closing call to join */
