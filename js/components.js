@@ -120,7 +120,7 @@ function loadFooter() {
           </div>
 
           <div class="footer-nav">
-            <h4 class="footer-heading">Get involved</h4>
+            <h4 class="footer-heading">Get Involved</h4>
             <ul class="footer-links">
               <li><a href="${config.links.apply}" target="_blank" rel="noopener">Register</a></li>
               <li><a href="${config.links.discord}" target="_blank" rel="noopener">Discord</a></li>
