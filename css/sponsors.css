@@ -102,10 +102,10 @@
   color: rgba(0, 0, 0, 0.62);
 }
 
-/* Three facts from the packet, split by thin gold rules. */
+/* Facts from the packet, split by thin gold rules. */
 .sponsor-facts {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   margin-top: clamp(2.5rem, 5vw, 4rem);
   border-top: 1px solid var(--line);
 }
