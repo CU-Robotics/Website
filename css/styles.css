@@ -350,7 +350,8 @@ button:focus-visible {
   font-size: 0.85rem;
 }
 
-/* The one filled button on any screen: registering. */
+/* The one filled button on any screen: its main ask (registering, or
+   donating on the sponsors page). */
 .btn-apply {
   color: var(--cu-black);
   background: var(--cu-gold);
