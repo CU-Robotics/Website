@@ -87,17 +87,6 @@
   align-self: start;
 }
 
-.tier-rank {
-  display: block;
-  margin-bottom: 0.75rem;
-  color: var(--tier-accent);
-  font-family: var(--font-display);
-  font-stretch: 125%;
-  font-size: 0.85rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-}
-
 .tier-name {
   font-size: var(--tier-name-size);
   line-height: 0.92;
@@ -147,34 +136,9 @@
   transform: translateY(-3px);
 }
 
-/* Every tier ends with an open spot: a dashed outline instead of a filled
-   panel. A tier with no companies yet lets it span the whole row. */
+/* A tier with a single company lets its card span the whole row. */
 .tier-logos li:only-child {
   grid-column: 1 / -1;
-}
-
-.tier-slot-open {
-  border: 1px dashed rgba(207, 184, 124, 0.4);
-  background: transparent;
-}
-
-.tier-slot-open:hover {
-  background: rgba(207, 184, 124, 0.06);
-}
-
-.tier-slot-label {
-  color: var(--text-muted);
-  font-family: var(--font-display);
-  font-stretch: 125%;
-  font-size: calc(var(--tier-logo-height) * 0.42);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  line-height: 1;
-  transition: color 0.25s ease;
-}
-
-.tier-slot-open:hover .tier-slot-label {
-  color: var(--cu-white);
 }
 
 /* Closing ask: the gold band used for meeting times on the home page. */
