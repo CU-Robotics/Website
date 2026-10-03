@@ -11,34 +11,129 @@
   letter-spacing: -0.05em;
 }
 
-.sponsors-intro-foot {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 1.5rem 3rem;
-  margin-top: 2rem;
-}
-
-.sponsors-lede {
-  max-width: 32rem;
-  color: var(--text-secondary);
-  font-size: 1.08rem;
-}
-
+/* Packet and donate cards sit side by side under the title, matched in
+   height. The donate card is the page's one gold control. */
 .sponsors-intro-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  align-items: stretch;
+  gap: 1rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
 }
 
-.btn-note {
-  padding: 0.2rem 0.4rem;
-  border: 1px solid currentColor;
-  border-radius: 2px;
-  font-size: 0.7rem;
-  letter-spacing: 0.06em;
-  opacity: 0.8;
+.intro-card {
+  display: flex;
+  border-radius: var(--radius-media);
+  text-decoration: none;
+  transition: border-color 0.25s ease, background-color 0.25s ease, transform 0.25s var(--ease-out);
+}
+
+.intro-card:hover {
+  transform: translateY(-3px);
+}
+
+.intro-card-title {
+  font-family: var(--font-display);
+  font-stretch: 125%;
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.intro-card-meta {
+  font-size: 0.88rem;
+}
+
+.intro-card-packet {
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  min-width: 19rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid rgba(207, 184, 124, 0.55);
+  color: var(--cu-white);
+}
+
+.intro-card-packet:hover {
+  border-color: var(--cu-gold);
+  background: rgba(207, 184, 124, 0.08);
+}
+
+.intro-card-eyebrow {
+  color: var(--cu-gold);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.intro-card-packet .intro-card-meta {
+  color: var(--text-muted);
+}
+
+/* Light gold behind the QR modules keeps them easy to scan. */
+.intro-card-donate {
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0.75rem 1.75rem 0.75rem 0.75rem;
+  background: var(--cu-gold-light);
+  color: var(--cu-black);
+}
+
+.intro-card-donate:hover {
+  background: var(--cu-white);
+}
+
+.intro-card-donate img {
+  display: block;
+  width: 6.5rem;
+  height: 6.5rem;
+  image-rendering: pixelated;
+}
+
+.intro-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.intro-card-donate .intro-card-meta {
+  color: rgba(0, 0, 0, 0.62);
+}
+
+/* Three facts from the packet, split by thin gold rules. */
+.sponsor-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  border-top: 1px solid var(--line);
+}
+
+.sponsor-fact {
+  padding: 1.5rem 1.5rem 0 0;
+}
+
+.sponsor-fact + .sponsor-fact {
+  padding-left: 1.5rem;
+  border-left: 1px solid var(--line);
+}
+
+.sponsor-fact dt {
+  color: var(--cu-gold);
+  font-family: var(--font-display);
+  font-stretch: 125%;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.sponsor-fact dd {
+  max-width: 18rem;
+  margin-top: 0.6rem;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
 }
 
 .tiers {
@@ -111,7 +206,9 @@
   padding: 2rem 1.5rem;
   border: 1px solid var(--line);
   border-radius: var(--radius-media);
-  background: var(--bg-panel);
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgba(207, 184, 124, 0.1), transparent 65%),
+    var(--bg-panel);
   text-align: center;
   text-decoration: none;
   transition: border-color 0.25s ease, background-color 0.25s ease, transform 0.25s var(--ease-out);
@@ -134,6 +231,10 @@
 .tier-slot:hover {
   border-color: var(--cu-gold);
   transform: translateY(-3px);
+}
+
+.tier-slot:active {
+  transform: scale(0.985);
 }
 
 /* A tier with a single company lets its card span the whole row. */
@@ -203,5 +304,127 @@
   .tier-supporter,
   .tier-backer {
     --tier-cols: 1;
+  }
+}
+
+/* Phones: the title fills the screen edge to edge, buttons become full-width
+   tap targets, facts stack into rows, and the closing links read as a list. */
+@media (max-width: 600px) {
+  .sponsors-intro {
+    padding-top: calc(var(--nav-height) + 2.5rem);
+    padding-bottom: 1.5rem;
+  }
+
+  /* "Sponsors" is about 5.45em wide in Archivo at this stretch. */
+  .sponsors-intro h1 {
+    font-size: calc((100vw - 2 * var(--gutter)) / 5.6);
+  }
+
+  .sponsors-intro-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+
+  .intro-card-packet {
+    min-width: 0;
+  }
+
+  /* On a phone the donor is already holding the device, so the QR card
+     turns into a full-width gold button. */
+  .intro-card-donate {
+    justify-content: center;
+    min-height: 3.5rem;
+    padding: 0 1.5rem;
+    background: var(--cu-gold);
+  }
+
+  .intro-card-donate img,
+  .intro-card-donate .intro-card-meta {
+    display: none;
+  }
+
+  .intro-card-donate .intro-card-title {
+    font-family: var(--font-body);
+    font-stretch: 100%;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+
+  .sponsor-facts {
+    grid-template-columns: 1fr;
+    margin-top: 2.5rem;
+  }
+
+  .sponsor-fact,
+  .sponsor-fact + .sponsor-fact {
+    display: grid;
+    grid-template-columns: 7.5rem minmax(0, 1fr);
+    align-items: baseline;
+    gap: 1rem;
+    padding: 1.1rem 0;
+    border-left: 0;
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  .sponsor-fact:last-child {
+    border-bottom: 0;
+  }
+
+  .sponsor-fact dt {
+    font-size: 1.45rem;
+  }
+
+  .sponsor-fact dd {
+    margin-top: 0;
+  }
+
+  .tiers {
+    padding-bottom: 1rem;
+  }
+
+  .tier {
+    gap: 1.25rem;
+    padding-top: 2rem;
+  }
+
+  .tier-slot {
+    min-height: 14rem;
+    gap: 1.75rem;
+  }
+
+  .tier-slot img {
+    height: 3.25rem;
+  }
+
+  .sponsor-ask-grid {
+    display: block;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+  }
+
+  .sponsor-ask h2 {
+    margin-bottom: 1.75rem;
+    font-size: calc((100vw - 2 * var(--gutter)) / 8.2);
+  }
+
+  .sponsor-ask-links {
+    gap: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.25);
+  }
+
+  .sponsor-ask-link {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 3.75rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    font-size: 1.02rem;
+    text-decoration: none;
+  }
+
+  .sponsor-ask-link span {
+    font-size: 1.2rem;
   }
 }
