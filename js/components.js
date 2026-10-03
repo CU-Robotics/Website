@@ -115,6 +115,7 @@ function loadFooter() {
               <li><a href="index.html">Home</a></li>
               <li><a href="team.html">Leadership</a></li>
               <li><a href="achievements.html">Timeline</a></li>
+              <li><a href="sponsors.html">Sponsors</a></li>
             </ul>
           </div>
 

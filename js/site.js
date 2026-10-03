@@ -9,7 +9,8 @@ const SITE_CONFIG = Object.freeze({
   navigation: Object.freeze([
     { id: 'home', label: 'Home', href: 'index.html' },
     { id: 'team', label: 'Leadership', href: 'team.html' },
-    { id: 'achievements', label: 'Timeline', href: 'achievements.html' }
+    { id: 'achievements', label: 'Timeline', href: 'achievements.html' },
+    { id: 'sponsors', label: 'Sponsors', href: 'sponsors.html' }
   ])
 });
 

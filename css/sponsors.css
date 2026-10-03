@@ -1,0 +1,243 @@
+/* Sponsors page: one row per tier, top tier first. Each step down the
+   ladder gets a smaller tier name, smaller logo slots, and a dimmer gold. */
+.sponsors-intro {
+  padding-top: calc(var(--nav-height) + clamp(3.5rem, 8vw, 7rem));
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.sponsors-intro h1 {
+  font-size: clamp(3rem, 11vw, 10rem);
+  line-height: 0.88;
+  letter-spacing: -0.05em;
+}
+
+.sponsors-intro-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem 3rem;
+  margin-top: 2rem;
+}
+
+.sponsors-lede {
+  max-width: 32rem;
+  color: var(--text-secondary);
+  font-size: 1.08rem;
+}
+
+.sponsors-intro-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.btn-note {
+  padding: 0.2rem 0.4rem;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  opacity: 0.8;
+}
+
+.tiers {
+  padding-bottom: clamp(4rem, 8vw, 7rem);
+}
+
+/* Tier accents step down from solid gold to a quiet line. */
+.tier-sponsor {
+  --tier-accent: var(--cu-gold);
+  --tier-bar: 6px;
+  --tier-name-size: clamp(2.2rem, 4.4vw, 4.2rem);
+  --tier-slot-height: clamp(15rem, 26vw, 21rem);
+  --tier-cols: 1;
+  --tier-logo-height: clamp(3.5rem, 6.5vw, 5.5rem);
+}
+
+.tier-supporter {
+  --tier-accent: rgba(207, 184, 124, 0.7);
+  --tier-bar: 3px;
+  --tier-name-size: clamp(1.7rem, 3.2vw, 3.1rem);
+  --tier-slot-height: clamp(11rem, 18vw, 14rem);
+  --tier-cols: 2;
+  --tier-logo-height: clamp(2.6rem, 4.6vw, 3.75rem);
+}
+
+.tier-backer {
+  --tier-accent: rgba(207, 184, 124, 0.45);
+  --tier-bar: 1px;
+  --tier-name-size: clamp(1.4rem, 2.4vw, 2.4rem);
+  --tier-slot-height: clamp(8rem, 12vw, 10rem);
+  --tier-cols: 3;
+  --tier-logo-height: clamp(2rem, 3.2vw, 2.6rem);
+}
+
+.tier {
+  display: grid;
+  grid-template-columns: clamp(13rem, 28vw, 24rem) minmax(0, 1fr);
+  gap: 2rem clamp(2rem, 4vw, 4rem);
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
+  border-top: var(--tier-bar) solid var(--tier-accent);
+}
+
+.tier-head {
+  position: sticky;
+  top: calc(var(--nav-height) + 1.5rem);
+  align-self: start;
+}
+
+.tier-rank {
+  display: block;
+  margin-bottom: 0.75rem;
+  color: var(--tier-accent);
+  font-family: var(--font-display);
+  font-stretch: 125%;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.tier-name {
+  font-size: var(--tier-name-size);
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+}
+
+.tier-logos {
+  display: grid;
+  grid-template-columns: repeat(var(--tier-cols), minmax(0, 1fr));
+  gap: clamp(0.75rem, 1.5vw, 1.25rem);
+  list-style: none;
+}
+
+.tier-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  height: 100%;
+  min-height: var(--tier-slot-height);
+  padding: 2rem 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-media);
+  background: var(--bg-panel);
+  text-align: center;
+  text-decoration: none;
+  transition: border-color 0.25s ease, background-color 0.25s ease, transform 0.25s var(--ease-out);
+}
+
+.tier-slot img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: var(--tier-logo-height);
+}
+
+.tier-slot-cta {
+  color: var(--cu-gold);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.tier-slot:hover {
+  border-color: var(--cu-gold);
+  transform: translateY(-3px);
+}
+
+/* Every tier ends with an open spot: a dashed outline instead of a filled
+   panel. A tier with no companies yet lets it span the whole row. */
+.tier-logos li:only-child {
+  grid-column: 1 / -1;
+}
+
+.tier-slot-open {
+  border: 1px dashed rgba(207, 184, 124, 0.4);
+  background: transparent;
+}
+
+.tier-slot-open:hover {
+  background: rgba(207, 184, 124, 0.06);
+}
+
+.tier-slot-label {
+  color: var(--text-muted);
+  font-family: var(--font-display);
+  font-stretch: 125%;
+  font-size: calc(var(--tier-logo-height) * 0.42);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  transition: color 0.25s ease;
+}
+
+.tier-slot-open:hover .tier-slot-label {
+  color: var(--cu-white);
+}
+
+/* Closing ask: the gold band used for meeting times on the home page. */
+.sponsor-ask {
+  background: var(--cu-gold);
+  color: var(--cu-black);
+}
+
+.sponsor-ask-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem 3rem;
+  padding-top: clamp(2.5rem, 5vw, 4rem);
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.sponsor-ask h2 {
+  color: var(--cu-black);
+  font-size: clamp(1.8rem, 4.4vw, 3.75rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.sponsor-ask-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+
+.sponsor-ask-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--cu-black);
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-underline-offset: 0.3em;
+}
+
+.sponsor-ask-link:focus-visible {
+  outline-color: var(--cu-black);
+}
+
+@media (max-width: 860px) {
+  .tier {
+    grid-template-columns: 1fr;
+  }
+
+  .tier-head {
+    position: static;
+  }
+
+  .tier-backer {
+    --tier-cols: 2;
+  }
+}
+
+@media (max-width: 520px) {
+  .tier-supporter,
+  .tier-backer {
+    --tier-cols: 1;
+  }
+}
