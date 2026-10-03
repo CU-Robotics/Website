@@ -342,6 +342,8 @@ class RobotViewer {
   // Pulls the camera to the one distance that fills the viewer with the model.
   // The model is bounded as a cylinder around the auto-rotate axis, so the fit
   // holds at every angle of the spin and the size never changes on its own.
+  // Tilting does change the fit (from above, the whole footprint has to fit
+  // top to bottom), so animate() calls this again when the tilt changes.
   frameModel() {
     if (!this.model || this.container.clientWidth <= 0 ||
         this.container.clientHeight <= 0) return;
@@ -383,6 +385,7 @@ class RobotViewer {
 
     this.camera.position.copy(this.controls.target).addScaledVector(direction, distance);
     this.controls.update();
+    this.framedPolarAngle = this.controls.getPolarAngle();
   }
 
   // The shape the robot sweeps out as it spins, measured off the vertices: the
@@ -502,6 +505,12 @@ class RobotViewer {
     this.lastFrameTime = timestamp - (elapsed % this.frameInterval);
 
     this.controls.update();
+    // Re-fit when the visitor tilts the robot, so looking down from above
+    // never crops it. Spinning around the vertical axis needs no re-fit.
+    if (this.silhouette?.length &&
+        Math.abs(this.controls.getPolarAngle() - this.framedPolarAngle) > 1e-4) {
+      this.frameModel();
+    }
     // OrbitControls moves the camera; rotate the lights around the same target.
     if (!this.lightRig.quaternion.equals(this.camera.quaternion) ||
         !this.lightRig.position.equals(this.controls.target)) {
