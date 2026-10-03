@@ -639,3 +639,74 @@
     grid-column: 1 / -1;
   }
 }
+
+/* Support ask: a gold band that closes the page, matching the meeting times
+   band under the hero. */
+.support-ask {
+  background: var(--cu-gold);
+  color: var(--cu-black);
+}
+
+.support-ask-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem 3rem;
+  padding-top: clamp(2.5rem, 5vw, 4rem);
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.support-ask h2 {
+  color: var(--cu-black);
+  font-size: clamp(1.8rem, 4.4vw, 3.75rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.support-ask-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+
+.support-ask-link {
+  color: var(--cu-black);
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-underline-offset: 0.3em;
+}
+
+.support-ask-link:focus-visible {
+  outline-color: var(--cu-black);
+}
+
+/* Phones: the links become full-width rows that are easy to tap. */
+@media (max-width: 600px) {
+  .support-ask-grid {
+    display: block;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+  }
+
+  .support-ask h2 {
+    margin-bottom: 1.75rem;
+    font-size: calc((100vw - 2 * var(--gutter)) / 8.2);
+  }
+
+  .support-ask-links {
+    gap: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.25);
+  }
+
+  .support-ask-link {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 3.75rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    font-size: 1.02rem;
+    text-decoration: none;
+  }
+}

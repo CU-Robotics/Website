@@ -242,50 +242,6 @@
   grid-column: 1 / -1;
 }
 
-/* Closing ask: the gold band used for meeting times on the home page. */
-.sponsor-ask {
-  background: var(--cu-gold);
-  color: var(--cu-black);
-}
-
-.sponsor-ask-grid {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem 3rem;
-  padding-top: clamp(2.5rem, 5vw, 4rem);
-  padding-bottom: clamp(2.5rem, 5vw, 4rem);
-}
-
-.sponsor-ask h2 {
-  color: var(--cu-black);
-  font-size: clamp(1.8rem, 4.4vw, 3.75rem);
-  line-height: 0.95;
-  letter-spacing: -0.04em;
-}
-
-.sponsor-ask-links {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.6rem;
-}
-
-.sponsor-ask-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--cu-black);
-  font-size: 1.05rem;
-  font-weight: 600;
-  text-underline-offset: 0.3em;
-}
-
-.sponsor-ask-link:focus-visible {
-  outline-color: var(--cu-black);
-}
-
 @media (max-width: 860px) {
   .tier {
     grid-template-columns: 1fr;
@@ -308,7 +264,7 @@
 }
 
 /* Phones: the title fills the screen edge to edge, buttons become full-width
-   tap targets, facts stack into rows, and the closing links read as a list. */
+   tap targets, and facts stack into rows. */
 @media (max-width: 600px) {
   .sponsors-intro {
     padding-top: calc(var(--nav-height) + 2.5rem);
@@ -381,7 +337,7 @@
   }
 
   .tiers {
-    padding-bottom: 1rem;
+    padding-bottom: 3.5rem;
   }
 
   .tier {
@@ -396,35 +352,5 @@
 
   .tier-slot img {
     height: 3.25rem;
-  }
-
-  .sponsor-ask-grid {
-    display: block;
-    padding-top: 3rem;
-    padding-bottom: 2rem;
-  }
-
-  .sponsor-ask h2 {
-    margin-bottom: 1.75rem;
-    font-size: calc((100vw - 2 * var(--gutter)) / 8.2);
-  }
-
-  .sponsor-ask-links {
-    gap: 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.25);
-  }
-
-  .sponsor-ask-link {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    min-height: 3.75rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-    font-size: 1.02rem;
-    text-decoration: none;
-  }
-
-  .sponsor-ask-link span {
-    font-size: 1.2rem;
   }
 }
