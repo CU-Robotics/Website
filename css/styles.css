@@ -599,28 +599,38 @@ button:focus-visible {
   height: 15px;
 }
 
-/* The president: one larger portrait in the cover. */
+/* The president: the largest portrait on the page, in the cover. */
 .leader-grid-featured {
-  grid-template-columns: minmax(0, 34rem);
+  grid-template-columns: minmax(0, 44rem);
 }
 
 .leader-card-featured {
   flex-direction: row;
-  align-items: center;
-  gap: 1.5rem;
+  align-items: flex-end;
+  gap: clamp(1.25rem, 3vw, 2rem);
 }
 
 .leader-card-featured .leader-photo {
   flex: 0 0 auto;
-  width: 112px;
+  width: clamp(15rem, 24vw, 19rem);
+}
+
+.leader-card-featured .leader-info {
+  padding-bottom: 0.5rem;
 }
 
 .leader-card-featured .leader-name {
   font-family: var(--font-display);
   font-stretch: 125%;
-  font-size: 1.5rem;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.leader-card-featured .leader-role {
+  margin-top: 0.4rem;
+  font-size: 1rem;
 }
 
 /* Alumni: compact rows, so the current roster stays the focus. */
@@ -723,13 +733,19 @@ button:focus-visible {
   }
 }
 
-@media (max-width: 480px) {
-  .leader-card-featured .leader-photo {
-    width: 88px;
+@media (max-width: 600px) {
+  /* The phone grid above would split the president's row into two columns. */
+  .leader-grid-featured {
+    grid-template-columns: 1fr;
   }
 
-  .leader-card-featured .leader-name {
-    font-size: 1.25rem;
+  .leader-card-featured {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .leader-card-featured .leader-photo {
+    width: min(100%, 18rem);
   }
 }
 
